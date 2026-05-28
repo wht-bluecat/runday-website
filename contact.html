@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact — Runday</title>
+  <meta name="description" content="Get in touch with Runday. Book a free call or send us a message about automating your business.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo">run<span>day</span></a>
+      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="contact.html" class="active">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+      <div class="hero-sub">let's talk</div>
+      <h1>Get in touch.</h1>
+      <p>Whether you have a specific project or just want to explore what's possible — we'd love to hear from you.</p>
+    </div>
+  </section>
+
+  <!-- CONTACT CONTENT -->
+  <section class="section" style="padding-top: 0;" id="form">
+    <div class="container">
+      <div class="contact-grid">
+
+        <!-- FORM -->
+        <div class="fade-up">
+          <form action="https://formspree.io/f/placeholder" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="you@business.com" required>
+            </div>
+            <div class="form-group">
+              <label for="business">Business Name</label>
+              <input type="text" id="business" name="business" placeholder="Your business or brand">
+            </div>
+            <div class="form-group">
+              <label for="message">What can we help with?</label>
+              <textarea id="message" name="message" placeholder="Tell us about your business and what you'd like to automate..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send message</button>
+          </form>
+        </div>
+
+        <!-- INFO SIDEBAR -->
+        <div class="fade-up">
+          <div class="contact-info" style="margin-bottom: 20px;">
+            <h3>Book a free call</h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.65; margin-bottom: 20px;">20 minutes. No pitch deck. Just tell us what's eating your time and we'll map out what a system could look like together.</p>
+            <a href="https://wa.me/639275492649?text=Hi%20Runday!%20I%27d%20like%20to%20book%20a%20free%20call." class="btn btn-primary" style="width: 100%; justify-content: center;">Schedule a call</a>
+          </div>
+
+          <div class="contact-info">
+            <h3>Other ways to reach us</h3>
+            <div class="contact-detail">
+              <div class="label">Email</div>
+              <p><a href="mailto:runday.mnl@gmail.com">runday.mnl@gmail.com</a></p>
+            </div>
+            <div class="contact-detail">
+              <div class="label">WhatsApp</div>
+              <p><a href="https://wa.me/639275492649">0927 549 2649</a></p>
+            </div>
+            <div class="contact-detail">
+              <div class="label">Location</div>
+              <p>Metro Manila, Philippines</p>
+            </div>
+            <div class="contact-detail">
+              <div class="label">Social</div>
+              <p>
+                <a href="https://www.facebook.com/profile.php?id=61590141402371" target="_blank" rel="noopener" style="margin-right: 16px;">Facebook</a>
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="nav-logo">run<span>day</span></div>
+        <p class="footer-tagline">We build the systems. AI runs them.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 Runday. Metro Manila, Philippines.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
