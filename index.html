@@ -40,6 +40,196 @@
     </div>
   </section>
 
+  <!-- BUNNY FLOW ANIMATION -->
+  <section class="section flow-section">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">how it works</div>
+        <h2>One bunny. Endless outputs.</h2>
+      </div>
+      <div class="flow-scene fade-up">
+        <svg class="flow-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+          <defs>
+            <!-- Glowing dot filter -->
+            <filter id="glow">
+              <feGaussianBlur stdDeviation="3" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+            <filter id="glow-sm">
+              <feGaussianBlur stdDeviation="2" result="blur"/>
+              <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+            </filter>
+          </defs>
+
+          <!-- === BUNNY AT PC === -->
+          <g class="bunny-group" transform="translate(200, 220)">
+            <!-- Desk -->
+            <rect x="-70" y="80" width="140" height="8" rx="4" fill="#D8CCBD"/>
+            <rect x="-55" y="88" width="8" height="50" rx="2" fill="#D8CCBD"/>
+            <rect x="47" y="88" width="8" height="50" rx="2" fill="#D8CCBD"/>
+
+            <!-- Monitor -->
+            <rect x="-45" y="30" width="90" height="55" rx="6" fill="#2C2418"/>
+            <rect x="-38" y="36" width="76" height="40" rx="3" fill="#3a3226"/>
+            <!-- Screen content lines -->
+            <rect x="-30" y="44" width="30" height="3" rx="1.5" fill="#C24B2A" opacity="0.7"/>
+            <rect x="-30" y="51" width="50" height="3" rx="1.5" fill="#6B7B5E" opacity="0.5"/>
+            <rect x="-30" y="58" width="40" height="3" rx="1.5" fill="#6B7B5E" opacity="0.4"/>
+            <rect x="-30" y="65" width="25" height="3" rx="1.5" fill="#C24B2A" opacity="0.5"/>
+            <!-- Screen glow -->
+            <rect x="-38" y="36" width="76" height="40" rx="3" fill="#C24B2A" opacity="0.05"/>
+            <!-- Monitor stand -->
+            <rect x="-8" y="85" width="16" height="0" rx="2" fill="#2C2418"/>
+            <rect x="-20" y="80" width="40" height="5" rx="2" fill="#2C2418"/>
+
+            <!-- Keyboard -->
+            <rect x="-30" y="76" width="60" height="8" rx="3" fill="#2C2418" opacity="0.8"/>
+            <rect x="-26" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <rect x="-18" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <rect x="-10" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <rect x="-2" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <rect x="6" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <rect x="14" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <rect x="22" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+
+            <!-- Bunny body -->
+            <ellipse cx="0" cy="55" rx="30" ry="28" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+            <!-- Bunny belly -->
+            <ellipse cx="0" cy="60" rx="18" ry="16" fill="#fff" opacity="0.5"/>
+
+            <!-- Bunny head -->
+            <circle cx="0" cy="15" r="24" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+
+            <!-- Bunny inner face -->
+            <ellipse cx="0" cy="18" rx="16" ry="13" fill="#fff" opacity="0.3"/>
+
+            <!-- Ears -->
+            <g class="bunny-ear-left">
+              <ellipse cx="-12" cy="-22" rx="8" ry="22" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5" transform="rotate(-10, -12, -22)"/>
+              <ellipse cx="-12" cy="-22" rx="4" ry="14" fill="#E8C4B8" transform="rotate(-10, -12, -22)"/>
+            </g>
+            <g class="bunny-ear-right">
+              <ellipse cx="12" cy="-22" rx="8" ry="22" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5" transform="rotate(10, 12, -22)"/>
+              <ellipse cx="12" cy="-22" rx="4" ry="14" fill="#E8C4B8" transform="rotate(10, 12, -22)"/>
+            </g>
+
+            <!-- Eyes -->
+            <g class="bunny-eyes">
+              <circle cx="-8" cy="12" r="4" fill="#2C2418"/>
+              <circle cx="8" cy="12" r="4" fill="#2C2418"/>
+              <!-- Eye shine -->
+              <circle cx="-6" cy="10" r="1.5" fill="#fff"/>
+              <circle cx="10" cy="10" r="1.5" fill="#fff"/>
+            </g>
+
+            <!-- Nose -->
+            <ellipse cx="0" cy="20" rx="3" ry="2" fill="#E8C4B8"/>
+
+            <!-- Mouth -->
+            <path d="M-3,23 Q0,27 3,23" fill="none" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
+
+            <!-- Cheek blush -->
+            <ellipse cx="-15" cy="18" rx="5" ry="3" fill="#E8C4B8" opacity="0.4"/>
+            <ellipse cx="15" cy="18" rx="5" ry="3" fill="#E8C4B8" opacity="0.4"/>
+
+            <!-- Arms (typing) -->
+            <g class="bunny-arms">
+              <path d="M-25,50 Q-35,65 -22,75" fill="none" stroke="#D8CCBD" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="-22" cy="75" r="5" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+              <path d="M25,50 Q35,65 22,75" fill="none" stroke="#D8CCBD" stroke-width="6" stroke-linecap="round"/>
+              <circle cx="22" cy="75" r="5" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+            </g>
+          </g>
+
+          <!-- === OUTPUT NODE: CONNECTION HUB === -->
+          <circle cx="380" cy="250" r="8" fill="#C24B2A" opacity="0.3"/>
+          <circle cx="380" cy="250" r="4" fill="#C24B2A"/>
+
+          <!-- === FLOW PATHS === -->
+          <!-- Path from bunny to hub -->
+          <path class="flow-path" d="M270,290 Q320,270 376,250" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.2" stroke-dasharray="6,4"/>
+
+          <!-- Path 1: Social Media (top-right) -->
+          <path class="flow-path" d="M384,250 Q500,140 620,120" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
+          <!-- Path 2: Email (mid-upper-right) -->
+          <path class="flow-path" d="M384,250 Q520,210 650,200" fill="none" stroke="#6B7B5E" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
+          <!-- Path 3: Bookings (mid-right) -->
+          <path class="flow-path" d="M384,250 Q530,255 660,270" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
+          <!-- Path 4: Ads (mid-lower-right) -->
+          <path class="flow-path" d="M384,250 Q520,310 650,340" fill="none" stroke="#6B7B5E" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
+          <!-- Path 5: CRM (bottom-right) -->
+          <path class="flow-path" d="M384,250 Q490,370 620,400" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
+
+          <!-- === ANIMATED DOTS ON PATHS === -->
+          <!-- Dot: bunny to hub -->
+          <circle r="5" fill="#C24B2A" filter="url(#glow)">
+            <animateMotion dur="2s" repeatCount="indefinite" path="M270,290 Q320,270 376,250"/>
+          </circle>
+
+          <!-- Dot 1: Social -->
+          <circle r="4" fill="#C24B2A" filter="url(#glow-sm)">
+            <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M384,250 Q500,140 620,120"/>
+          </circle>
+          <!-- Dot 2: Email -->
+          <circle r="4" fill="#6B7B5E" filter="url(#glow-sm)">
+            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.8s" path="M384,250 Q520,210 650,200"/>
+          </circle>
+          <!-- Dot 3: Bookings -->
+          <circle r="4" fill="#C24B2A" filter="url(#glow-sm)">
+            <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.5s" path="M384,250 Q530,255 660,270"/>
+          </circle>
+          <!-- Dot 4: Ads -->
+          <circle r="4" fill="#6B7B5E" filter="url(#glow-sm)">
+            <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M384,250 Q520,310 650,340"/>
+          </circle>
+          <!-- Dot 5: CRM -->
+          <circle r="4" fill="#C24B2A" filter="url(#glow-sm)">
+            <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.2s" path="M384,250 Q490,370 620,400"/>
+          </circle>
+
+          <!-- === OUTPUT NODES === -->
+          <!-- Node 1: Social Media -->
+          <g class="output-node" transform="translate(620, 120)">
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
+            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">SOCIAL</text>
+            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Posts scheduled</text>
+          </g>
+
+          <!-- Node 2: Email -->
+          <g class="output-node" transform="translate(650, 200)">
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#6B7B5E" letter-spacing="1">EMAIL</text>
+            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Flows running</text>
+          </g>
+
+          <!-- Node 3: Bookings -->
+          <g class="output-node" transform="translate(660, 270)">
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
+            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">BOOKINGS</text>
+            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Auto-confirmed</text>
+          </g>
+
+          <!-- Node 4: Ads -->
+          <g class="output-node" transform="translate(650, 340)">
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#6B7B5E" letter-spacing="1">ADS</text>
+            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Campaigns live</text>
+          </g>
+
+          <!-- Node 5: CRM -->
+          <g class="output-node" transform="translate(620, 400)">
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
+            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">CRM</text>
+            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Leads tracked</text>
+          </g>
+        </svg>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES PREVIEW -->
   <section class="section section-alt">
     <div class="container">

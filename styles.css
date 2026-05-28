@@ -767,6 +767,99 @@ img {
   font-size: 13px;
 }
 
+/* === BUNNY FLOW ANIMATION === */
+
+.flow-section {
+  overflow: hidden;
+}
+
+.flow-scene {
+  max-width: 900px;
+  margin: -20px auto 0;
+}
+
+.flow-svg {
+  width: 100%;
+  height: auto;
+}
+
+/* Bunny ear twitch */
+.bunny-ear-left {
+  transform-origin: -12px -5px;
+  animation: earTwitchLeft 4s ease-in-out infinite;
+}
+
+.bunny-ear-right {
+  transform-origin: 12px -5px;
+  animation: earTwitchRight 4.5s ease-in-out infinite;
+}
+
+@keyframes earTwitchLeft {
+  0%, 85%, 100% { transform: rotate(0deg); }
+  90% { transform: rotate(-8deg); }
+  95% { transform: rotate(2deg); }
+}
+
+@keyframes earTwitchRight {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  85% { transform: rotate(8deg); }
+  92% { transform: rotate(-2deg); }
+}
+
+/* Bunny typing bounce */
+.bunny-arms {
+  animation: typing 0.6s ease-in-out infinite alternate;
+}
+
+@keyframes typing {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-2px); }
+}
+
+/* Bunny subtle body bob */
+.bunny-group {
+  animation: bunnyBob 3s ease-in-out infinite;
+}
+
+@keyframes bunnyBob {
+  0%, 100% { transform: translate(200px, 220px); }
+  50% { transform: translate(200px, 217px); }
+}
+
+/* Blink animation */
+.bunny-eyes {
+  animation: blink 4s ease-in-out infinite;
+}
+
+@keyframes blink {
+  0%, 42%, 44%, 100% { transform: scaleY(1); }
+  43% { transform: scaleY(0.1); }
+}
+
+/* Output nodes hover effect */
+.output-node {
+  transition: transform 0.3s ease;
+  cursor: default;
+}
+
+.output-node:hover {
+  transform: scale(1.05);
+}
+
+.output-node rect {
+  transition: stroke-color 0.3s, box-shadow 0.3s;
+}
+
+/* Flow paths subtle pulse */
+.flow-path {
+  animation: pathPulse 3s ease-in-out infinite alternate;
+}
+
+@keyframes pathPulse {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.25; }
+}
+
 /* === SCROLL ANIMATIONS === */
 
 .fade-up {
