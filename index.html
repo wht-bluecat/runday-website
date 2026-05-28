@@ -44,13 +44,12 @@
   <section class="section flow-section">
     <div class="container">
       <div class="section-centered fade-up">
-        <div class="section-sub">how it works</div>
+        <div class="section-sub">meet your new teammate</div>
         <h2>One bunny. Endless outputs.</h2>
       </div>
       <div class="flow-scene fade-up">
-        <svg class="flow-svg" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid meet">
+        <svg class="flow-svg" viewBox="0 0 1100 580" preserveAspectRatio="xMidYMid meet">
           <defs>
-            <!-- Glowing dot filter -->
             <filter id="glow">
               <feGaussianBlur stdDeviation="3" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
@@ -59,171 +58,338 @@
               <feGaussianBlur stdDeviation="2" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
+            <!-- Soft shadow under Mac -->
+            <radialGradient id="floorShadow" cx="0.5" cy="0.5" r="0.5">
+              <stop offset="0%" stop-color="#2C2418" stop-opacity="0.25"/>
+              <stop offset="100%" stop-color="#2C2418" stop-opacity="0"/>
+            </radialGradient>
+            <!-- Mac body gradient -->
+            <linearGradient id="macBody" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#F5EFE3"/>
+              <stop offset="100%" stop-color="#E8DECB"/>
+            </linearGradient>
+            <linearGradient id="macBodyDark" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stop-color="#D4C5A8"/>
+              <stop offset="100%" stop-color="#C2B492"/>
+            </linearGradient>
           </defs>
 
-          <!-- === BUNNY AT PC === -->
-          <g class="bunny-group" transform="translate(200, 220)">
-            <!-- Desk -->
-            <rect x="-70" y="80" width="140" height="8" rx="4" fill="#D8CCBD"/>
-            <rect x="-55" y="88" width="8" height="50" rx="2" fill="#D8CCBD"/>
-            <rect x="47" y="88" width="8" height="50" rx="2" fill="#D8CCBD"/>
+          <!-- === FLOOR SHADOW === -->
+          <ellipse cx="350" cy="540" rx="280" ry="18" fill="url(#floorShadow)"/>
 
-            <!-- Monitor -->
-            <rect x="-45" y="30" width="90" height="55" rx="6" fill="#2C2418"/>
-            <rect x="-38" y="36" width="76" height="40" rx="3" fill="#3a3226"/>
-            <!-- Screen content lines -->
-            <rect x="-30" y="44" width="30" height="3" rx="1.5" fill="#C24B2A" opacity="0.7"/>
-            <rect x="-30" y="51" width="50" height="3" rx="1.5" fill="#6B7B5E" opacity="0.5"/>
-            <rect x="-30" y="58" width="40" height="3" rx="1.5" fill="#6B7B5E" opacity="0.4"/>
-            <rect x="-30" y="65" width="25" height="3" rx="1.5" fill="#C24B2A" opacity="0.5"/>
-            <!-- Screen glow -->
-            <rect x="-38" y="36" width="76" height="40" rx="3" fill="#C24B2A" opacity="0.05"/>
-            <!-- Monitor stand -->
-            <rect x="-8" y="85" width="16" height="0" rx="2" fill="#2C2418"/>
-            <rect x="-20" y="80" width="40" height="5" rx="2" fill="#2C2418"/>
+          <!-- === RETRO MAC === -->
+          <g class="mac-group" transform="translate(250, 130)">
+            <!-- Mac side panel (depth) -->
+            <path d="M210,30 L240,5 L240,395 L210,420 Z" fill="url(#macBodyDark)"/>
+            <path d="M30,30 L60,5 L240,5 L210,30 Z" fill="#EAE0CD"/>
+
+            <!-- Main body -->
+            <rect x="30" y="30" width="180" height="390" rx="14" fill="url(#macBody)" stroke="#C9BBA0" stroke-width="1"/>
+
+            <!-- Inset bezel around screen -->
+            <rect x="48" y="55" width="144" height="135" rx="10" fill="#E0D5BD"/>
+
+            <!-- Screen -->
+            <rect x="58" y="65" width="124" height="115" rx="8" fill="#1a1610"/>
+            <rect x="58" y="65" width="124" height="115" rx="8" fill="#2C2418" opacity="0.5"/>
+
+
+            <!-- Terminal-style screen content -->
+            <g class="screen-content">
+              <!-- Top header -->
+              <text x="68" y="80" font-family="'Courier New', monospace" font-size="8" fill="#7A6E60">RundayOS 1.0</text>
+              <line x1="68" y1="84" x2="172" y2="84" stroke="#7A6E60" stroke-width="0.5" opacity="0.3"/>
+
+              <!-- Menu items left -->
+              <circle cx="72" cy="94" r="2" fill="#C24B2A"/>
+              <text x="78" y="97" font-family="'Courier New', monospace" font-size="7" fill="#E8DECB">System</text>
+              <circle cx="72" cy="104" r="2" fill="#C24B2A"/>
+              <text x="78" y="107" font-family="'Courier New', monospace" font-size="7" fill="#E8DECB">Tasks</text>
+              <circle cx="72" cy="114" r="2" fill="none" stroke="#7A6E60" stroke-width="0.5"/>
+              <text x="78" y="117" font-family="'Courier New', monospace" font-size="7" fill="#7A6E60">Posts</text>
+              <circle cx="72" cy="124" r="2" fill="none" stroke="#7A6E60" stroke-width="0.5"/>
+              <text x="78" y="127" font-family="'Courier New', monospace" font-size="7" fill="#7A6E60">Leads</text>
+
+              <line x1="108" y1="88" x2="108" y2="170" stroke="#7A6E60" stroke-width="0.5" opacity="0.3"/>
+
+              <!-- Right pane: doc -->
+              <rect x="114" y="90" width="62" height="10" fill="#3a3226" stroke="#7A6E60" stroke-width="0.5"/>
+              <text x="117" y="97" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">runday.txt</text>
+              <text x="170" y="97" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">[x]</text>
+
+              <text x="116" y="112" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">Good morning.</text>
+              <text x="116" y="122" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">Your systems</text>
+              <text x="116" y="132" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">are running.</text>
+              <text x="116" y="148" font-family="'Courier New', monospace" font-size="6" fill="#C24B2A">&gt; bunny.exe</text>
+              <!-- Blinking cursor -->
+              <rect class="cursor-blink" x="158" y="143" width="4" height="6" fill="#C24B2A"/>
+            </g>
+
+            <!-- Floppy disk slot -->
+            <rect x="60" y="220" width="120" height="6" rx="1" fill="#2C2418" opacity="0.7"/>
+            <rect x="62" y="222" width="116" height="2" fill="#1a1610"/>
+
+            <!-- Stickers -->
+            <circle cx="60" cy="260" r="10" fill="#C24B2A"/>
+            <rect x="75" y="252" width="18" height="18" rx="3" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+            <polygon points="84,256 86.5,261 92,261.5 87.5,265 89,270 84,267.5 79,270 80.5,265 76,261.5 81.5,261" fill="#0084FF"/>
+
+            <!-- MACHINE INTELLIGENCE sticker -->
+            <rect x="55" y="285" width="48" height="18" rx="2" fill="#A83D22"/>
+            <text x="79" y="293" text-anchor="middle" font-family="'Courier New', monospace" font-size="5" font-weight="700" fill="#F5EFE3">MACHINE</text>
+            <text x="79" y="300" text-anchor="middle" font-family="'Courier New', monospace" font-size="5" font-weight="700" fill="#F5EFE3">INTELLIGENCE</text>
+
+            <!-- Rainbow apple sticker -->
+            <g transform="translate(70, 320)">
+              <ellipse cx="0" cy="0" rx="8" ry="9" fill="#C24B2A"/>
+              <ellipse cx="0" cy="-1" rx="5.5" ry="7" fill="#E8A04A"/>
+              <ellipse cx="0" cy="-1" rx="3.5" ry="5" fill="#6B7B5E"/>
+              <path d="M0,-8 Q2,-11 4,-9" fill="none" stroke="#2C2418" stroke-width="0.8"/>
+            </g>
+
+            <!-- Speaker grille (right side) -->
+            <g transform="translate(170, 360)">
+              <rect x="0" y="0" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+              <rect x="5" y="0" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+              <rect x="10" y="0" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+              <rect x="0" y="5" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+              <rect x="5" y="5" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+              <rect x="10" y="5" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+            </g>
 
             <!-- Keyboard -->
-            <rect x="-30" y="76" width="60" height="8" rx="3" fill="#2C2418" opacity="0.8"/>
-            <rect x="-26" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
-            <rect x="-18" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
-            <rect x="-10" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
-            <rect x="-2" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
-            <rect x="6" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
-            <rect x="14" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
-            <rect x="22" y="78" width="6" height="3" rx="1" fill="#3a3226"/>
+            <g transform="translate(0, 405)">
+              <!-- Keyboard side -->
+              <path d="M210,15 L240,0 L240,40 L210,55 Z" fill="url(#macBodyDark)"/>
+              <path d="M30,15 L60,0 L240,0 L210,15 Z" fill="#EAE0CD"/>
+              <rect x="30" y="15" width="180" height="40" rx="4" fill="url(#macBody)" stroke="#C9BBA0" stroke-width="1"/>
 
-            <!-- Bunny body -->
-            <ellipse cx="0" cy="55" rx="30" ry="28" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
-            <!-- Bunny belly -->
-            <ellipse cx="0" cy="60" rx="18" ry="16" fill="#fff" opacity="0.5"/>
+              <!-- Keys row 1 -->
+              <g class="keys-row-1">
+                <rect x="40" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="52" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="64" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="76" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="88" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="100" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="112" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="124" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="136" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="148" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="160" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="172" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="184" y="22" width="14" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+              </g>
+              <!-- Keys row 2 -->
+              <g class="keys-row-2">
+                <rect x="40" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="52" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="64" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="76" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="88" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="100" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="112" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="124" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="136" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="148" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="160" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+                <rect x="172" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+              </g>
+              <!-- Spacebar -->
+              <rect x="70" y="42" width="100" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+            </g>
+          </g>
 
-            <!-- Bunny head -->
-            <circle cx="0" cy="15" r="24" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+          <!-- === BUNNY MASCOT === -->
+          <g class="bunny-group">
+            <!-- Bunny ground shadow -->
+            <ellipse cx="135" cy="510" rx="60" ry="6" fill="#2C2418" opacity="0.15"/>
 
-            <!-- Bunny inner face -->
-            <ellipse cx="0" cy="18" rx="16" ry="13" fill="#fff" opacity="0.3"/>
+            <!-- Body -->
+            <ellipse cx="135" cy="430" rx="55" ry="60" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+            <ellipse cx="135" cy="445" rx="35" ry="35" fill="#fff" opacity="0.5"/>
+
+            <!-- Feet -->
+            <ellipse cx="115" cy="490" rx="18" ry="10" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+            <ellipse cx="155" cy="490" rx="18" ry="10" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+            <ellipse cx="115" cy="490" rx="10" ry="5" fill="#E8C4B8" opacity="0.6"/>
+            <ellipse cx="155" cy="490" rx="10" ry="5" fill="#E8C4B8" opacity="0.6"/>
+
+            <!-- Bow tie -->
+            <g class="bunny-bowtie">
+              <polygon points="125,385 110,378 110,396 125,389" fill="#C24B2A"/>
+              <polygon points="145,385 160,378 160,396 145,389" fill="#C24B2A"/>
+              <circle cx="135" cy="387" r="4" fill="#A83D22"/>
+            </g>
+
+            <!-- Head -->
+            <circle cx="135" cy="350" r="48" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+            <!-- Cheek fluff -->
+            <ellipse cx="100" cy="365" rx="10" ry="13" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+            <ellipse cx="170" cy="365" rx="10" ry="13" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+
+            <!-- Inner face -->
+            <ellipse cx="135" cy="360" rx="32" ry="26" fill="#fff" opacity="0.35"/>
 
             <!-- Ears -->
             <g class="bunny-ear-left">
-              <ellipse cx="-12" cy="-22" rx="8" ry="22" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5" transform="rotate(-10, -12, -22)"/>
-              <ellipse cx="-12" cy="-22" rx="4" ry="14" fill="#E8C4B8" transform="rotate(-10, -12, -22)"/>
+              <ellipse cx="115" cy="288" rx="13" ry="40" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2" transform="rotate(-12, 115, 288)"/>
+              <ellipse cx="115" cy="290" rx="6" ry="28" fill="#E8C4B8" transform="rotate(-12, 115, 288)"/>
             </g>
             <g class="bunny-ear-right">
-              <ellipse cx="12" cy="-22" rx="8" ry="22" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5" transform="rotate(10, 12, -22)"/>
-              <ellipse cx="12" cy="-22" rx="4" ry="14" fill="#E8C4B8" transform="rotate(10, 12, -22)"/>
+              <ellipse cx="155" cy="288" rx="13" ry="40" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2" transform="rotate(12, 155, 288)"/>
+              <ellipse cx="155" cy="290" rx="6" ry="28" fill="#E8C4B8" transform="rotate(12, 155, 288)"/>
             </g>
 
-            <!-- Eyes -->
+            <!-- Hair tuft -->
+            <path d="M130,308 Q132,300 135,306 Q138,300 140,308" fill="none" stroke="#D8CCBD" stroke-width="2.5" stroke-linecap="round"/>
+
+            <!-- Glasses -->
+            <g class="bunny-glasses">
+              <circle cx="120" cy="350" r="13" fill="none" stroke="#2C2418" stroke-width="2.5"/>
+              <circle cx="150" cy="350" r="13" fill="none" stroke="#2C2418" stroke-width="2.5"/>
+              <line x1="133" y1="350" x2="137" y2="350" stroke="#2C2418" stroke-width="2.5"/>
+              <!-- Glasses shine -->
+              <path d="M114,344 Q117,341 122,344" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+              <path d="M144,344 Q147,341 152,344" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+            </g>
+
+            <!-- Eyes (behind glasses) -->
             <g class="bunny-eyes">
-              <circle cx="-8" cy="12" r="4" fill="#2C2418"/>
-              <circle cx="8" cy="12" r="4" fill="#2C2418"/>
-              <!-- Eye shine -->
-              <circle cx="-6" cy="10" r="1.5" fill="#fff"/>
-              <circle cx="10" cy="10" r="1.5" fill="#fff"/>
+              <circle cx="120" cy="352" r="4.5" fill="#2C2418"/>
+              <circle cx="150" cy="352" r="4.5" fill="#2C2418"/>
+              <circle cx="121.5" cy="350" r="1.8" fill="#fff"/>
+              <circle cx="151.5" cy="350" r="1.8" fill="#fff"/>
             </g>
 
             <!-- Nose -->
-            <ellipse cx="0" cy="20" rx="3" ry="2" fill="#E8C4B8"/>
+            <ellipse cx="135" cy="368" rx="5" ry="3.5" fill="#E8A09A"/>
+            <ellipse cx="133" cy="367" rx="1.5" ry="1" fill="#fff" opacity="0.6"/>
 
-            <!-- Mouth -->
-            <path d="M-3,23 Q0,27 3,23" fill="none" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
+            <!-- Mouth — confident smile -->
+            <path d="M130,378 Q135,384 140,378" fill="none" stroke="#2C2418" stroke-width="2" stroke-linecap="round"/>
+            <path d="M133,381 Q135,383 137,381" fill="#E8A09A"/>
 
             <!-- Cheek blush -->
-            <ellipse cx="-15" cy="18" rx="5" ry="3" fill="#E8C4B8" opacity="0.4"/>
-            <ellipse cx="15" cy="18" rx="5" ry="3" fill="#E8C4B8" opacity="0.4"/>
+            <ellipse cx="95" cy="370" rx="8" ry="5" fill="#E8C4B8" opacity="0.55"/>
+            <ellipse cx="175" cy="370" rx="8" ry="5" fill="#E8C4B8" opacity="0.55"/>
 
-            <!-- Arms (typing) -->
-            <g class="bunny-arms">
-              <path d="M-25,50 Q-35,65 -22,75" fill="none" stroke="#D8CCBD" stroke-width="6" stroke-linecap="round"/>
-              <circle cx="-22" cy="75" r="5" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
-              <path d="M25,50 Q35,65 22,75" fill="none" stroke="#D8CCBD" stroke-width="6" stroke-linecap="round"/>
-              <circle cx="22" cy="75" r="5" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+            <!-- Whiskers -->
+            <line x1="100" y1="370" x2="85" y2="368" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
+            <line x1="100" y1="374" x2="85" y2="376" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
+            <line x1="170" y1="370" x2="185" y2="368" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
+            <line x1="170" y1="374" x2="185" y2="376" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
+
+            <!-- Left arm (waving / pointing at Mac) -->
+            <g class="bunny-arm-left">
+              <path d="M90,420 Q70,400 95,380" fill="none" stroke="#D8CCBD" stroke-width="10" stroke-linecap="round"/>
+              <path d="M90,420 Q70,400 95,380" fill="none" stroke="#FAF6EF" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="95" cy="380" r="9" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+              <!-- Thumb up -->
+              <ellipse cx="100" cy="372" rx="3" ry="5" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
+            </g>
+
+            <!-- Right arm (holding coffee) -->
+            <g class="bunny-arm-right">
+              <path d="M180,420 Q200,415 210,430" fill="none" stroke="#D8CCBD" stroke-width="10" stroke-linecap="round"/>
+              <path d="M180,420 Q200,415 210,430" fill="none" stroke="#FAF6EF" stroke-width="7" stroke-linecap="round"/>
+              <circle cx="210" cy="430" r="8" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
+
+              <!-- Coffee mug -->
+              <g class="coffee-mug">
+                <path d="M203,420 L223,420 L221,440 L205,440 Z" fill="#C24B2A" stroke="#A83D22" stroke-width="1.5"/>
+                <ellipse cx="213" cy="420" rx="10" ry="2.5" fill="#2C2418"/>
+                <ellipse cx="213" cy="420" rx="8" ry="1.5" fill="#5a3a1a"/>
+                <!-- Mug handle -->
+                <path d="M223,425 Q230,427 228,435" fill="none" stroke="#C24B2A" stroke-width="2.5" stroke-linecap="round"/>
+                <!-- Steam -->
+                <path class="coffee-steam" d="M209,415 Q211,408 209,402 Q207,396 210,390" fill="none" stroke="#D8CCBD" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+                <path class="coffee-steam coffee-steam-2" d="M216,415 Q218,408 216,402 Q214,396 217,390" fill="none" stroke="#D8CCBD" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              </g>
+            </g>
+
+            <!-- Name tag -->
+            <g class="bunny-tag">
+              <rect x="105" y="440" width="60" height="22" rx="3" fill="#fff" stroke="#D8CCBD" stroke-width="1.5"/>
+              <text x="135" y="450" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="6" font-weight="700" fill="#7A6E60" letter-spacing="0.5">HELLO MY NAME IS</text>
+              <text x="135" y="459" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#C24B2A">RUNDAY</text>
             </g>
           </g>
 
-          <!-- === OUTPUT NODE: CONNECTION HUB === -->
-          <circle cx="380" cy="250" r="8" fill="#C24B2A" opacity="0.3"/>
-          <circle cx="380" cy="250" r="4" fill="#C24B2A"/>
+          <!-- === FLOW HUB === -->
+          <circle cx="540" cy="290" r="10" fill="#C24B2A" opacity="0.25"/>
+          <circle cx="540" cy="290" r="5" fill="#C24B2A"/>
 
           <!-- === FLOW PATHS === -->
-          <!-- Path from bunny to hub -->
-          <path class="flow-path" d="M270,290 Q320,270 376,250" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.2" stroke-dasharray="6,4"/>
+          <path class="flow-path" d="M440,290 Q490,290 535,290" fill="none" stroke="#C24B2A" stroke-width="2" stroke-dasharray="6,4"/>
+          <path class="flow-path" d="M545,290 Q650,150 800,130" fill="none" stroke="#C24B2A" stroke-width="2" stroke-dasharray="6,4"/>
+          <path class="flow-path" d="M545,290 Q680,210 830,225" fill="none" stroke="#6B7B5E" stroke-width="2" stroke-dasharray="6,4"/>
+          <path class="flow-path" d="M545,290 Q700,290 840,310" fill="none" stroke="#C24B2A" stroke-width="2" stroke-dasharray="6,4"/>
+          <path class="flow-path" d="M545,290 Q680,360 830,390" fill="none" stroke="#6B7B5E" stroke-width="2" stroke-dasharray="6,4"/>
+          <path class="flow-path" d="M545,290 Q650,440 800,470" fill="none" stroke="#C24B2A" stroke-width="2" stroke-dasharray="6,4"/>
 
-          <!-- Path 1: Social Media (top-right) -->
-          <path class="flow-path" d="M384,250 Q500,140 620,120" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
-          <!-- Path 2: Email (mid-upper-right) -->
-          <path class="flow-path" d="M384,250 Q520,210 650,200" fill="none" stroke="#6B7B5E" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
-          <!-- Path 3: Bookings (mid-right) -->
-          <path class="flow-path" d="M384,250 Q530,255 660,270" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
-          <!-- Path 4: Ads (mid-lower-right) -->
-          <path class="flow-path" d="M384,250 Q520,310 650,340" fill="none" stroke="#6B7B5E" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
-          <!-- Path 5: CRM (bottom-right) -->
-          <path class="flow-path" d="M384,250 Q490,370 620,400" fill="none" stroke="#C24B2A" stroke-width="2" opacity="0.15" stroke-dasharray="6,4"/>
-
-          <!-- === ANIMATED DOTS ON PATHS === -->
-          <!-- Dot: bunny to hub -->
+          <!-- === ANIMATED DOTS === -->
           <circle r="5" fill="#C24B2A" filter="url(#glow)">
-            <animateMotion dur="2s" repeatCount="indefinite" path="M270,290 Q320,270 376,250"/>
+            <animateMotion dur="2s" repeatCount="indefinite" path="M440,290 Q490,290 535,290"/>
           </circle>
-
-          <!-- Dot 1: Social -->
           <circle r="4" fill="#C24B2A" filter="url(#glow-sm)">
-            <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M384,250 Q500,140 620,120"/>
+            <animateMotion dur="2.5s" repeatCount="indefinite" begin="0.3s" path="M545,290 Q650,150 800,130"/>
           </circle>
-          <!-- Dot 2: Email -->
           <circle r="4" fill="#6B7B5E" filter="url(#glow-sm)">
-            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.8s" path="M384,250 Q520,210 650,200"/>
+            <animateMotion dur="2.8s" repeatCount="indefinite" begin="0.8s" path="M545,290 Q680,210 830,225"/>
           </circle>
-          <!-- Dot 3: Bookings -->
           <circle r="4" fill="#C24B2A" filter="url(#glow-sm)">
-            <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.5s" path="M384,250 Q530,255 660,270"/>
+            <animateMotion dur="2.2s" repeatCount="indefinite" begin="0.5s" path="M545,290 Q700,290 840,310"/>
           </circle>
-          <!-- Dot 4: Ads -->
           <circle r="4" fill="#6B7B5E" filter="url(#glow-sm)">
-            <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M384,250 Q520,310 650,340"/>
+            <animateMotion dur="3s" repeatCount="indefinite" begin="1s" path="M545,290 Q680,360 830,390"/>
           </circle>
-          <!-- Dot 5: CRM -->
           <circle r="4" fill="#C24B2A" filter="url(#glow-sm)">
-            <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.2s" path="M384,250 Q490,370 620,400"/>
+            <animateMotion dur="2.6s" repeatCount="indefinite" begin="0.2s" path="M545,290 Q650,440 800,470"/>
           </circle>
 
-          <!-- === OUTPUT NODES === -->
-          <!-- Node 1: Social Media -->
-          <g class="output-node" transform="translate(620, 120)">
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
-            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">SOCIAL</text>
-            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Posts scheduled</text>
+          <!-- === OUTPUT NODES (fixed hover) === -->
+          <g transform="translate(800, 130)">
+            <g class="output-node">
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
+              <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">SOCIAL</text>
+              <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Posts scheduled</text>
+            </g>
           </g>
 
-          <!-- Node 2: Email -->
-          <g class="output-node" transform="translate(650, 200)">
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
-            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#6B7B5E" letter-spacing="1">EMAIL</text>
-            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Flows running</text>
+          <g transform="translate(830, 225)">
+            <g class="output-node">
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+              <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#6B7B5E" letter-spacing="1">EMAIL</text>
+              <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Flows running</text>
+            </g>
           </g>
 
-          <!-- Node 3: Bookings -->
-          <g class="output-node" transform="translate(660, 270)">
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
-            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">BOOKINGS</text>
-            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Auto-confirmed</text>
+          <g transform="translate(840, 310)">
+            <g class="output-node">
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
+              <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">BOOKINGS</text>
+              <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Auto-confirmed</text>
+            </g>
           </g>
 
-          <!-- Node 4: Ads -->
-          <g class="output-node" transform="translate(650, 340)">
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
-            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#6B7B5E" letter-spacing="1">ADS</text>
-            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Campaigns live</text>
+          <g transform="translate(830, 390)">
+            <g class="output-node">
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+              <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#6B7B5E" letter-spacing="1">ADS</text>
+              <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Campaigns live</text>
+            </g>
           </g>
 
-          <!-- Node 5: CRM -->
-          <g class="output-node" transform="translate(620, 400)">
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
-            <rect x="-60" y="-28" width="120" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
-            <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">CRM</text>
-            <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Leads tracked</text>
+          <g transform="translate(800, 470)">
+            <g class="output-node">
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#FAF6EF" stroke="#E2D8CB" stroke-width="1.5"/>
+              <rect x="-65" y="-28" width="130" height="56" rx="12" fill="#C24B2A" opacity="0.04"/>
+              <text x="0" y="-6" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="11" font-weight="700" fill="#C24B2A" letter-spacing="1">CRM</text>
+              <text x="0" y="12" text-anchor="middle" font-family="Inter, sans-serif" font-size="12" fill="#7A6E60">Leads tracked</text>
+            </g>
           </g>
         </svg>
       </div>

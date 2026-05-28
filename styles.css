@@ -774,7 +774,7 @@ img {
 }
 
 .flow-scene {
-  max-width: 900px;
+  max-width: 1100px;
   margin: -20px auto 0;
 }
 
@@ -783,81 +783,153 @@ img {
   height: auto;
 }
 
-/* Bunny ear twitch */
-.bunny-ear-left {
-  transform-origin: -12px -5px;
-  animation: earTwitchLeft 4s ease-in-out infinite;
-}
+/* === BUNNY MASCOT === */
 
-.bunny-ear-right {
-  transform-origin: 12px -5px;
-  animation: earTwitchRight 4.5s ease-in-out infinite;
-}
-
-@keyframes earTwitchLeft {
-  0%, 85%, 100% { transform: rotate(0deg); }
-  90% { transform: rotate(-8deg); }
-  95% { transform: rotate(2deg); }
-}
-
-@keyframes earTwitchRight {
-  0%, 80%, 100% { transform: rotate(0deg); }
-  85% { transform: rotate(8deg); }
-  92% { transform: rotate(-2deg); }
-}
-
-/* Bunny typing bounce */
-.bunny-arms {
-  animation: typing 0.6s ease-in-out infinite alternate;
-}
-
-@keyframes typing {
-  0% { transform: translateY(0); }
-  100% { transform: translateY(-2px); }
-}
-
-/* Bunny subtle body bob */
+/* Subtle body bob */
 .bunny-group {
-  animation: bunnyBob 3s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bunnyBob 3.2s ease-in-out infinite;
 }
 
 @keyframes bunnyBob {
-  0%, 100% { transform: translate(200px, 220px); }
-  50% { transform: translate(200px, 217px); }
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
 }
 
-/* Blink animation */
+/* Ears twitch */
+.bunny-ear-left {
+  transform-box: fill-box;
+  transform-origin: 115px 320px;
+  animation: earTwitchLeft 5s ease-in-out infinite;
+}
+
+.bunny-ear-right {
+  transform-box: fill-box;
+  transform-origin: 155px 320px;
+  animation: earTwitchRight 4.5s ease-in-out infinite 0.5s;
+}
+
+@keyframes earTwitchLeft {
+  0%, 80%, 100% { transform: rotate(0deg); }
+  85% { transform: rotate(-10deg); }
+  92% { transform: rotate(3deg); }
+}
+
+@keyframes earTwitchRight {
+  0%, 75%, 100% { transform: rotate(0deg); }
+  80% { transform: rotate(10deg); }
+  88% { transform: rotate(-3deg); }
+}
+
+/* Blink */
 .bunny-eyes {
-  animation: blink 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: blink 4.5s ease-in-out infinite;
 }
 
 @keyframes blink {
-  0%, 42%, 44%, 100% { transform: scaleY(1); }
-  43% { transform: scaleY(0.1); }
+  0%, 45%, 47%, 100% { transform: scaleY(1); }
+  46% { transform: scaleY(0.1); }
 }
 
-/* Output nodes hover effect */
+/* Left arm gentle wave/point */
+.bunny-arm-left {
+  transform-box: fill-box;
+  transform-origin: 90px 420px;
+  animation: armWave 3.5s ease-in-out infinite;
+}
+
+@keyframes armWave {
+  0%, 100% { transform: rotate(0deg); }
+  50% { transform: rotate(-8deg); }
+}
+
+/* Bowtie wiggle */
+.bunny-bowtie {
+  transform-box: fill-box;
+  transform-origin: 135px 387px;
+  animation: bowtieWiggle 4s ease-in-out infinite;
+}
+
+@keyframes bowtieWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(2deg); }
+  75% { transform: rotate(-2deg); }
+}
+
+/* === COFFEE STEAM === */
+.coffee-steam {
+  animation: steamRise 2.5s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: bottom;
+}
+
+.coffee-steam-2 {
+  animation: steamRise 2.5s ease-in-out infinite 1s;
+}
+
+@keyframes steamRise {
+  0% { opacity: 0; transform: translateY(8px); }
+  30% { opacity: 0.7; }
+  100% { opacity: 0; transform: translateY(-8px); }
+}
+
+/* === MAC SCREEN === */
+
+.cursor-blink {
+  animation: cursorBlink 1s steps(2) infinite;
+}
+
+@keyframes cursorBlink {
+  0%, 50% { opacity: 1; }
+  51%, 100% { opacity: 0; }
+}
+
+.mac-group {
+  animation: macHum 4s ease-in-out infinite;
+  transform-box: fill-box;
+  transform-origin: center;
+}
+
+@keyframes macHum {
+  0%, 100% { transform: translate(250px, 130px); }
+  50% { transform: translate(250px, 131px); }
+}
+
+/* === OUTPUT NODES — FIXED HOVER === */
+
+/* This is the key fix: transform-box: fill-box + transform-origin: center
+   makes scale() work properly inside the parent's translate() */
 .output-node {
-  transition: transform 0.3s ease;
+  transform-box: fill-box;
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   cursor: default;
 }
 
 .output-node:hover {
-  transform: scale(1.05);
+  transform: scale(1.06);
 }
 
 .output-node rect {
-  transition: stroke-color 0.3s, box-shadow 0.3s;
+  transition: stroke 0.3s, fill 0.3s;
 }
 
-/* Flow paths subtle pulse */
+.output-node:hover rect:first-child {
+  stroke: #C24B2A;
+}
+
+/* Flow paths subtle opacity pulse */
 .flow-path {
+  opacity: 0.2;
   animation: pathPulse 3s ease-in-out infinite alternate;
 }
 
 @keyframes pathPulse {
-  0% { opacity: 0.1; }
-  100% { opacity: 0.25; }
+  0% { opacity: 0.12; }
+  100% { opacity: 0.28; }
 }
 
 /* === SCROLL ANIMATIONS === */
@@ -1195,5 +1267,13 @@ img {
   .fab-btn svg {
     width: 20px;
     height: 20px;
+  }
+
+  .flow-scene {
+    margin-top: -10px;
+  }
+
+  .flow-section h2 {
+    font-size: 26px;
   }
 }
