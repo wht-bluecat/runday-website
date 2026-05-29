@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Runday — AI Systems for Small Businesses in Manila</title>
   <meta name="description" content="We build AI-powered systems that run your marketing, operations, and sales. Built for small businesses in Metro Manila.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Runday — AI Systems for Small Businesses in Manila">
+  <meta property="og:description" content="We build the systems. AI runs them. Marketing, operations, and sales — automated and handed to you.">
+  <meta property="og:image" content="https://runday-website.vercel.app/assets/og-image.png">
+  <meta property="og:url" content="https://runday-website.vercel.app/">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Runday — AI Systems for Small Businesses in Manila">
+  <meta name="twitter:description" content="We build the systems. AI runs them. Built for small businesses in Metro Manila.">
+  <meta name="twitter:image" content="https://runday-website.vercel.app/assets/og-image.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -12,10 +29,68 @@
 </head>
 <body>
 
+  <!-- RUNNING 8-BIT BUNNY (side view, hopping smoothly across the top, over the nav) -->
+  <!-- 14×12 pixel grid, 4 SVG units per pixel = 56×48 total. Side-profile bunny facing right. -->
+  <!-- Colors: K=#2C2418 outline+eye, W=#FAF6EF body, P=#F2A5A0 inner ear -->
+  <div class="running-bunny" aria-hidden="true">
+    <svg viewBox="0 0 56 48" width="56" height="48" shape-rendering="crispEdges">
+      <!-- Row 0 (y=0): EAR TIP — K cols 10–11 -->
+      <rect x="40" y="0"  width="8"  height="4" fill="#2C2418"/>
+      <!-- Row 1 (y=4): EAR — K col 9, W col 10, K col 11 -->
+      <rect x="36" y="4"  width="4"  height="4" fill="#2C2418"/>
+      <rect x="40" y="4"  width="4"  height="4" fill="#FAF6EF"/>
+      <rect x="44" y="4"  width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 2 (y=8): EAR with PINK INNER — K col 9, P col 10, K col 11 -->
+      <rect x="36" y="8"  width="4"  height="4" fill="#2C2418"/>
+      <rect x="40" y="8"  width="4"  height="4" fill="#F2A5A0"/>
+      <rect x="44" y="8"  width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 3 (y=12): EAR BASE + HEAD TOP — K cols 4–9, W col 10, K col 11 -->
+      <rect x="16" y="12" width="24" height="4" fill="#2C2418"/>
+      <rect x="40" y="12" width="4"  height="4" fill="#FAF6EF"/>
+      <rect x="44" y="12" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 4 (y=16): HEAD TOP + BACK CURVE — K cols 2–3, W cols 4–10, K col 11 -->
+      <rect x="8"  y="16" width="8"  height="4" fill="#2C2418"/>
+      <rect x="16" y="16" width="28" height="4" fill="#FAF6EF"/>
+      <rect x="44" y="16" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 5 (y=20): HEAD + EYE — K col 1, W cols 2–9, B(eye) col 10, W col 11, K col 12 -->
+      <rect x="4"  y="20" width="4"  height="4" fill="#2C2418"/>
+      <rect x="8"  y="20" width="32" height="4" fill="#FAF6EF"/>
+      <rect x="40" y="20" width="4"  height="4" fill="#2C2418"/>
+      <rect x="44" y="20" width="4"  height="4" fill="#FAF6EF"/>
+      <rect x="48" y="20" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 6 (y=24): BODY — K col 0, W cols 1–11, K col 12 -->
+      <rect x="0"  y="24" width="4"  height="4" fill="#2C2418"/>
+      <rect x="4"  y="24" width="44" height="4" fill="#FAF6EF"/>
+      <rect x="48" y="24" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 7 (y=28): BODY — same -->
+      <rect x="0"  y="28" width="4"  height="4" fill="#2C2418"/>
+      <rect x="4"  y="28" width="44" height="4" fill="#FAF6EF"/>
+      <rect x="48" y="28" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 8 (y=32): BODY — same -->
+      <rect x="0"  y="32" width="4"  height="4" fill="#2C2418"/>
+      <rect x="4"  y="32" width="44" height="4" fill="#FAF6EF"/>
+      <rect x="48" y="32" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 9 (y=36): BODY BOTTOM NARROWING — K cols 1–2, W cols 3–10, K col 11 -->
+      <rect x="4"  y="36" width="8"  height="4" fill="#2C2418"/>
+      <rect x="12" y="36" width="32" height="4" fill="#FAF6EF"/>
+      <rect x="44" y="36" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 10 (y=40): LEGS — K col 2, W col 3, K col 4, gap cols 5–7, K col 8, W col 9, K col 10 -->
+      <rect x="8"  y="40" width="4"  height="4" fill="#2C2418"/>
+      <rect x="12" y="40" width="4"  height="4" fill="#FAF6EF"/>
+      <rect x="16" y="40" width="4"  height="4" fill="#2C2418"/>
+      <rect x="32" y="40" width="4"  height="4" fill="#2C2418"/>
+      <rect x="36" y="40" width="4"  height="4" fill="#FAF6EF"/>
+      <rect x="40" y="40" width="4"  height="4" fill="#2C2418"/>
+      <!-- Row 11 (y=44): FEET — back foot K cols 2–4, front foot K cols 8–10 -->
+      <rect x="8"  y="44" width="12" height="4" fill="#2C2418"/>
+      <rect x="32" y="44" width="12" height="4" fill="#2C2418"/>
+    </svg>
+  </div>
+
   <!-- NAV -->
   <nav class="nav">
     <div class="container">
-      <a href="index.html" class="nav-logo">run<span>day</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
@@ -44,8 +119,8 @@
   <section class="section flow-section">
     <div class="container">
       <div class="section-centered fade-up">
-        <div class="section-sub">meet your new teammate</div>
-        <h2>One bunny. Endless outputs.</h2>
+        <div class="section-sub">meet rundayOS</div>
+        <h2>One system. Endless outputs.</h2>
       </div>
       <div class="flow-scene fade-up">
         <svg class="flow-svg" viewBox="0 0 1100 580" preserveAspectRatio="xMidYMid meet">
@@ -58,9 +133,9 @@
               <feGaussianBlur stdDeviation="2" result="blur"/>
               <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
             </filter>
-            <!-- Soft shadow under Mac -->
+            <!-- Soft floor shadow -->
             <radialGradient id="floorShadow" cx="0.5" cy="0.5" r="0.5">
-              <stop offset="0%" stop-color="#2C2418" stop-opacity="0.25"/>
+              <stop offset="0%" stop-color="#2C2418" stop-opacity="0.28"/>
               <stop offset="100%" stop-color="#2C2418" stop-opacity="0"/>
             </radialGradient>
             <!-- Mac body gradient -->
@@ -70,249 +145,145 @@
             </linearGradient>
             <linearGradient id="macBodyDark" x1="0%" y1="0%" x2="0%" y2="100%">
               <stop offset="0%" stop-color="#D4C5A8"/>
-              <stop offset="100%" stop-color="#C2B492"/>
+              <stop offset="100%" stop-color="#B8A98A"/>
             </linearGradient>
           </defs>
 
-          <!-- === FLOOR SHADOW === -->
-          <ellipse cx="350" cy="540" rx="280" ry="18" fill="url(#floorShadow)"/>
+          <!-- === FLOOR SHADOW (Mac) === -->
+          <ellipse cx="420" cy="510" rx="145" ry="10" fill="url(#floorShadow)"/>
 
-          <!-- === RETRO MAC === -->
-          <g class="mac-group" transform="translate(250, 130)">
-            <!-- Mac side panel (depth) -->
-            <path d="M210,30 L240,5 L240,395 L210,420 Z" fill="url(#macBodyDark)"/>
-            <path d="M30,30 L60,5 L240,5 L210,30 Z" fill="#EAE0CD"/>
+          <!-- === RETRO MAC (compact, square-ish like classic Mac SE) === -->
+          <g class="mac-group" transform="translate(335, 250)">
+            <!-- Side panel (3D depth) -->
+            <path d="M150,20 L168,4 L168,210 L150,226 Z" fill="url(#macBodyDark)"/>
+            <path d="M20,20 L38,4 L168,4 L150,20 Z" fill="#EAE0CD"/>
 
-            <!-- Main body -->
-            <rect x="30" y="30" width="180" height="390" rx="14" fill="url(#macBody)" stroke="#C9BBA0" stroke-width="1"/>
+            <!-- Main body — square-ish proportions -->
+            <rect x="20" y="20" width="130" height="210" rx="10" fill="url(#macBody)" stroke="#C9BBA0" stroke-width="1.2"/>
 
-            <!-- Inset bezel around screen -->
-            <rect x="48" y="55" width="144" height="135" rx="10" fill="#E0D5BD"/>
+            <!-- Inset bezel -->
+            <rect x="30" y="34" width="110" height="92" rx="6" fill="#E0D5BD"/>
 
             <!-- Screen -->
-            <rect x="58" y="65" width="124" height="115" rx="8" fill="#1a1610"/>
-            <rect x="58" y="65" width="124" height="115" rx="8" fill="#2C2418" opacity="0.5"/>
+            <rect x="38" y="42" width="94" height="76" rx="4" fill="#1a1610"/>
 
-
-            <!-- Terminal-style screen content -->
+            <!-- Screen content -->
             <g class="screen-content">
-              <!-- Top header -->
-              <text x="68" y="80" font-family="'Courier New', monospace" font-size="8" fill="#7A6E60">RundayOS 1.0</text>
-              <line x1="68" y1="84" x2="172" y2="84" stroke="#7A6E60" stroke-width="0.5" opacity="0.3"/>
+              <text x="44" y="54" font-family="'Courier New', monospace" font-size="6" fill="#7A6E60">RundayOS 1.0</text>
+              <line x1="44" y1="57" x2="126" y2="57" stroke="#7A6E60" stroke-width="0.4" opacity="0.4"/>
 
-              <!-- Menu items left -->
-              <circle cx="72" cy="94" r="2" fill="#C24B2A"/>
-              <text x="78" y="97" font-family="'Courier New', monospace" font-size="7" fill="#E8DECB">System</text>
-              <circle cx="72" cy="104" r="2" fill="#C24B2A"/>
-              <text x="78" y="107" font-family="'Courier New', monospace" font-size="7" fill="#E8DECB">Tasks</text>
-              <circle cx="72" cy="114" r="2" fill="none" stroke="#7A6E60" stroke-width="0.5"/>
-              <text x="78" y="117" font-family="'Courier New', monospace" font-size="7" fill="#7A6E60">Posts</text>
-              <circle cx="72" cy="124" r="2" fill="none" stroke="#7A6E60" stroke-width="0.5"/>
-              <text x="78" y="127" font-family="'Courier New', monospace" font-size="7" fill="#7A6E60">Leads</text>
+              <circle cx="48" cy="65" r="1.4" fill="#C24B2A"/>
+              <text x="53" y="67" font-family="'Courier New', monospace" font-size="5" fill="#E8DECB">System</text>
+              <circle cx="48" cy="73" r="1.4" fill="#C24B2A"/>
+              <text x="53" y="75" font-family="'Courier New', monospace" font-size="5" fill="#E8DECB">Tasks</text>
+              <circle cx="48" cy="81" r="1.4" fill="none" stroke="#7A6E60" stroke-width="0.4"/>
+              <text x="53" y="83" font-family="'Courier New', monospace" font-size="5" fill="#7A6E60">Posts</text>
+              <circle cx="48" cy="89" r="1.4" fill="none" stroke="#7A6E60" stroke-width="0.4"/>
+              <text x="53" y="91" font-family="'Courier New', monospace" font-size="5" fill="#7A6E60">Leads</text>
 
-              <line x1="108" y1="88" x2="108" y2="170" stroke="#7A6E60" stroke-width="0.5" opacity="0.3"/>
+              <line x1="80" y1="60" x2="80" y2="113" stroke="#7A6E60" stroke-width="0.4" opacity="0.3"/>
 
-              <!-- Right pane: doc -->
-              <rect x="114" y="90" width="62" height="10" fill="#3a3226" stroke="#7A6E60" stroke-width="0.5"/>
-              <text x="117" y="97" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">runday.txt</text>
-              <text x="170" y="97" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">[x]</text>
+              <rect x="84" y="61" width="40" height="7" fill="#3a3226" stroke="#7A6E60" stroke-width="0.4"/>
+              <text x="86" y="66.5" font-family="'Courier New', monospace" font-size="4.5" fill="#E8DECB">runday.txt</text>
 
-              <text x="116" y="112" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">Good morning.</text>
-              <text x="116" y="122" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">Your systems</text>
-              <text x="116" y="132" font-family="'Courier New', monospace" font-size="6" fill="#E8DECB">are running.</text>
-              <text x="116" y="148" font-family="'Courier New', monospace" font-size="6" fill="#C24B2A">&gt; bunny.exe</text>
-              <!-- Blinking cursor -->
-              <rect class="cursor-blink" x="158" y="143" width="4" height="6" fill="#C24B2A"/>
+              <text x="85" y="78" font-family="'Courier New', monospace" font-size="4.5" fill="#E8DECB">Good morning.</text>
+              <text x="85" y="86" font-family="'Courier New', monospace" font-size="4.5" fill="#E8DECB">Systems are</text>
+              <text x="85" y="94" font-family="'Courier New', monospace" font-size="4.5" fill="#E8DECB">running.</text>
+              <text x="85" y="107" font-family="'Courier New', monospace" font-size="4.5" fill="#C24B2A">&gt; bunny.exe</text>
+              <rect class="cursor-blink" x="112" y="103" width="2.5" height="4" fill="#C24B2A"/>
             </g>
 
             <!-- Floppy disk slot -->
-            <rect x="60" y="220" width="120" height="6" rx="1" fill="#2C2418" opacity="0.7"/>
-            <rect x="62" y="222" width="116" height="2" fill="#1a1610"/>
+            <rect x="38" y="140" width="94" height="4" rx="0.8" fill="#2C2418" opacity="0.7"/>
+            <rect x="39.5" y="141" width="91" height="1.5" fill="#1a1610"/>
 
-            <!-- Stickers -->
-            <circle cx="60" cy="260" r="10" fill="#C24B2A"/>
-            <rect x="75" y="252" width="18" height="18" rx="3" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-            <polygon points="84,256 86.5,261 92,261.5 87.5,265 89,270 84,267.5 79,270 80.5,265 76,261.5 81.5,261" fill="#0084FF"/>
+            <!-- Stickers row -->
+            <circle cx="44" cy="160" r="5" fill="#C24B2A"/>
+            <rect x="52" y="155" width="10" height="10" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.4"/>
+            <polygon points="57,156.5 58.3,159.5 61.5,160 58.8,162 59.7,165 57,163.3 54.3,165 55.2,162 52.5,160 55.7,159.5" fill="#0084FF"/>
 
             <!-- MACHINE INTELLIGENCE sticker -->
-            <rect x="55" y="285" width="48" height="18" rx="2" fill="#A83D22"/>
-            <text x="79" y="293" text-anchor="middle" font-family="'Courier New', monospace" font-size="5" font-weight="700" fill="#F5EFE3">MACHINE</text>
-            <text x="79" y="300" text-anchor="middle" font-family="'Courier New', monospace" font-size="5" font-weight="700" fill="#F5EFE3">INTELLIGENCE</text>
+            <rect x="68" y="155" width="32" height="11" rx="1.5" fill="#A83D22"/>
+            <text x="84" y="160" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.2" font-weight="700" fill="#F5EFE3">MACHINE</text>
+            <text x="84" y="164" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.2" font-weight="700" fill="#F5EFE3">INTELLIGENCE</text>
 
-            <!-- Rainbow apple sticker -->
-            <g transform="translate(70, 320)">
-              <ellipse cx="0" cy="0" rx="8" ry="9" fill="#C24B2A"/>
-              <ellipse cx="0" cy="-1" rx="5.5" ry="7" fill="#E8A04A"/>
-              <ellipse cx="0" cy="-1" rx="3.5" ry="5" fill="#6B7B5E"/>
-              <path d="M0,-8 Q2,-11 4,-9" fill="none" stroke="#2C2418" stroke-width="0.8"/>
+            <!-- Apple sticker -->
+            <g transform="translate(110, 160)">
+              <ellipse cx="0" cy="0" rx="5" ry="5.5" fill="#C24B2A"/>
+              <ellipse cx="0" cy="-0.5" rx="3.4" ry="4.2" fill="#E8A04A"/>
+              <ellipse cx="0" cy="-0.5" rx="2.1" ry="3" fill="#6B7B5E"/>
+              <path d="M0,-4.5 Q1.2,-6.5 2.4,-5.5" fill="none" stroke="#2C2418" stroke-width="0.5"/>
             </g>
 
             <!-- Speaker grille (right side) -->
-            <g transform="translate(170, 360)">
-              <rect x="0" y="0" width="3" height="3" fill="#2C2418" opacity="0.6"/>
-              <rect x="5" y="0" width="3" height="3" fill="#2C2418" opacity="0.6"/>
-              <rect x="10" y="0" width="3" height="3" fill="#2C2418" opacity="0.6"/>
-              <rect x="0" y="5" width="3" height="3" fill="#2C2418" opacity="0.6"/>
-              <rect x="5" y="5" width="3" height="3" fill="#2C2418" opacity="0.6"/>
-              <rect x="10" y="5" width="3" height="3" fill="#2C2418" opacity="0.6"/>
+            <g transform="translate(118, 195)">
+              <rect x="0" y="0" width="2" height="2" fill="#2C2418" opacity="0.55"/>
+              <rect x="3.5" y="0" width="2" height="2" fill="#2C2418" opacity="0.55"/>
+              <rect x="7" y="0" width="2" height="2" fill="#2C2418" opacity="0.55"/>
+              <rect x="0" y="3.5" width="2" height="2" fill="#2C2418" opacity="0.55"/>
+              <rect x="3.5" y="3.5" width="2" height="2" fill="#2C2418" opacity="0.55"/>
+              <rect x="7" y="3.5" width="2" height="2" fill="#2C2418" opacity="0.55"/>
             </g>
 
-            <!-- Keyboard -->
-            <g transform="translate(0, 405)">
-              <!-- Keyboard side -->
-              <path d="M210,15 L240,0 L240,40 L210,55 Z" fill="url(#macBodyDark)"/>
-              <path d="M30,15 L60,0 L240,0 L210,15 Z" fill="#EAE0CD"/>
-              <rect x="30" y="15" width="180" height="40" rx="4" fill="url(#macBody)" stroke="#C9BBA0" stroke-width="1"/>
+            <!-- Bottom label area -->
+            <rect x="32" y="180" width="32" height="14" rx="1.5" fill="none" stroke="#C9BBA0" stroke-width="0.6" opacity="0.6"/>
+            <text x="48" y="186" text-anchor="middle" font-family="'Courier New', monospace" font-size="3.5" fill="#7A6E60">runday</text>
+            <text x="48" y="190.5" text-anchor="middle" font-family="'Courier New', monospace" font-size="2.8" fill="#7A6E60" opacity="0.7">model M-1</text>
 
-              <!-- Keys row 1 -->
-              <g class="keys-row-1">
-                <rect x="40" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="52" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="64" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="76" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="88" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="100" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="112" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="124" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="136" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="148" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="160" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="172" y="22" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="184" y="22" width="14" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+            <!-- Cable from Mac base to keyboard -->
+            <path d="M55,228 Q42,245 60,255" fill="none" stroke="#2C2418" stroke-width="1.3" opacity="0.45"/>
+
+            <!-- Keyboard - flat slab with clearly visible keys (no heavy 3D box) -->
+            <g transform="translate(2, 248)">
+              <!-- Subtle floor shadow under keyboard -->
+              <ellipse cx="85" cy="22" rx="78" ry="2" fill="#2C2418" opacity="0.15"/>
+              <!-- Keyboard top plate (thin slab) -->
+              <rect x="10" y="2" width="150" height="18" rx="2" fill="#EAE0CD" stroke="#C9BBA0" stroke-width="0.9"/>
+              <!-- Top-edge highlight -->
+              <rect x="12" y="2" width="146" height="1.5" fill="#FAF1E0"/>
+              <!-- Front bevel -->
+              <rect x="10" y="19" width="150" height="2" rx="1" fill="#D4C5A8"/>
+
+              <!-- Row 1 - bigger, readable letter keys -->
+              <g class="keys-row keys-r1">
+                <rect x="16" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="27" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="38" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="49" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="60" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="71" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="82" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="93" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="104" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="115" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="126" y="5" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="137" y="5" width="17" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
               </g>
-              <!-- Keys row 2 -->
-              <g class="keys-row-2">
-                <rect x="40" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="52" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="64" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="76" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="88" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="100" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="112" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="124" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="136" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="148" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="160" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-                <rect x="172" y="32" width="10" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
+              <!-- Row 2 - home row, slightly inset -->
+              <g class="keys-row keys-r2">
+                <rect x="18" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="29" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="40" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="51" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="62" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="73" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="84" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="95" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="106" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="117" y="11" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="128" y="11" width="26" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
               </g>
-              <!-- Spacebar -->
-              <rect x="70" y="42" width="100" height="7" rx="1.5" fill="#FAF6EF" stroke="#C9BBA0" stroke-width="0.5"/>
-            </g>
-          </g>
-
-          <!-- === BUNNY MASCOT === -->
-          <g class="bunny-group">
-            <!-- Bunny ground shadow -->
-            <ellipse cx="135" cy="510" rx="60" ry="6" fill="#2C2418" opacity="0.15"/>
-
-            <!-- Body -->
-            <ellipse cx="135" cy="430" rx="55" ry="60" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-            <ellipse cx="135" cy="445" rx="35" ry="35" fill="#fff" opacity="0.5"/>
-
-            <!-- Feet -->
-            <ellipse cx="115" cy="490" rx="18" ry="10" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-            <ellipse cx="155" cy="490" rx="18" ry="10" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-            <ellipse cx="115" cy="490" rx="10" ry="5" fill="#E8C4B8" opacity="0.6"/>
-            <ellipse cx="155" cy="490" rx="10" ry="5" fill="#E8C4B8" opacity="0.6"/>
-
-            <!-- Bow tie -->
-            <g class="bunny-bowtie">
-              <polygon points="125,385 110,378 110,396 125,389" fill="#C24B2A"/>
-              <polygon points="145,385 160,378 160,396 145,389" fill="#C24B2A"/>
-              <circle cx="135" cy="387" r="4" fill="#A83D22"/>
-            </g>
-
-            <!-- Head -->
-            <circle cx="135" cy="350" r="48" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-            <!-- Cheek fluff -->
-            <ellipse cx="100" cy="365" rx="10" ry="13" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-            <ellipse cx="170" cy="365" rx="10" ry="13" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-
-            <!-- Inner face -->
-            <ellipse cx="135" cy="360" rx="32" ry="26" fill="#fff" opacity="0.35"/>
-
-            <!-- Ears -->
-            <g class="bunny-ear-left">
-              <ellipse cx="115" cy="288" rx="13" ry="40" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2" transform="rotate(-12, 115, 288)"/>
-              <ellipse cx="115" cy="290" rx="6" ry="28" fill="#E8C4B8" transform="rotate(-12, 115, 288)"/>
-            </g>
-            <g class="bunny-ear-right">
-              <ellipse cx="155" cy="288" rx="13" ry="40" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2" transform="rotate(12, 155, 288)"/>
-              <ellipse cx="155" cy="290" rx="6" ry="28" fill="#E8C4B8" transform="rotate(12, 155, 288)"/>
-            </g>
-
-            <!-- Hair tuft -->
-            <path d="M130,308 Q132,300 135,306 Q138,300 140,308" fill="none" stroke="#D8CCBD" stroke-width="2.5" stroke-linecap="round"/>
-
-            <!-- Glasses -->
-            <g class="bunny-glasses">
-              <circle cx="120" cy="350" r="13" fill="none" stroke="#2C2418" stroke-width="2.5"/>
-              <circle cx="150" cy="350" r="13" fill="none" stroke="#2C2418" stroke-width="2.5"/>
-              <line x1="133" y1="350" x2="137" y2="350" stroke="#2C2418" stroke-width="2.5"/>
-              <!-- Glasses shine -->
-              <path d="M114,344 Q117,341 122,344" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-              <path d="M144,344 Q147,341 152,344" fill="none" stroke="#fff" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-            </g>
-
-            <!-- Eyes (behind glasses) -->
-            <g class="bunny-eyes">
-              <circle cx="120" cy="352" r="4.5" fill="#2C2418"/>
-              <circle cx="150" cy="352" r="4.5" fill="#2C2418"/>
-              <circle cx="121.5" cy="350" r="1.8" fill="#fff"/>
-              <circle cx="151.5" cy="350" r="1.8" fill="#fff"/>
-            </g>
-
-            <!-- Nose -->
-            <ellipse cx="135" cy="368" rx="5" ry="3.5" fill="#E8A09A"/>
-            <ellipse cx="133" cy="367" rx="1.5" ry="1" fill="#fff" opacity="0.6"/>
-
-            <!-- Mouth — confident smile -->
-            <path d="M130,378 Q135,384 140,378" fill="none" stroke="#2C2418" stroke-width="2" stroke-linecap="round"/>
-            <path d="M133,381 Q135,383 137,381" fill="#E8A09A"/>
-
-            <!-- Cheek blush -->
-            <ellipse cx="95" cy="370" rx="8" ry="5" fill="#E8C4B8" opacity="0.55"/>
-            <ellipse cx="175" cy="370" rx="8" ry="5" fill="#E8C4B8" opacity="0.55"/>
-
-            <!-- Whiskers -->
-            <line x1="100" y1="370" x2="85" y2="368" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
-            <line x1="100" y1="374" x2="85" y2="376" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
-            <line x1="170" y1="370" x2="185" y2="368" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
-            <line x1="170" y1="374" x2="185" y2="376" stroke="#D8CCBD" stroke-width="1" stroke-linecap="round"/>
-
-            <!-- Left arm (waving / pointing at Mac) -->
-            <g class="bunny-arm-left">
-              <path d="M90,420 Q70,400 95,380" fill="none" stroke="#D8CCBD" stroke-width="10" stroke-linecap="round"/>
-              <path d="M90,420 Q70,400 95,380" fill="none" stroke="#FAF6EF" stroke-width="7" stroke-linecap="round"/>
-              <circle cx="95" cy="380" r="9" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-              <!-- Thumb up -->
-              <ellipse cx="100" cy="372" rx="3" ry="5" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="1.5"/>
-            </g>
-
-            <!-- Right arm (holding coffee) -->
-            <g class="bunny-arm-right">
-              <path d="M180,420 Q200,415 210,430" fill="none" stroke="#D8CCBD" stroke-width="10" stroke-linecap="round"/>
-              <path d="M180,420 Q200,415 210,430" fill="none" stroke="#FAF6EF" stroke-width="7" stroke-linecap="round"/>
-              <circle cx="210" cy="430" r="8" fill="#FAF6EF" stroke="#D8CCBD" stroke-width="2"/>
-
-              <!-- Coffee mug -->
-              <g class="coffee-mug">
-                <path d="M203,420 L223,420 L221,440 L205,440 Z" fill="#C24B2A" stroke="#A83D22" stroke-width="1.5"/>
-                <ellipse cx="213" cy="420" rx="10" ry="2.5" fill="#2C2418"/>
-                <ellipse cx="213" cy="420" rx="8" ry="1.5" fill="#5a3a1a"/>
-                <!-- Mug handle -->
-                <path d="M223,425 Q230,427 228,435" fill="none" stroke="#C24B2A" stroke-width="2.5" stroke-linecap="round"/>
-                <!-- Steam -->
-                <path class="coffee-steam" d="M209,415 Q211,408 209,402 Q207,396 210,390" fill="none" stroke="#D8CCBD" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
-                <path class="coffee-steam coffee-steam-2" d="M216,415 Q218,408 216,402 Q214,396 217,390" fill="none" stroke="#D8CCBD" stroke-width="1.5" stroke-linecap="round" opacity="0.5"/>
+              <!-- Row 3 - modifier + SPACEBAR clearly visible -->
+              <g class="keys-row keys-r3">
+                <rect x="16" y="17" width="14" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="31" y="17" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="42" y="17" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <!-- Spacebar — wide, prominent -->
+                <rect x="53" y="17" width="64" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="118" y="17" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="129" y="17" width="10" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
+                <rect x="140" y="17" width="14" height="5" rx="1" fill="#FAF6EF" stroke="#2C2418" stroke-width="0.6"/>
               </g>
-            </g>
-
-            <!-- Name tag -->
-            <g class="bunny-tag">
-              <rect x="105" y="440" width="60" height="22" rx="3" fill="#fff" stroke="#D8CCBD" stroke-width="1.5"/>
-              <text x="135" y="450" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="6" font-weight="700" fill="#7A6E60" letter-spacing="0.5">HELLO MY NAME IS</text>
-              <text x="135" y="459" text-anchor="middle" font-family="Space Grotesk, sans-serif" font-size="9" font-weight="700" fill="#C24B2A">RUNDAY</text>
             </g>
           </g>
 
@@ -396,6 +367,56 @@
     </div>
   </section>
 
+  <!-- BEFORE / AFTER -->
+  <section class="section ba-section">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">before &amp; after</div>
+        <h2>Your business, before and after runday.</h2>
+      </div>
+
+      <div class="ba-wrap fade-up" data-state="before">
+        <div class="ba-toggle" role="tablist" aria-label="Before and after runday">
+          <span class="ba-toggle-pill" aria-hidden="true"></span>
+          <button type="button" class="ba-tab is-active" data-state="before" role="tab" aria-selected="true">Before</button>
+          <button type="button" class="ba-tab" data-state="after" role="tab" aria-selected="false">After</button>
+        </div>
+
+        <div class="ba-stage">
+          <!-- BEFORE -->
+          <div class="ba-card ba-card-before" role="tabpanel">
+            <div class="ba-card-top">
+              <span class="ba-state"><span class="ba-dot ba-dot-bad"></span>Running it all yourself</span>
+              <span class="ba-mood ba-mood-bad">Overwhelmed</span>
+            </div>
+            <ul class="ba-list">
+              <li><span class="ba-ico ba-x">&times;</span>Posting to socials manually, whenever you remember</li>
+              <li><span class="ba-ico ba-x">&times;</span>Leads message at 11pm and go cold by morning</li>
+              <li><span class="ba-ico ba-x">&times;</span>Following up from sticky notes and memory</li>
+              <li><span class="ba-ico ba-x">&times;</span>Juggling six apps that don't talk to each other</li>
+              <li><span class="ba-ico ba-x">&times;</span>You're the bottleneck — nothing moves without you</li>
+            </ul>
+          </div>
+
+          <!-- AFTER -->
+          <div class="ba-card ba-card-after" role="tabpanel">
+            <div class="ba-card-top">
+              <span class="ba-state"><span class="ba-dot ba-dot-good"></span>Runday is running it</span>
+              <span class="ba-mood ba-mood-good">On autopilot</span>
+            </div>
+            <ul class="ba-list">
+              <li><span class="ba-ico ba-check">&check;</span>Posts written, scheduled, and published on autopilot</li>
+              <li><span class="ba-ico ba-check">&check;</span>Every inquiry answered in seconds — day or night</li>
+              <li><span class="ba-ico ba-check">&check;</span>Follow-ups fire automatically, nothing slips through</li>
+              <li><span class="ba-ico ba-check">&check;</span>One system. Every tool connected and talking</li>
+              <li><span class="ba-ico ba-check">&check;</span>It runs whether you're online or not</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- SERVICES PREVIEW -->
   <section class="section section-alt">
     <div class="container">
@@ -455,8 +476,38 @@
     </div>
   </section>
 
-  <!-- HOW IT WORKS -->
+  <!-- RECENT WORK -->
   <section class="section">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">recent work</div>
+        <h2>Systems we've shipped.</h2>
+      </div>
+      <div class="work-grid">
+        <a href="https://website-tau-seven-11.vercel.app" target="_blank" rel="noopener" class="work-card fade-up">
+          <div class="work-card-top">
+            <span class="work-tag">Brand &amp; Web</span>
+            <span class="work-live">Live<span class="live-dot"></span></span>
+          </div>
+          <h3>Miraluz Studio</h3>
+          <p>Brand identity and a booking-ready website for a Manila creative studio — designed, built, and handed over. Theirs to run.</p>
+          <span class="work-link">Visit the site &rarr;</span>
+        </a>
+        <div class="work-card fade-up">
+          <div class="work-card-top">
+            <span class="work-tag">Marketing System</span>
+            <span class="work-soon">Launching Jun 2026</span>
+          </div>
+          <h3>Oro Hotel Makati</h3>
+          <p>A full content and marketing system — social, email, and booking flows — built across five phases and going live this June.</p>
+          <span class="work-link work-link-muted">Case study soon</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section class="section section-alt">
     <div class="container">
       <div class="section-centered fade-up">
         <div class="section-sub">how it works</div>
@@ -480,7 +531,7 @@
   </section>
 
   <!-- WHY RUNDAY -->
-  <section class="section section-alt">
+  <section class="section">
     <div class="container">
       <div class="section-centered fade-up">
         <div class="section-sub">why runday</div>
@@ -502,6 +553,54 @@
           <h3>You own everything</h3>
           <p>No lock-in. No hostage accounts. We build it, hand it over, and every account and asset belongs to you.</p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">questions</div>
+        <h2>The things everyone asks.</h2>
+      </div>
+      <div class="faq-list fade-up">
+        <details class="faq-item">
+          <summary>How long does it take to build?</summary>
+          <div class="faq-answer">
+            <p>Most systems go live in 2–4 weeks, depending on scope. We start with the task that's eating the most of your time, get that running, then build outward from there.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Do I need to be technical?</summary>
+          <div class="faq-answer">
+            <p>Not at all. We build the system, hand it over, and walk you through it. If you can use Messenger and Canva, you can run what we build.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>Who owns the accounts and data?</summary>
+          <div class="faq-answer">
+            <p>You do — all of it. Every account, asset, and login is in your name. No lock-in, no hostage fees. If we ever part ways, you keep everything and it keeps running.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What does it cost?</summary>
+          <div class="faq-answer">
+            <p>Projects start at ₱4,999. The final scope and price come out of the free call, once we know exactly what you need. No surprises. <a href="services.html">See what we build &rarr;</a></p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What if something breaks?</summary>
+          <div class="faq-answer">
+            <p>We don't disappear at handover. There are support options to keep things tuned — and because you own every account, you're never stuck waiting on us to get back in.</p>
+          </div>
+        </details>
+        <details class="faq-item">
+          <summary>What platforms do you work with?</summary>
+          <div class="faq-answer">
+            <p>The ones you already use — Facebook, Instagram, Messenger, Gmail, Google, Canva, and more. We build around your stack, not ours.</p>
+          </div>
+        </details>
       </div>
     </div>
   </section>

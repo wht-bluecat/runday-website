@@ -5,6 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Contact — Runday</title>
   <meta name="description" content="Get in touch with Runday. Book a free call or send us a message about automating your business.">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Contact — Runday">
+  <meta property="og:description" content="Book a free call or send us a message about automating your business. Metro Manila.">
+  <meta property="og:image" content="https://runday-website.vercel.app/assets/og-image.png">
+  <meta property="og:url" content="https://runday-website.vercel.app/contact.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact — Runday">
+  <meta name="twitter:description" content="Book a free call or send us a message about automating your business.">
+  <meta name="twitter:image" content="https://runday-website.vercel.app/assets/og-image.png">
+
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -15,7 +32,7 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="container">
-      <a href="index.html" class="nav-logo">run<span>day</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
@@ -42,8 +59,12 @@
       <div class="contact-grid">
 
         <!-- FORM -->
+        <!-- TODO(James): replace YOUR_FORM_ID below with the real Formspree ID.
+             Sign up at https://formspree.io → New Form → copy the ID from the endpoint
+             (e.g. https://formspree.io/f/xyzabcde → "xyzabcde"). Until then the form
+             gracefully falls back to "message us on WhatsApp" on submit (see script.js). -->
         <div class="fade-up">
-          <form action="https://formspree.io/f/placeholder" method="POST" class="contact-form">
+          <form action="https://formspree.io/f/xvzylled" method="POST" class="contact-form">
             <div class="form-group">
               <label for="name">Name</label>
               <input type="text" id="name" name="name" placeholder="Your name" required>

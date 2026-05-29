@@ -1,0 +1,5 @@
+# Local tooling / preview config — not for production
+.claude/
+
+# Brand exploration scratch page — not deployed
+brand-explore.html
