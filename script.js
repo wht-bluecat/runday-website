@@ -22,21 +22,6 @@
     });
   });
 
-  // Before/After toggle
-  document.querySelectorAll('.ba-tab').forEach(function (tab) {
-    tab.addEventListener('click', function () {
-      var wrap = tab.closest('.ba-wrap');
-      if (!wrap) return;
-      var state = tab.getAttribute('data-state');
-      wrap.setAttribute('data-state', state);
-      wrap.querySelectorAll('.ba-tab').forEach(function (t) {
-        var active = t.getAttribute('data-state') === state;
-        t.classList.toggle('is-active', active);
-        t.setAttribute('aria-selected', active ? 'true' : 'false');
-      });
-    });
-  });
-
   // Floating chat buttons
   var fab = document.createElement('div');
   fab.className = 'fab-chat';

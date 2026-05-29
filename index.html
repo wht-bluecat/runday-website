@@ -375,42 +375,45 @@
         <h2>Your business, before and after runday.</h2>
       </div>
 
-      <div class="ba-wrap fade-up" data-state="before">
-        <div class="ba-toggle" role="tablist" aria-label="Before and after runday">
-          <span class="ba-toggle-pill" aria-hidden="true"></span>
-          <button type="button" class="ba-tab is-active" data-state="before" role="tab" aria-selected="true">Before</button>
-          <button type="button" class="ba-tab" data-state="after" role="tab" aria-selected="false">After</button>
+      <div class="ticker fade-up">
+        <p class="sr-only">Runday turns problems like manual work and cold leads into outcomes like automated workflows and qualified leads — all running on autopilot.</p>
+
+        <!-- TOP: problem cards scrolling up -->
+        <div class="ticker-half ticker-top" aria-hidden="true">
+          <div class="ticker-track">
+            <!-- set 1 -->
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Manual work overload</strong><span>Too many repetitive tasks</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Leads going cold</strong><span>No follow-up after hours</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Posting by hand</strong><span>Whenever you remember</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Six apps, no sync</strong><span>Nothing talks to each other</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>You're the bottleneck</strong><span>Nothing moves without you</span></div></div>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Manual work overload</strong><span>Too many repetitive tasks</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Leads going cold</strong><span>No follow-up after hours</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Posting by hand</strong><span>Whenever you remember</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>Six apps, no sync</strong><span>Nothing talks to each other</span></div></div>
+            <div class="t-card t-bad"><span class="t-ico"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><line x1="12" y1="6.5" x2="12" y2="13.5"/><line x1="12" y1="17" x2="12" y2="17.2"/></svg></span><div class="t-txt"><strong>You're the bottleneck</strong><span>Nothing moves without you</span></div></div>
+          </div>
         </div>
 
-        <div class="ba-stage">
-          <!-- BEFORE -->
-          <div class="ba-card ba-card-before" role="tabpanel">
-            <div class="ba-card-top">
-              <span class="ba-state"><span class="ba-dot ba-dot-bad"></span>Running it all yourself</span>
-              <span class="ba-mood ba-mood-bad">Overwhelmed</span>
-            </div>
-            <ul class="ba-list">
-              <li><span class="ba-ico ba-x">&times;</span>Posting to socials manually, whenever you remember</li>
-              <li><span class="ba-ico ba-x">&times;</span>Leads message at 11pm and go cold by morning</li>
-              <li><span class="ba-ico ba-x">&times;</span>Following up from sticky notes and memory</li>
-              <li><span class="ba-ico ba-x">&times;</span>Juggling six apps that don't talk to each other</li>
-              <li><span class="ba-ico ba-x">&times;</span>You're the bottleneck — nothing moves without you</li>
-            </ul>
-          </div>
+        <!-- CENTER: brand pill -->
+        <div class="ticker-pill" aria-hidden="true">runday</div>
 
-          <!-- AFTER -->
-          <div class="ba-card ba-card-after" role="tabpanel">
-            <div class="ba-card-top">
-              <span class="ba-state"><span class="ba-dot ba-dot-good"></span>Runday is running it</span>
-              <span class="ba-mood ba-mood-good">On autopilot</span>
-            </div>
-            <ul class="ba-list">
-              <li><span class="ba-ico ba-check">&check;</span>Posts written, scheduled, and published on autopilot</li>
-              <li><span class="ba-ico ba-check">&check;</span>Every inquiry answered in seconds — day or night</li>
-              <li><span class="ba-ico ba-check">&check;</span>Follow-ups fire automatically, nothing slips through</li>
-              <li><span class="ba-ico ba-check">&check;</span>One system. Every tool connected and talking</li>
-              <li><span class="ba-ico ba-check">&check;</span>It runs whether you're online or not</li>
-            </ul>
+        <!-- BOTTOM: solution cards scrolling up -->
+        <div class="ticker-half ticker-bottom" aria-hidden="true">
+          <div class="ticker-track">
+            <!-- set 1 -->
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>Qualified leads incoming</strong><span>Answered in seconds, day or night</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>Content on autopilot</strong><span>Posts written and scheduled</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>Follow-ups firing</strong><span>Nothing slips through</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>One connected system</strong><span>Every tool in sync</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>You're free</strong><span>It runs without you</span></div></div>
+            <!-- set 2 (duplicate for seamless loop) -->
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>Qualified leads incoming</strong><span>Answered in seconds, day or night</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>Content on autopilot</strong><span>Posts written and scheduled</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>Follow-ups firing</strong><span>Nothing slips through</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>One connected system</strong><span>Every tool in sync</span></div></div>
+            <div class="t-card t-good"><span class="t-ico"><svg viewBox="0 0 24 24" width="13" height="13" fill="currentColor"><path d="M13 2 L4.5 13.5 H10 l-1.2 8.5 9.7-12.4 H12 z"/></svg></span><div class="t-txt"><strong>You're free</strong><span>It runs without you</span></div></div>
           </div>
         </div>
       </div>
