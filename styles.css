@@ -402,6 +402,11 @@ img {
   font-size: 24px;
 }
 
+.value-icon svg {
+  width: 26px;
+  height: 26px;
+}
+
 .value-card h3 {
   font-family: var(--font-heading);
   font-size: 20px;
@@ -471,17 +476,6 @@ img {
 
 /* === STEPS === */
 
-.steps-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 32px;
-}
-
-.step-card {
-  text-align: center;
-  padding: 40px 24px;
-}
-
 .step-number {
   display: inline-flex;
   align-items: center;
@@ -497,18 +491,143 @@ img {
   margin-bottom: 24px;
 }
 
-.step-card h3 {
-  font-family: var(--font-heading);
-  font-size: 18px;
-  font-weight: 700;
-  margin-bottom: 10px;
-  letter-spacing: -0.2px;
+/* === RUNDAYOS PROCESS — staggered animated steps === */
+
+.process-flow {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  align-items: start;
 }
 
-.step-card p {
+/* Rising diagonal stagger (left low → right high) */
+.process-step:nth-child(1) { margin-top: 132px; }
+.process-step:nth-child(2) { margin-top: 88px; }
+.process-step:nth-child(3) { margin-top: 44px; }
+.process-step:nth-child(4) { margin-top: 0; }
+
+.process-label {
+  display: block;
+  font-family: var(--font-accent);
+  font-style: italic;
+  font-size: 18px;
+  color: var(--olive);
+  margin: 0 0 14px 4px;
+}
+
+.proc-card {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  height: 152px;
+  padding: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 14px 34px -22px rgba(44, 36, 24, 0.4);
+  overflow: hidden;
+}
+
+.proc-illu {
+  width: 100%;
+  height: 100%;
+}
+
+.proc-text {
+  margin-top: 22px;
+}
+
+.proc-num {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--terracotta);
+  letter-spacing: 1px;
+}
+
+.proc-text h3 {
+  font-family: var(--font-heading);
+  font-size: 19px;
+  font-weight: 700;
+  margin: 4px 0 10px;
+  letter-spacing: -0.3px;
+}
+
+.proc-text p {
   color: var(--text-secondary);
   font-size: 15px;
   line-height: 1.65;
+}
+
+/* --- Illustration animations --- */
+
+/* 01 Diagnose — magnifier roams across messy nodes */
+.d-lens { animation: dScan 5s ease-in-out infinite; }
+@keyframes dScan {
+  0%, 100% { transform: translate(0, 0); }
+  22%      { transform: translate(96px, -14px); }
+  48%      { transform: translate(44px, 28px); }
+  74%      { transform: translate(110px, 30px); }
+}
+
+/* 02 Blueprint — a dot flows from intake through a branch to the plan */
+.b-dot { animation: bFlow 3s ease-in-out infinite; }
+@keyframes bFlow {
+  0%   { transform: translate(0, 0);        opacity: 0; }
+  8%   { opacity: 1; }
+  45%  { transform: translate(44px, -27px); opacity: 1; }
+  92%  { transform: translate(112px, 0);    opacity: 1; }
+  100% { transform: translate(112px, 0);    opacity: 0; }
+}
+
+/* 03 Build & Deploy — bars assemble, then a check confirms */
+.bd-bar {
+  transform-box: fill-box;
+  transform-origin: 50% 100%;
+  animation: bdRise 2.8s ease-in-out infinite;
+}
+@keyframes bdRise {
+  0%, 100% { transform: scaleY(0.16); opacity: 0.5; }
+  50%      { transform: scaleY(1);    opacity: 1; }
+}
+.bd-check {
+  stroke-dasharray: 32;
+  stroke-dashoffset: 32;
+  animation: bdDraw 2.8s ease-in-out infinite;
+}
+@keyframes bdDraw {
+  0%, 42%   { stroke-dashoffset: 32; }
+  62%, 100% { stroke-dashoffset: 0; }
+}
+
+/* 04 Grow — the line climbs, the endpoint lands */
+.g-line {
+  stroke-dasharray: 188;
+  stroke-dashoffset: 188;
+  animation: gDraw 3.6s ease-in-out infinite;
+}
+@keyframes gDraw {
+  0%       { stroke-dashoffset: 188; }
+  60%, 100%{ stroke-dashoffset: 0; }
+}
+.g-dot {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: gPop 3.6s ease-in-out infinite;
+}
+@keyframes gPop {
+  0%, 55%  { transform: scale(0);   opacity: 0; }
+  72%      { transform: scale(1.4); opacity: 1; }
+  100%     { transform: scale(1);   opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .d-lens, .b-dot, .bd-bar, .bd-check, .g-line, .g-dot {
+    animation: none;
+  }
+  .b-dot, .g-dot { opacity: 1; }
+  .bd-bar { transform: scaleY(1); opacity: 1; }
+  .bd-check, .g-line { stroke-dashoffset: 0; }
 }
 
 /* === TOOLS === */
@@ -779,79 +898,6 @@ img {
   text-align: center;
   color: var(--text-muted);
   font-size: 13px;
-}
-
-/* === BUNNY FLOW ANIMATION === */
-
-.flow-section {
-  overflow: hidden;
-}
-
-.flow-scene {
-  max-width: 1100px;
-  margin: -20px auto 0;
-}
-
-.flow-svg {
-  width: 100%;
-  height: auto;
-}
-
-
-/* === MAC SCREEN === */
-
-.cursor-blink {
-  animation: cursorBlink 1s steps(2) infinite;
-}
-
-@keyframes cursorBlink {
-  0%, 50% { opacity: 1; }
-  51%, 100% { opacity: 0; }
-}
-
-.mac-group {
-  animation: macHum 4s ease-in-out infinite;
-  transform-box: fill-box;
-  transform-origin: center;
-}
-
-@keyframes macHum {
-  0%, 100% { transform: translate(335px, 250px); }
-  50% { transform: translate(335px, 251px); }
-}
-
-/* === OUTPUT NODES — FIXED HOVER === */
-
-/* This is the key fix: transform-box: fill-box + transform-origin: center
-   makes scale() work properly inside the parent's translate() */
-.output-node {
-  transform-box: fill-box;
-  transform-origin: center;
-  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  cursor: default;
-}
-
-.output-node:hover {
-  transform: scale(1.06);
-}
-
-.output-node rect {
-  transition: stroke 0.3s, fill 0.3s;
-}
-
-.output-node:hover rect:first-child {
-  stroke: #C24B2A;
-}
-
-/* Flow paths subtle opacity pulse */
-.flow-path {
-  opacity: 0.2;
-  animation: pathPulse 3s ease-in-out infinite alternate;
-}
-
-@keyframes pathPulse {
-  0% { opacity: 0.12; }
-  100% { opacity: 0.28; }
 }
 
 /* === SCROLL ANIMATIONS === */
@@ -1355,9 +1401,14 @@ a.work-card:hover {
 }
 
 @media (max-width: 1024px) {
-  .steps-grid {
+  .process-flow {
     grid-template-columns: repeat(2, 1fr);
+    gap: 36px 28px;
   }
+  .process-step:nth-child(1),
+  .process-step:nth-child(3) { margin-top: 56px; }
+  .process-step:nth-child(2),
+  .process-step:nth-child(4) { margin-top: 0; }
 }
 
 @media (max-width: 768px) {
@@ -1397,10 +1448,14 @@ a.work-card:hover {
     gap: 16px;
   }
 
-  .steps-grid {
+  .process-flow {
     grid-template-columns: 1fr;
-    gap: 16px;
+    gap: 32px;
   }
+  .process-step:nth-child(1),
+  .process-step:nth-child(2),
+  .process-step:nth-child(3),
+  .process-step:nth-child(4) { margin-top: 0; }
 
   .phase-header {
     flex-direction: column;
@@ -1491,13 +1546,5 @@ a.work-card:hover {
   .fab-btn svg {
     width: 20px;
     height: 20px;
-  }
-
-  .flow-scene {
-    margin-top: -10px;
-  }
-
-  .flow-section h2 {
-    font-size: 26px;
   }
 }
