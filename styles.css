@@ -560,74 +560,182 @@ img {
 }
 
 /* --- Illustration animations --- */
+/* Architecture: the intro (paths/bars/line) draws in ONCE when the card
+   scrolls into view (.process-step.visible), then settles. Only loop-safe
+   ambient motion (sweep, flowing dots, tracing comet, pulses) runs forever. */
 
-/* 01 Diagnose — magnifier roams across messy nodes */
-.d-lens { animation: dScan 5s ease-in-out infinite; }
-@keyframes dScan {
-  0%, 100% { transform: translate(0, 0); }
-  22%      { transform: translate(96px, -14px); }
-  48%      { transform: translate(44px, 28px); }
-  74%      { transform: translate(110px, 30px); }
-}
-
-/* 02 Blueprint — a dot flows from intake through a branch to the plan */
-.b-dot { animation: bFlow 3s ease-in-out infinite; }
-@keyframes bFlow {
-  0%   { transform: translate(0, 0);        opacity: 0; }
-  8%   { opacity: 1; }
-  45%  { transform: translate(44px, -27px); opacity: 1; }
-  92%  { transform: translate(112px, 0);    opacity: 1; }
-  100% { transform: translate(112px, 0);    opacity: 0; }
-}
-
-/* 03 Build & Deploy — bars assemble, then a check confirms */
-.bd-bar {
-  transform-box: fill-box;
-  transform-origin: 50% 100%;
-  animation: bdRise 2.8s ease-in-out infinite;
-}
-@keyframes bdRise {
-  0%, 100% { transform: scaleY(0.16); opacity: 0.5; }
-  50%      { transform: scaleY(1);    opacity: 1; }
-}
-.bd-check {
-  stroke-dasharray: 32;
-  stroke-dashoffset: 32;
-  animation: bdDraw 2.8s ease-in-out infinite;
-}
-@keyframes bdDraw {
-  0%, 42%   { stroke-dashoffset: 32; }
-  62%, 100% { stroke-dashoffset: 0; }
-}
-
-/* 04 Grow — the line climbs, the endpoint lands */
-.g-line {
-  stroke-dasharray: 188;
-  stroke-dashoffset: 188;
-  animation: gDraw 3.6s ease-in-out infinite;
-}
-@keyframes gDraw {
-  0%       { stroke-dashoffset: 188; }
-  60%, 100%{ stroke-dashoffset: 0; }
-}
-.g-dot {
+/* SVG elements that scale/translate need a local box + origin */
+.d-radar, .b-node, .b-plan, .bd-ring, .bd-badge, .g-pt, .g-dot, .g-halo {
   transform-box: fill-box;
   transform-origin: center;
-  animation: gPop 3.6s ease-in-out infinite;
 }
-@keyframes gPop {
-  0%, 55%  { transform: scale(0);   opacity: 0; }
-  72%      { transform: scale(1.4); opacity: 1; }
-  100%     { transform: scale(1);   opacity: 1; }
+.bd-bar { transform-box: fill-box; transform-origin: 50% 100%; }
+
+/* Pre-reveal base states */
+.b-track { stroke-dasharray: 168; stroke-dashoffset: 168; }
+.b-node  { fill: #6B7B5E; opacity: 0; transform: scale(0.4); }
+.b-plan  { opacity: 0.55; }
+.b-dot1, .b-dot2, .b-glow1, .b-glow2 { opacity: 0; }
+.bd-bar  { transform: scaleY(0); }
+.bd-badge{ transform: scale(0); }
+.bd-check{ stroke-dasharray: 30; stroke-dashoffset: 30; }
+.bd-ring { opacity: 0; }
+.g-line  { stroke-dasharray: 190; stroke-dashoffset: 190; }
+.g-area  { opacity: 0; }
+.g-pt    { transform: scale(0); }
+.g-dot   { transform: scale(0); opacity: 0; }
+.g-comet, .g-halo { opacity: 0; }
+
+/* Card hover micro-interaction — the step lifts toward you */
+.proc-card {
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1),
+              box-shadow 0.35s ease, border-color 0.35s ease;
+}
+.process-step:hover .proc-card {
+  transform: translateY(-5px);
+  box-shadow: 0 24px 48px -22px rgba(44, 36, 24, 0.55);
+  border-color: var(--terracotta-border);
+}
+
+/* 01 Diagnose — magnifier sweeps clockwise; each task lights up as it's found */
+.process-step.visible .d-node  { animation: dPulse 6s ease-in-out infinite; }
+.d-node1 { animation-delay: 0s; }
+.d-node2 { animation-delay: 1.5s; }
+.d-node4 { animation-delay: 3s; }
+.d-node3 { animation-delay: 4.5s; }
+.d-node  { fill: #6B7B5E; opacity: 0.16; }
+@keyframes dPulse {
+  0%   { fill: #6B7B5E; opacity: 0.16; }
+  6%   { fill: #C24B2A; opacity: 0.85; }
+  16%  { fill: #6B7B5E; opacity: 0.16; }
+  100% { fill: #6B7B5E; opacity: 0.16; }
+}
+.process-step.visible .d-radar { animation: dRadar 3s ease-out infinite; }
+@keyframes dRadar {
+  0%        { transform: scale(0.3); opacity: 0.45; }
+  80%, 100% { transform: scale(2.3); opacity: 0; }
+}
+.process-step.visible .d-lens  { animation: dScan 6s cubic-bezier(0.65, 0, 0.35, 1) infinite; }
+@keyframes dScan {
+  0%, 100% { transform: translate(0, 0); }
+  25%      { transform: translate(100px, 2px); }
+  50%      { transform: translate(100px, 52px); }
+  75%      { transform: translate(18px, 52px); }
+}
+
+/* 02 Blueprint — paths draw in once, twin dots flow to the plan, which pulses */
+.process-step.visible .b-track  { animation: bDraw 1s ease-in-out both; }
+.process-step.visible .b-track2 { animation-delay: 0.12s; }
+@keyframes bDraw { to { stroke-dashoffset: 0; } }
+.process-step.visible .b-node   { animation: bNodeIn 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.b-node-a { animation-delay: 0.2s; }
+.b-node-b { animation-delay: 0.45s; }
+.b-node-c { animation-delay: 0.55s; }
+@keyframes bNodeIn {
+  0%   { transform: scale(0.4); opacity: 0; }
+  60%  { transform: scale(1);   opacity: 0.18; }
+  100% { transform: scale(1);   opacity: 0.18; }
+}
+.process-step.visible .b-dot1, .process-step.visible .b-glow1 {
+  animation: bFlowTop 3s ease-in-out 0.9s infinite;
+}
+.process-step.visible .b-dot2, .process-step.visible .b-glow2 {
+  animation: bFlowBottom 3s ease-in-out 2.4s infinite;
+}
+@keyframes bFlowTop {
+  0%   { transform: translate(0, 0);        opacity: 0; }
+  8%   { opacity: 1; }
+  38%  { transform: translate(38px, -27px); }
+  58%  { transform: translate(78px, -27px); }
+  82%  { transform: translate(108px, 0);    opacity: 1; }
+  92%  { transform: translate(108px, 0);    opacity: 0; }
+  100% { transform: translate(108px, 0);    opacity: 0; }
+}
+@keyframes bFlowBottom {
+  0%   { transform: translate(0, 0);        opacity: 0; }
+  8%   { opacity: 1; }
+  38%  { transform: translate(38px, 27px);  }
+  58%  { transform: translate(78px, 27px);  }
+  82%  { transform: translate(108px, 0);    opacity: 1; }
+  92%  { transform: translate(108px, 0);    opacity: 0; }
+  100% { transform: translate(108px, 0);    opacity: 0; }
+}
+.process-step.visible .b-plan { animation: bPlan 3s ease-in-out 0.9s infinite; }
+@keyframes bPlan {
+  0%, 70% { opacity: 0.55; transform: scale(1); }
+  82%     { opacity: 1;    transform: scale(1.14); }
+  100%    { opacity: 0.7;  transform: scale(1); }
+}
+
+/* 03 Build & Deploy — bars spring up once, a check confirms, ring keeps pulsing */
+.process-step.visible .bd-bar { animation: bdRise 0.9s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+@keyframes bdRise {
+  0%   { transform: scaleY(0);    opacity: 0; }
+  20%  { opacity: 1; }
+  65%  { transform: scaleY(1.06); }
+  100% { transform: scaleY(1);    opacity: 1; }
+}
+.process-step.visible .bd-badge { animation: bdBadge 0.6s cubic-bezier(0.34, 1.56, 0.64, 1) 0.7s both; }
+@keyframes bdBadge { 0% { transform: scale(0); } 100% { transform: scale(1); } }
+.process-step.visible .bd-check { animation: bdCheck 0.5s ease-out 1.05s both; }
+@keyframes bdCheck { to { stroke-dashoffset: 0; } }
+.process-step.visible .bd-ring  { animation: bdRing 2.6s ease-out 1.2s infinite; }
+@keyframes bdRing {
+  0%   { transform: scale(0.55); opacity: 0; }
+  35%  { opacity: 0.55; }
+  100% { transform: scale(1.7);  opacity: 0; }
+}
+
+/* 04 Grow — line + area draw in once with a comet, points pop, halo pulses */
+.process-step.visible .g-line  { animation: gDraw 1.3s ease-in-out both; }
+@keyframes gDraw { to { stroke-dashoffset: 0; } }
+.process-step.visible .g-area  { animation: gArea 1s ease-out 0.7s both; }
+@keyframes gArea { to { opacity: 1; } }
+.process-step.visible .g-pt    { animation: gPtIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) both; }
+.g-pt1 { animation-delay: 0.25s; }
+.g-pt2 { animation-delay: 0.5s; }
+.g-pt3 { animation-delay: 0.8s; }
+.g-pt4 { animation-delay: 1.05s; }
+@keyframes gPtIn { 0% { transform: scale(0); } 60% { transform: scale(1.35); } 100% { transform: scale(1); } }
+.process-step.visible .g-dot   { animation: gDotIn 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) 1.25s both; }
+@keyframes gDotIn { 0% { transform: scale(0); opacity: 0; } 100% { transform: scale(1); opacity: 1; } }
+.process-step.visible .g-comet { animation: gComet 3.6s ease-in-out 1.4s infinite; }
+@keyframes gComet {
+  0%   { transform: translate(0, 0);          opacity: 0; }
+  6%   { opacity: 1; }
+  22%  { transform: translate(38px, -14px); }
+  44%  { transform: translate(76px, -8px); }
+  66%  { transform: translate(114px, -40px); }
+  86%  { transform: translate(156px, -66px);  opacity: 1; }
+  96%  { transform: translate(156px, -66px);  opacity: 0; }
+  100% { opacity: 0; }
+}
+.process-step.visible .g-halo  { animation: gHalo 2.4s ease-in-out 1.4s infinite; }
+@keyframes gHalo {
+  0%, 100% { transform: scale(0.6); opacity: 0; }
+  50%      { transform: scale(1.4); opacity: 0.65; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .d-lens, .b-dot, .bd-bar, .bd-check, .g-line, .g-dot {
+  .process-step.visible .d-node, .process-step.visible .d-radar, .process-step.visible .d-lens,
+  .process-step.visible .b-track, .process-step.visible .b-node, .process-step.visible .b-plan,
+  .process-step.visible .b-dot1, .process-step.visible .b-dot2,
+  .process-step.visible .b-glow1, .process-step.visible .b-glow2,
+  .process-step.visible .bd-bar, .process-step.visible .bd-ring,
+  .process-step.visible .bd-badge, .process-step.visible .bd-check,
+  .process-step.visible .g-area, .process-step.visible .g-line, .process-step.visible .g-comet,
+  .process-step.visible .g-pt, .process-step.visible .g-dot, .process-step.visible .g-halo {
     animation: none;
   }
-  .b-dot, .g-dot { opacity: 1; }
+  .d-radar, .b-glow1, .b-glow2, .b-dot1, .b-dot2, .bd-ring, .g-comet, .g-halo { opacity: 0; }
+  .b-track, .g-line { stroke-dashoffset: 0; }
+  .b-node { transform: scale(1); opacity: 0.18; }
+  .b-plan { opacity: 1; }
   .bd-bar { transform: scaleY(1); opacity: 1; }
-  .bd-check, .g-line { stroke-dashoffset: 0; }
+  .bd-badge { transform: scale(1); }
+  .bd-check { stroke-dashoffset: 0; }
+  .g-area { opacity: 1; }
+  .g-pt, .g-dot { transform: scale(1); opacity: 1; }
 }
 
 /* === TOOLS === */

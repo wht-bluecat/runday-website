@@ -160,14 +160,29 @@
           <span class="process-label">Step One</span>
           <div class="proc-card">
             <svg class="proc-illu" viewBox="0 0 200 120" fill="none" aria-hidden="true">
-              <rect x="24" y="26" width="54" height="15" rx="5" fill="#6B7B5E" opacity="0.16"/>
-              <rect x="118" y="22" width="44" height="15" rx="5" fill="#6B7B5E" opacity="0.16"/>
-              <rect x="54" y="60" width="60" height="15" rx="5" fill="#6B7B5E" opacity="0.16"/>
-              <rect x="128" y="64" width="40" height="15" rx="5" fill="#6B7B5E" opacity="0.16"/>
-              <rect x="40" y="92" width="48" height="15" rx="5" fill="#6B7B5E" opacity="0.16"/>
-              <g class="d-lens">
-                <circle cx="40" cy="40" r="15" stroke="#C24B2A" stroke-width="3.5" fill="#FAF6EF"/>
-                <line x1="51" y1="51" x2="62" y2="62" stroke="#C24B2A" stroke-width="3.5" stroke-linecap="round"/>
+              <defs>
+                <radialGradient id="dGlass" cx="38%" cy="34%" r="72%">
+                  <stop offset="0%" stop-color="#FFFFFF" stop-opacity="0.95"/>
+                  <stop offset="55%" stop-color="#FAF6EF" stop-opacity="0.35"/>
+                  <stop offset="100%" stop-color="#F0E8DC" stop-opacity="0.12"/>
+                </radialGradient>
+                <linearGradient id="dRing" x1="0" y1="0" x2="1" y2="1">
+                  <stop offset="0%" stop-color="#E2814F"/>
+                  <stop offset="100%" stop-color="#C24B2A"/>
+                </linearGradient>
+                <filter id="dShadow" x="-50%" y="-50%" width="200%" height="200%">
+                  <feDropShadow dx="0" dy="2.5" stdDeviation="3" flood-color="#2C2418" flood-opacity="0.2"/>
+                </filter>
+              </defs>
+              <rect class="d-node d-node1" x="20"  y="26" width="54" height="14" rx="5"/>
+              <rect class="d-node d-node2" x="126" y="26" width="50" height="14" rx="5"/>
+              <rect class="d-node d-node3" x="20"  y="84" width="54" height="14" rx="5"/>
+              <rect class="d-node d-node4" x="126" y="84" width="50" height="14" rx="5"/>
+              <circle class="d-radar" cx="100" cy="62" r="9" stroke="#C24B2A" stroke-width="1.5"/>
+              <g class="d-lens" filter="url(#dShadow)">
+                <circle cx="40" cy="40" r="15" fill="url(#dGlass)" stroke="url(#dRing)" stroke-width="3.5"/>
+                <path d="M32 37 a8 8 0 0 1 6 -6" stroke="#FFFFFF" stroke-width="2" stroke-linecap="round" opacity="0.9"/>
+                <line x1="51" y1="51" x2="63" y2="63" stroke="url(#dRing)" stroke-width="4" stroke-linecap="round"/>
               </g>
             </svg>
           </div>
@@ -182,15 +197,26 @@
           <span class="process-label">Step Two</span>
           <div class="proc-card">
             <svg class="proc-illu" viewBox="0 0 200 120" fill="none" aria-hidden="true">
-              <path d="M48 60 C70 60 70 33 92 33" stroke="#D8CCBD" stroke-width="2.5"/>
-              <path d="M48 60 C70 60 70 87 92 87" stroke="#D8CCBD" stroke-width="2.5"/>
-              <path d="M132 33 C154 33 154 60 156 60" stroke="#D8CCBD" stroke-width="2.5"/>
-              <path d="M132 87 C154 87 154 60 156 60" stroke="#D8CCBD" stroke-width="2.5"/>
-              <rect x="14" y="50" width="34" height="20" rx="6" fill="#6B7B5E" opacity="0.18"/>
-              <rect x="92" y="24" width="40" height="18" rx="6" fill="#6B7B5E" opacity="0.18"/>
-              <rect x="92" y="78" width="40" height="18" rx="6" fill="#6B7B5E" opacity="0.18"/>
-              <rect x="156" y="50" width="32" height="20" rx="6" fill="#C24B2A" opacity="0.9"/>
-              <circle class="b-dot" cx="48" cy="60" r="4.5" fill="#C24B2A"/>
+              <defs>
+                <linearGradient id="bPath" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#6B7B5E"/>
+                  <stop offset="100%" stop-color="#C24B2A"/>
+                </linearGradient>
+                <radialGradient id="bGlow" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#E2814F" stop-opacity="0.55"/>
+                  <stop offset="100%" stop-color="#E2814F" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
+              <path class="b-track b-track1" d="M48 60 C70 60 66 33 86 33 H126 C150 33 150 60 156 60" stroke="url(#bPath)" stroke-width="2.5"/>
+              <path class="b-track b-track2" d="M48 60 C70 60 66 87 86 87 H126 C150 87 150 60 156 60" stroke="url(#bPath)" stroke-width="2.5"/>
+              <rect class="b-node b-node-a" x="14" y="50" width="34" height="20" rx="6"/>
+              <rect class="b-node b-node-b" x="86" y="24" width="40" height="18" rx="6"/>
+              <rect class="b-node b-node-c" x="86" y="78" width="40" height="18" rx="6"/>
+              <rect class="b-plan" x="156" y="50" width="32" height="20" rx="6" fill="#C24B2A"/>
+              <circle class="b-glow b-glow1" cx="48" cy="60" r="11" fill="url(#bGlow)"/>
+              <circle class="b-dot b-dot1" cx="48" cy="60" r="4" fill="#C24B2A"/>
+              <circle class="b-glow b-glow2" cx="48" cy="60" r="11" fill="url(#bGlow)"/>
+              <circle class="b-dot b-dot2" cx="48" cy="60" r="4" fill="#E2814F"/>
             </svg>
           </div>
           <div class="proc-text">
@@ -204,13 +230,24 @@
           <span class="process-label">Step Three</span>
           <div class="proc-card">
             <svg class="proc-illu" viewBox="0 0 200 120" fill="none" aria-hidden="true">
-              <line x1="24" y1="96" x2="150" y2="96" stroke="#D8CCBD" stroke-width="2"/>
-              <rect class="bd-bar" style="animation-delay:0s"    x="32"  y="40" width="18" height="56" rx="4" fill="#6B7B5E"/>
-              <rect class="bd-bar" style="animation-delay:.25s"  x="60"  y="40" width="18" height="56" rx="4" fill="#C24B2A"/>
-              <rect class="bd-bar" style="animation-delay:.5s"   x="88"  y="40" width="18" height="56" rx="4" fill="#6B7B5E"/>
-              <rect class="bd-bar" style="animation-delay:.75s"  x="116" y="40" width="18" height="56" rx="4" fill="#C24B2A"/>
-              <circle cx="162" cy="36" r="16" fill="#C24B2A" opacity="0.12"/>
-              <path class="bd-check" d="M154 36 l6 6 l11 -13" stroke="#C24B2A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <defs>
+                <linearGradient id="bdTc" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#A83D22"/>
+                  <stop offset="100%" stop-color="#E2814F"/>
+                </linearGradient>
+                <linearGradient id="bdOl" x1="0" y1="1" x2="0" y2="0">
+                  <stop offset="0%" stop-color="#5A6A4E"/>
+                  <stop offset="100%" stop-color="#84947A"/>
+                </linearGradient>
+              </defs>
+              <line x1="22" y1="96" x2="148" y2="96" stroke="#D8CCBD" stroke-width="2"/>
+              <rect class="bd-bar" style="animation-delay:0s"   x="32"  y="44" width="18" height="52" rx="4" fill="url(#bdOl)"/>
+              <rect class="bd-bar" style="animation-delay:.18s" x="60"  y="32" width="18" height="64" rx="4" fill="url(#bdTc)"/>
+              <rect class="bd-bar" style="animation-delay:.36s" x="88"  y="50" width="18" height="46" rx="4" fill="url(#bdOl)"/>
+              <rect class="bd-bar" style="animation-delay:.54s" x="116" y="24" width="18" height="72" rx="4" fill="url(#bdTc)"/>
+              <circle class="bd-ring" cx="162" cy="34" r="15" stroke="#C24B2A" stroke-width="2"/>
+              <circle class="bd-badge" cx="162" cy="34" r="15" fill="#C24B2A" opacity="0.12"/>
+              <path class="bd-check" d="M155 34 l5 5 l10 -12" stroke="#C24B2A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
           </div>
           <div class="proc-text">
@@ -224,8 +261,32 @@
           <span class="process-label">Step Four</span>
           <div class="proc-card">
             <svg class="proc-illu" viewBox="0 0 200 120" fill="none" aria-hidden="true">
+              <defs>
+                <linearGradient id="gLine" x1="0" y1="0" x2="1" y2="0">
+                  <stop offset="0%" stop-color="#6B7B5E"/>
+                  <stop offset="60%" stop-color="#E2814F"/>
+                  <stop offset="100%" stop-color="#C24B2A"/>
+                </linearGradient>
+                <linearGradient id="gArea" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0%" stop-color="#C24B2A" stop-opacity="0.28"/>
+                  <stop offset="100%" stop-color="#C24B2A" stop-opacity="0"/>
+                </linearGradient>
+                <radialGradient id="gHalo" cx="50%" cy="50%" r="50%">
+                  <stop offset="0%" stop-color="#C24B2A" stop-opacity="0.5"/>
+                  <stop offset="100%" stop-color="#C24B2A" stop-opacity="0"/>
+                </radialGradient>
+              </defs>
               <line x1="18" y1="100" x2="186" y2="100" stroke="#D8CCBD" stroke-width="2"/>
-              <polyline class="g-line" points="22,92 60,78 98,84 136,52 178,26" stroke="#C24B2A" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <line class="g-grid" x1="18" y1="74" x2="186" y2="74" stroke="#D8CCBD" stroke-width="1" stroke-dasharray="3 5" opacity="0.6"/>
+              <line class="g-grid" x1="18" y1="48" x2="186" y2="48" stroke="#D8CCBD" stroke-width="1" stroke-dasharray="3 5" opacity="0.6"/>
+              <path class="g-area" d="M22 92 L60 78 L98 84 L136 52 L178 26 L178 100 L22 100 Z" fill="url(#gArea)"/>
+              <polyline class="g-line" points="22,92 60,78 98,84 136,52 178,26" stroke="url(#gLine)" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle class="g-pt g-pt1" cx="22"  cy="92" r="3.2" fill="#6B7B5E"/>
+              <circle class="g-pt g-pt2" cx="60"  cy="78" r="3.2" fill="#6B7B5E"/>
+              <circle class="g-pt g-pt3" cx="98"  cy="84" r="3.2" fill="#E2814F"/>
+              <circle class="g-pt g-pt4" cx="136" cy="52" r="3.2" fill="#E2814F"/>
+              <circle class="g-halo" cx="178" cy="26" r="13" fill="url(#gHalo)"/>
+              <circle class="g-comet" cx="22" cy="92" r="4" fill="#FAF6EF" stroke="#C24B2A" stroke-width="2.5"/>
               <circle class="g-dot" cx="178" cy="26" r="5.5" fill="#C24B2A"/>
             </svg>
           </div>
