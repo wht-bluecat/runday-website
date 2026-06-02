@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact — Runday</title>
-  <meta name="description" content="Get in touch with Runday. Book a free call or send us a message about automating your business.">
+  <title>Contact — Book a Free Diagnostic | Runday</title>
+  <meta name="description" content="Book a free 20-minute diagnostic call with Runday, or send a message. We'll identify your biggest bottleneck and what to fix first. Metro Manila.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Runday">
+  <meta name="theme-color" content="#C24B2A">
+  <link rel="canonical" href="https://runday-website.vercel.app/contact.html">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -26,18 +30,49 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ContactPage",
+        "url": "https://runday-website.vercel.app/contact.html",
+        "name": "Contact Runday",
+        "mainEntity": {
+          "@type": "ProfessionalService",
+          "name": "Runday",
+          "url": "https://runday-website.vercel.app/",
+          "email": "runday.mnl@gmail.com",
+          "telephone": "+639275492649",
+          "areaServed": { "@type": "Place", "name": "Metro Manila, Philippines" },
+          "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "runday.mnl@gmail.com", "telephone": "+639275492649", "areaServed": "PH", "availableLanguage": ["en", "fil"] }
+        }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://runday-website.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Contact", "item": "https://runday-website.vercel.app/contact.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="container">
-      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark">run<span>day</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </div>
@@ -47,9 +82,9 @@
   <section class="hero">
     <div class="hero-grid"></div>
     <div class="container hero-content">
-      <div class="hero-sub">let's talk</div>
-      <h1>Get in touch.</h1>
-      <p>Whether you have a specific project or just want to explore what's possible — we'd love to hear from you.</p>
+      <div class="hero-sub">start here</div>
+      <h1>Book your free Diagnostic.</h1>
+      <p>Tell us what's eating your time. In 20 minutes we'll identify your biggest bottleneck and map out exactly what a system could do for your business.</p>
     </div>
   </section>
 
@@ -58,11 +93,7 @@
     <div class="container">
       <div class="contact-grid">
 
-        <!-- FORM -->
-        <!-- TODO(James): replace YOUR_FORM_ID below with the real Formspree ID.
-             Sign up at https://formspree.io → New Form → copy the ID from the endpoint
-             (e.g. https://formspree.io/f/xyzabcde → "xyzabcde"). Until then the form
-             gracefully falls back to "message us on WhatsApp" on submit (see script.js). -->
+        <!-- FORM — wired to live Formspree endpoint (confirmed 2026-06-02). -->
         <div class="fade-up">
           <form action="https://formspree.io/f/xvzylled" method="POST" class="contact-form">
             <div class="form-group">
@@ -79,18 +110,19 @@
             </div>
             <div class="form-group">
               <label for="message">What can we help with?</label>
-              <textarea id="message" name="message" placeholder="Tell us about your business and what you'd like to automate..." required></textarea>
+              <textarea id="message" name="message" placeholder="Tell us about your business and what's eating your time..." required></textarea>
             </div>
             <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send message</button>
+            <p class="form-reassure">We reply within 24 hours. No spam, no obligation — just a conversation about your business.</p>
           </form>
         </div>
 
         <!-- INFO SIDEBAR -->
         <div class="fade-up">
           <div class="contact-info" style="margin-bottom: 20px;">
-            <h3>Book a free call</h3>
-            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.65; margin-bottom: 20px;">20 minutes. No pitch deck. Just tell us what's eating your time and we'll map out what a system could look like together.</p>
-            <a href="https://wa.me/639275492649?text=Hi%20Runday!%20I%27d%20like%20to%20book%20a%20free%20call." class="btn btn-primary" style="width: 100%; justify-content: center;">Schedule a call</a>
+            <h3>Free Diagnostic Call</h3>
+            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.65; margin-bottom: 20px;">20 minutes. No pitch deck. You tell us what's breaking down — the manual tasks, the missed follow-ups, the things that shouldn't need you. We listen, identify your #1 bottleneck, and tell you exactly what to fix first. No commitment.</p>
+            <a href="https://wa.me/639275492649?text=Hi%20Runday!%20I%27d%20like%20to%20book%20a%20free%20Diagnostic%20call." class="btn btn-primary" style="width: 100%; justify-content: center;">Book your free diagnostic</a>
           </div>
 
           <div class="contact-info">
@@ -133,6 +165,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>

@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>About — Runday</title>
-  <meta name="description" content="Runday is an AI automation agency in Metro Manila. One founder building systems that replace manual work for small businesses.">
+  <title>About — Runday | AI Systems Partner in Metro Manila</title>
+  <meta name="description" content="Runday is an AI systems partner in Metro Manila. We diagnose, design, build, and run the systems that give small business owners their hours back.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Runday">
+  <meta name="theme-color" content="#C24B2A">
+  <link rel="canonical" href="https://runday-website.vercel.app/about.html">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -14,30 +18,53 @@
   <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
   <meta property="og:title" content="About — Runday">
-  <meta property="og:description" content="An AI automation agency in Metro Manila building systems that replace manual work for small businesses.">
+  <meta property="og:description" content="Runday is an AI systems partner in Metro Manila. We diagnose, design, build, and run the systems that give small business owners their hours back.">
   <meta property="og:image" content="https://runday-website.vercel.app/assets/og-image.png">
   <meta property="og:url" content="https://runday-website.vercel.app/about.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="About — Runday">
-  <meta name="twitter:description" content="An AI automation agency in Metro Manila building systems that replace manual work.">
+  <meta name="twitter:description" content="Runday is an AI systems partner in Metro Manila. We diagnose, design, build, and run the systems that give small business owners their hours back.">
   <meta name="twitter:image" content="https://runday-website.vercel.app/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "AboutPage",
+        "url": "https://runday-website.vercel.app/about.html",
+        "name": "About Runday",
+        "mainEntity": { "@type": "ProfessionalService", "name": "Runday", "url": "https://runday-website.vercel.app/", "founder": { "@type": "Person", "name": "James Mikael Yaptangco" }, "areaServed": { "@type": "Place", "name": "Metro Manila, Philippines" } }
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://runday-website.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "About", "item": "https://runday-website.vercel.app/about.html" }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
   <!-- NAV -->
   <nav class="nav">
     <div class="container">
-      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark">run<span>day</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
         <li><a href="about.html" class="active">About</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -48,8 +75,8 @@
     <div class="hero-grid"></div>
     <div class="container hero-content">
       <div class="hero-sub">who we are</div>
-      <h1>One founder.<br>One mission.</h1>
-      <p>Philippine small businesses are drowning in manual work that AI can handle. Runday exists to fix that — together.</p>
+      <h1>We build the systems.<br>AI runs them.</h1>
+      <p>Small business owners in Manila are buried in work that should run itself. Runday diagnoses what's broken, designs the fix, builds the systems, and keeps them running — so you don't have to.</p>
     </div>
   </section>
 
@@ -57,33 +84,44 @@
   <section class="section">
     <div class="container">
       <div class="about-content fade-up">
-        <p><strong>Runday started with a simple observation:</strong> most small businesses in Manila are doing the same repetitive work every day — posting on social media, chasing leads, sending reminders, managing bookings. All of it can be automated.</p>
-        <p>We're not a traditional agency. We don't sell you retainers and monthly reports. We build AI-powered systems that do the actual work — then hand them over. You own every account, every automation, every template.</p>
-        <p>Think of us as your systems partner. You tell us what's taking up your time. We'll figure out the right system together — and build it for you.</p>
+        <p><strong>Runday started with a simple observation:</strong> most small businesses in Manila are doing the same repetitive work every day — posting on social media, chasing leads, sending reminders, managing bookings. All of it can be systemised — and then run, permanently, with AI.</p>
+        <p>We're not a traditional agency. We don't build things and disappear. We diagnose where your business is leaking time and money, design the right system, build it, and then operate it with AI on an ongoing basis — so the results compound instead of stall.</p>
+        <p>You own every account, every asset, every login. What you get from Growth Partner isn't lock-in — it's the relief of not having to run the systems yourself. We do that. You run your business.</p>
       </div>
     </div>
   </section>
 
-  <!-- HOW WE WORK -->
+  <!-- HOW WE WORK — rundayOS -->
   <section class="section section-alt">
     <div class="container">
       <div class="section-centered fade-up">
-        <div class="section-sub">how it works</div>
-        <h2>Three steps. That's it.</h2>
+        <div class="section-sub">the rundayOS methodology</div>
+        <h2>Four steps. Always in this order.</h2>
       </div>
-      <div class="steps-grid">
+      <div class="steps-grid" style="grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));">
         <div class="step-card fade-up">
-          <h3>Tell us what's not working</h3>
-          <p>The repetitive tasks. The missed follow-ups. The things slipping through the cracks. We start by listening.</p>
+          <span class="proc-num" style="font-size: 1.4rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.5rem;">01</span>
+          <h3>Diagnose</h3>
+          <p>We map your workflows and find exactly where time and money are leaking. You get clarity on what's actually broken — not a guess.</p>
         </div>
         <div class="step-card fade-up">
-          <h3>We build the system</h3>
-          <p>AI-powered automations, custom to your business. Not templates. Built around how you actually work.</p>
+          <span class="proc-num" style="font-size: 1.4rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.5rem;">02</span>
+          <h3>Blueprint</h3>
+          <p>We design the system — SOPs, decision trees, the full architecture of the fix. A plan you could hand to anyone. Yours to keep.</p>
         </div>
         <div class="step-card fade-up">
-          <h3>You own it forever</h3>
-          <p>We hand it over. It runs. Every account and asset is yours. No lock-in, no hostage fees.</p>
+          <span class="proc-num" style="font-size: 1.4rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.5rem;">03</span>
+          <h3>Build &amp; Deploy</h3>
+          <p>We build the systems on tools you already use and ship them live. Working systems, not slideware — typically within weeks.</p>
         </div>
+        <div class="step-card fade-up">
+          <span class="proc-num" style="font-size: 1.4rem; font-weight: 700; color: var(--accent); display: block; margin-bottom: 0.5rem;">04</span>
+          <h3>Grow</h3>
+          <p>We run, monitor, and improve the systems with AI over time. You get compounding results — and your hours back — every month.</p>
+        </div>
+      </div>
+      <div style="text-align: center; margin-top: 2rem;">
+        <a href="services.html" class="btn btn-ghost">See full pricing &rarr;</a>
       </div>
     </div>
   </section>
@@ -113,10 +151,10 @@
       <div class="cta-grid-bg"></div>
       <div class="cta-content">
         <div class="section-sub">ready?</div>
-        <h2>Tell us what's eating your time.</h2>
-        <p>20-minute call. No commitment. Just tell us what's broken and we'll figure it out together.</p>
+        <h2>Find out what's costing you the most time.</h2>
+        <p>Free 20-minute Diagnostic. No commitment. We'll identify your biggest bottleneck and tell you exactly what to fix first.</p>
         <div class="hero-ctas">
-          <a href="contact.html" class="btn btn-primary">Book a free call</a>
+          <a href="contact.html" class="btn btn-primary">Book your free diagnostic</a>
         </div>
       </div>
     </div>
@@ -135,6 +173,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>

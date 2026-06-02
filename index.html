@@ -3,8 +3,12 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Runday — AI Systems for Growing Businesses</title>
-  <meta name="description" content="rundayOS gives you the marketing, operations, and sales systems that keep working — even when you're not. Built for business owners who'd rather grow than grind.">
+  <title>Runday — AI Systems Partner for Metro Manila Businesses</title>
+  <meta name="description" content="Runday diagnoses, builds, and operates the marketing, operations, and sales systems that run your business — so it keeps working even when you're not. Metro Manila. Free diagnostic call.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Runday">
+  <meta name="theme-color" content="#C24B2A">
+  <link rel="canonical" href="https://runday-website.vercel.app/">
 
   <!-- Favicon -->
   <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
@@ -26,6 +30,57 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://runday-website.vercel.app/#organization",
+        "name": "Runday",
+        "description": "Runday is an AI systems partner for small and mid-sized businesses in Metro Manila. We diagnose, build, and operate the marketing, operations, and sales systems that run a business.",
+        "url": "https://runday-website.vercel.app/",
+        "logo": "https://runday-website.vercel.app/assets/favicon-512.png",
+        "image": "https://runday-website.vercel.app/assets/og-image.png",
+        "email": "runday.mnl@gmail.com",
+        "telephone": "+639275492649",
+        "priceRange": "₱₱",
+        "slogan": "We build the systems. AI runs them.",
+        "areaServed": { "@type": "Place", "name": "Metro Manila, Philippines" },
+        "address": { "@type": "PostalAddress", "addressRegion": "Metro Manila", "addressCountry": "PH" },
+        "founder": { "@type": "Person", "name": "James Mikael Yaptangco" },
+        "sameAs": ["https://www.facebook.com/profile.php?id=61590141402371"],
+        "knowsAbout": ["Business automation", "AI systems", "Marketing systems", "Operations systems", "Lead generation", "Booking systems"],
+        "makesOffer": [
+          { "@type": "Offer", "name": "Free Diagnostic Call", "price": "0", "priceCurrency": "PHP" },
+          { "@type": "Offer", "name": "rundayOS Blueprint", "price": "15000", "priceCurrency": "PHP" },
+          { "@type": "Offer", "name": "rundayOS Build", "price": "30000", "priceCurrency": "PHP" },
+          { "@type": "Offer", "name": "Growth Partner", "price": "5000", "priceCurrency": "PHP" }
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://runday-website.vercel.app/#website",
+        "url": "https://runday-website.vercel.app/",
+        "name": "Runday",
+        "publisher": { "@id": "https://runday-website.vercel.app/#organization" }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          { "@type": "Question", "name": "What's a diagnostic call?", "acceptedAnswer": { "@type": "Answer", "text": "A free 20-minute conversation where we listen to what's not working in your business and identify the biggest bottleneck. No pitch, no commitment — just clarity on what to fix first." } },
+          { "@type": "Question", "name": "What's a rundayOS Blueprint?", "acceptedAnswer": { "@type": "Answer", "text": "A deep dive into your operations. We map your workflows, identify the highest-leverage systems to build, and deliver a document with ROI projections. It's yours to keep even if you don't hire us to build." } },
+          { "@type": "Question", "name": "Do I need to be technical?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. We build on tools you already use — Messenger, Google, Canva, Notion. If you can post on Facebook, you can run what we build." } },
+          { "@type": "Question", "name": "Who owns the systems?", "acceptedAnswer": { "@type": "Answer", "text": "You do — every account, every asset, every login. No lock-in. If we part ways tomorrow, everything keeps running." } },
+          { "@type": "Question", "name": "How long does it take?", "acceptedAnswer": { "@type": "Answer", "text": "Blueprint: 1–2 weeks. Build: 2–4 weeks per module. Most businesses are up and running within a month." } },
+          { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "Blueprint starts at ₱15,000. Build starts at ₱30,000. Growth Partner starts at ₱5,000/mo. The diagnostic call is free. Final scope always comes from the blueprint — no surprises." } }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body>
 
@@ -33,12 +88,13 @@
   <!-- NAV -->
   <nav class="nav">
     <div class="container">
-      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark">run<span>day</span></a>
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html" class="active">Home</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="services.html">Services</a></li>
+        <li><a href="work.html">Work</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
@@ -55,6 +111,7 @@
         <a href="contact.html" class="btn btn-primary">Book your free diagnostic</a>
         <a href="#process" class="btn btn-ghost">See how it works</a>
       </div>
+      <p class="hero-trust">Built for Metro Manila businesses &middot; <a href="work.html">Live systems shipped for Miraluz Studio &rarr;</a></p>
     </div>
   </section>
 
@@ -125,24 +182,23 @@
         <h2>Systems we've shipped.</h2>
       </div>
       <div class="work-grid">
-        <a href="https://website-tau-seven-11.vercel.app" target="_blank" rel="noopener" class="work-card fade-up">
+        <a href="work.html" class="work-card fade-up">
           <div class="work-card-top">
             <span class="work-tag">Brand &amp; Web</span>
             <span class="work-live">Live<span class="live-dot"></span></span>
           </div>
           <h3>Miraluz Studio</h3>
-          <p>Brand identity and a booking-ready website for a Manila creative studio — designed, built, and handed over. Theirs to run.</p>
-          <span class="work-link">Visit the site &rarr;</span>
+          <p>A manual, DM-based booking process replaced with a live website, a real-time booking system, and automated confirmations — designed, built, and handed over.</p>
+          <span class="work-link">Read the case study &rarr;</span>
         </a>
-        <div class="work-card fade-up">
+        <a href="contact.html" class="work-card work-card-cta fade-up">
           <div class="work-card-top">
-            <span class="work-tag">Marketing System</span>
-            <span class="work-soon">Launching Jun 2026</span>
+            <span class="work-tag">Your business</span>
           </div>
-          <h3>Oro Hotel Makati</h3>
-          <p>A full content and marketing system — social, email, and booking flows — built across five phases and going live this June.</p>
-          <span class="work-link work-link-muted">Case study soon</span>
-        </div>
+          <h3>You could be next.</h3>
+          <p>We take on a small number of Metro Manila businesses at a time. Start with a free diagnostic — we'll find the process that should be a system.</p>
+          <span class="work-link">Book your free diagnostic &rarr;</span>
+        </a>
       </div>
     </div>
   </section>
@@ -422,6 +478,7 @@
           <li><a href="index.html">Home</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>
       </div>

@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Case Study: Miraluz Studio — Runday</title>
+  <meta name="description" content="How Runday built a booking system, automated confirmations, and a live website for Miraluz Studio — replacing a manual, DM-based process with systems the owner controls.">
+  <meta name="robots" content="index, follow">
+  <meta name="author" content="Runday">
+  <meta name="theme-color" content="#C24B2A">
+  <link rel="canonical" href="https://runday-website.vercel.app/work.html">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32.png">
+  <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+
+  <!-- Open Graph / Social -->
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="Case Study: Miraluz Studio — Runday">
+  <meta property="og:description" content="A manual, DM-based booking process replaced with a system the owner controls — built and handed over by Runday.">
+  <meta property="og:image" content="https://runday-website.vercel.app/assets/og-image.png">
+  <meta property="og:url" content="https://runday-website.vercel.app/work.html">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Case Study: Miraluz Studio — Runday">
+  <meta name="twitter:description" content="A manual, DM-based booking process replaced with a system the owner controls.">
+  <meta name="twitter:image" content="https://runday-website.vercel.app/assets/og-image.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+
+  <!-- Structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Article",
+        "headline": "Case Study: Miraluz Studio",
+        "description": "How Runday replaced a manual, DM-based booking process with a system the owner controls — a live website, automated confirmations, and a real-time booking ledger.",
+        "image": "https://runday-website.vercel.app/assets/og-image.png",
+        "author": { "@type": "Organization", "name": "Runday", "url": "https://runday-website.vercel.app/" },
+        "publisher": { "@type": "Organization", "name": "Runday", "logo": { "@type": "ImageObject", "url": "https://runday-website.vercel.app/assets/favicon-512.png" } },
+        "about": { "@type": "Organization", "name": "Miraluz Studio" },
+        "mainEntityOfPage": "https://runday-website.vercel.app/work.html"
+      },
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://runday-website.vercel.app/" },
+          { "@type": "ListItem", "position": 2, "name": "Work", "item": "https://runday-website.vercel.app/work.html" }
+        ]
+      }
+    ]
+  }
+  </script>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="nav">
+    <div class="container">
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
+      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="services.html">Services</a></li>
+        <li><a href="work.html" class="active">Work</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main id="main">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="container hero-content">
+      <div class="hero-sub">case study &middot; brand &amp; web</div>
+      <h1>Miraluz Studio</h1>
+      <p>A creative studio with a premium brand and an ad-hoc, DM-based booking process. Runday built the system to match the brand — and handed it over.</p>
+      <div class="hero-ctas">
+        <a href="https://website-tau-seven-11.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">Visit the live site</a>
+        <a href="contact.html" class="btn btn-ghost">Start your own diagnostic</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- SNAPSHOT -->
+  <section class="section" style="padding-top: 0;">
+    <div class="container">
+      <div class="phase-body fade-up" style="max-width: 760px;">
+        <p><strong>Miraluz Studio</strong> is a photo and film studio rental in Quezon City, Metro Manila, run by Alec Ilustre. It rents studio time by the hour to photographers, content creators, and production teams. The brand — a monochrome eye-with-lightbulb mark and editorial typography — positions it as a deliberate creative space, not a commodity rental.</p>
+        <div class="phase-details">
+          <div class="phase-detail"><strong>Engagement</strong><span>Pro-bono &middot; portfolio</span></div>
+          <div class="phase-detail"><strong>Location</strong><span>Quezon City, Metro Manila</span></div>
+          <div class="phase-detail"><strong>Delivered</strong><span>Website, booking system, brand, content</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE SITUATION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">the situation</div>
+        <h2>A premium brand on an ad-hoc process.</h2>
+      </div>
+      <div class="values-grid">
+        <div class="value-card fade-up">
+          <h3>No booking system</h3>
+          <p>Inquiries arrived through Instagram DMs. No central record of who booked, which slots were taken, or whether payment had landed. Every step needed the owner.</p>
+        </div>
+        <div class="value-card fade-up">
+          <h3>No confirmation</h3>
+          <p>Once a client paid, nothing confirmed it automatically. Receipts were collected ad hoc — an experience that didn't match the quality of the space.</p>
+        </div>
+        <div class="value-card fade-up">
+          <h3>No web presence</h3>
+          <p>No website meant no public rates, no credibility anchor for cold prospects, and no discoverable place to book. Invisible to anyone not already following on Instagram.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- THE APPROACH -->
+  <section class="section">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">the rundayOS process</div>
+        <h2>How we approached it.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="card-label">01 &middot; Diagnose</div>
+          <p>Mapped the full booking lifecycle — inquiry &rarr; schedule &rarr; payment &rarr; confirmation &rarr; session — and found every manual touchpoint eating the owner's time.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">02 &middot; Blueprint</div>
+          <p>Designed a lean ops stack on tools the client already had: a static site as the front door, Google Sheets as the ledger, Apps Script for logic, Drive for receipts. Zero new subscriptions.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">03 &middot; Build &amp; Deploy</div>
+          <p>Shipped everything: website live on Vercel, booking system wired end to end, confirmation email firing on approval, first Instagram content produced.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">04 &middot; Grow</div>
+          <p>Established a repeatable editorial style for ongoing Instagram content — a carousel system for consistent presence, not one-off posts.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHAT WE BUILT -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">what we built</div>
+        <h2>A system the owner controls.</h2>
+      </div>
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="card-label">Operations</div>
+          <h3>Booking + auto-confirmation</h3>
+          <p>A 3-step web booking form feeds a structured Google Sheets ledger. Live availability blocks taken slots — no double-bookings. On approval, a branded HTML confirmation email fires automatically. The owner's only action: changing one cell.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">Operations</div>
+          <h3>Receipt collection</h3>
+          <p>After booking, clients are routed to a payment page (BDO transfer + QR) and upload their receipt. The file lands in a dedicated Drive folder and the ledger updates to &ldquo;Receipt Received&rdquo; on its own.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">Marketing</div>
+          <h3>Editorial website</h3>
+          <p>A five-page site — home, the spaces, rates, booking, payment — live on Vercel and auto-deploying on every push. Copy rewritten to a confident, editorial tone, with a real-photo studio gallery.</p>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">Brand &amp; Marketing</div>
+          <h3>Brand application + first carousel</h3>
+          <p>The monochrome eye-with-lightbulb identity applied consistently across site, email, and social — plus the first Instagram carousel, establishing the content style for everything that follows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BEFORE / AFTER -->
+  <section class="section">
+    <div class="container">
+      <div class="section-centered fade-up">
+        <div class="section-sub">what changed</div>
+        <h2>Before and after.</h2>
+      </div>
+      <div class="cs-cols">
+        <div class="cs-col cs-before fade-up">
+          <div class="cs-col-label">Before</div>
+          <ul>
+            <li>Bookings happened in DMs</li>
+            <li>No central record</li>
+            <li>No automatic confirmation</li>
+            <li>No website or public rates</li>
+            <li>Owner needed at every step</li>
+          </ul>
+        </div>
+        <div class="cs-col cs-after fade-up">
+          <div class="cs-col-label">After</div>
+          <ul>
+            <li>Anyone can find the studio, see rates, and book</li>
+            <li>Every booking logged automatically</li>
+            <li>Slots blocked in real time — no double-bookings</li>
+            <li>Branded confirmation fires on approval</li>
+            <li>Receipts collected and stored without intervention</li>
+          </ul>
+        </div>
+      </div>
+      <p class="cs-pending fade-up">Hard numbers — booking volume and admin-time saved — are still accumulating, and a client testimonial is pending. This was a pro-bono engagement; the proof here is the system itself, not retrofitted metrics.</p>
+    </div>
+  </section>
+
+  <!-- TAKEAWAY -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-centered fade-up" style="max-width: 720px;">
+        <div class="section-sub">the takeaway</div>
+        <h2>We build the back-end to match the front-end.</h2>
+        <p class="section-intro">A beautiful Instagram grid and a manual DM booking process are a contradiction — one says &ldquo;premium,&rdquo; the other says &ldquo;ad hoc.&rdquo; Runday resolved it. That's what rundayOS does: it connects the promise of a brand to the experience of actually booking through it — on tools the business already owns, with nothing held hostage.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section" style="padding-top: 0;">
+    <div class="cta-banner fade-up">
+      <div class="cta-grid-bg"></div>
+      <div class="cta-content">
+        <div class="section-sub">your turn</div>
+        <h2>What's running on goodwill in your business?</h2>
+        <p>Free 20-minute diagnostic. We'll find the manual process that should be a system — and tell you exactly what to fix first.</p>
+        <div class="hero-ctas">
+          <a href="contact.html" class="btn btn-primary">Book your free diagnostic</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-brand">
+        <div class="nav-logo">run<span>day</span></div>
+        <p class="footer-tagline">We build the systems. AI runs them.</p>
+      </div>
+      <div class="footer-links">
+        <h4>Pages</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="work.html">Work</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div class="container">
+        &copy; 2026 Runday. Metro Manila, Philippines.
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

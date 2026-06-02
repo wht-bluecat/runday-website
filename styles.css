@@ -1442,6 +1442,99 @@ a.work-card:hover {
   color: var(--text-muted);
 }
 
+/* === HERO TRUST LINE === */
+.hero-trust {
+  margin-top: 28px;
+  font-size: 14px;
+  color: var(--text-muted);
+  font-weight: 500;
+}
+.hero-trust a {
+  color: var(--terracotta);
+  font-weight: 600;
+  border-bottom: 1px solid var(--terracotta-border);
+  transition: border-color 0.2s;
+}
+.hero-trust a:hover { border-color: var(--terracotta); }
+
+/* === FORM REASSURANCE === */
+.form-reassure {
+  margin-top: 14px;
+  font-size: 13px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+/* === WORK CTA CARD === */
+.work-card-cta {
+  border-style: dashed;
+  border-color: var(--terracotta-border);
+  background: transparent;
+}
+.work-card-cta:hover { border-color: var(--terracotta); }
+
+/* === CASE STUDY — before/after === */
+.cs-cols {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  max-width: 880px;
+  margin: 0 auto;
+}
+.cs-col {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: 16px;
+  padding: 28px 32px;
+}
+.cs-col.cs-after {
+  border-color: var(--terracotta-border);
+  background: var(--terracotta-subtle);
+}
+.cs-col-label {
+  font-family: var(--font-heading);
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+  margin-bottom: 14px;
+  color: var(--text-muted);
+}
+.cs-after .cs-col-label { color: var(--terracotta); }
+.cs-col ul { list-style: none; }
+.cs-col li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 12px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+.cs-col li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--border);
+}
+.cs-after li::before { background: var(--terracotta); }
+.cs-pending {
+  max-width: 720px;
+  margin: 32px auto 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-muted);
+  font-style: italic;
+}
+@media (max-width: 720px) {
+  .cs-cols { grid-template-columns: 1fr; }
+}
+
 /* === FAQ === */
 
 .faq-list {

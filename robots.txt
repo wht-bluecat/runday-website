@@ -1,0 +1,19 @@
+# Runday — robots.txt
+# Allow all standard search crawlers
+User-agent: *
+Allow: /
+
+# Explicitly welcome AI answer engines (2026: don't get left out of AI Overviews / chat results)
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+Sitemap: https://runday-website.vercel.app/sitemap.xml
