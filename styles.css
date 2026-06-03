@@ -1254,6 +1254,38 @@ img {
   color: var(--terracotta);
 }
 
+/* Build modules — nested sub-section of Step 03 (Build) */
+.build-modules {
+  margin-top: 36px;
+  padding-top: 36px;
+  border-top: 1px solid var(--card-border);
+}
+
+.build-modules-intro {
+  max-width: 720px;
+  margin-bottom: 28px;
+}
+
+.build-modules-intro .card-label {
+  color: var(--terracotta);
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin-bottom: 10px;
+}
+
+.build-modules-intro p {
+  color: var(--text-secondary);
+  font-size: 16px;
+  line-height: 1.7;
+}
+
+.build-modules .services-grid {
+  margin-bottom: 28px;
+}
+
 /* === FLOATING CHAT === */
 
 .fab-chat {
