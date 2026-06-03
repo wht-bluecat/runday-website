@@ -22,48 +22,18 @@
     });
   });
 
-  // FAQ — smooth animated accordion (progressive enhancement over native <details>)
+  // FAQ — independent toggle accordion. Height is animated purely in CSS
+  // (grid-template-rows 0fr→1fr), so this just flips the .is-open class.
+  // Each item opens/closes on its own — toggling one never affects the others.
   (function () {
-    var items = document.querySelectorAll('details.faq-item');
+    var items = document.querySelectorAll('.rd-faq__item');
     if (!items.length) return;
-    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    function collapse(item) {
-      var ans = item.querySelector('.faq-answer');
-      if (!ans || reduce) { item.open = false; if (ans) ans.style.height = ''; return; }
-      ans.style.height = ans.scrollHeight + 'px';
-      ans.getBoundingClientRect();
-      ans.style.height = '0px';
-      ans.addEventListener('transitionend', function te(e) {
-        if (e.propertyName !== 'height') return;
-        item.open = false; ans.style.height = '';
-        ans.removeEventListener('transitionend', te);
-      });
-    }
-    function expand(item) {
-      var ans = item.querySelector('.faq-answer');
-      item.open = true;
-      if (!ans || reduce) return;
-      var h = ans.scrollHeight;
-      ans.style.height = '0px';
-      ans.getBoundingClientRect();
-      ans.style.height = h + 'px';
-      ans.addEventListener('transitionend', function te(e) {
-        if (e.propertyName !== 'height') return;
-        ans.style.height = 'auto';
-        ans.removeEventListener('transitionend', te);
-      });
-    }
-
     items.forEach(function (item) {
-      item.classList.add('faq-anim');
-      var summary = item.querySelector('summary');
-      if (!summary) return;
-      summary.addEventListener('click', function (e) {
-        e.preventDefault();
-        if (item.open) { collapse(item); return; }
-        items.forEach(function (o) { if (o !== item && o.open) collapse(o); });
-        expand(item);
+      var btn = item.querySelector('.rd-faq__q');
+      if (!btn) return;
+      btn.addEventListener('click', function () {
+        var open = item.classList.toggle('is-open');
+        btn.setAttribute('aria-expanded', open ? 'true' : 'false');
       });
     });
   })();

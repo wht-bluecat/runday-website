@@ -1536,95 +1536,123 @@ a.work-card:hover {
   .cs-cols { grid-template-columns: 1fr; }
 }
 
-/* === FAQ === */
+/* === FAQ (homepage — premium floating-card accordion) === */
+/* Fully self-contained under .rd-faq__* — its own class namespace so it never
+   collides with the services.html accordion (.faq-list/.faq-item/.faq-answer).
+   Smooth height via grid-template-rows 0fr→1fr (no JS measuring), independent
+   toggle (opening/closing one never affects the others). */
 
-.faq-list {
+.rd-faq {
   max-width: 760px;
   margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.faq-item {
-  border: 1px solid var(--card-border);
-  border-radius: 14px;
-  background: var(--card-bg);
-  margin-bottom: 12px;
-  overflow: hidden;
-  transition: border-color 0.25s ease, box-shadow 0.3s ease;
+.rd-faq__item {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 1px 2px rgba(44, 36, 24, 0.04), 0 6px 18px rgba(44, 36, 24, 0.05);
+  transition: box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              background-color 0.4s ease;
 }
 
-.faq-item:hover {
-  border-color: var(--terracotta-border);
-  box-shadow: 0 6px 22px rgba(44, 36, 24, 0.06);
+.rd-faq__item:hover {
+  box-shadow: 0 2px 6px rgba(44, 36, 24, 0.06), 0 14px 34px rgba(44, 36, 24, 0.09);
 }
 
-.faq-item[open] {
-  border-color: var(--terracotta-border);
-  box-shadow: 0 10px 30px rgba(44, 36, 24, 0.08);
+.rd-faq__item.is-open {
+  box-shadow: 0 2px 10px rgba(194, 75, 42, 0.07), 0 18px 44px rgba(44, 36, 24, 0.11);
 }
 
-.faq-item summary {
-  list-style: none;
+.rd-faq__q {
+  width: 100%;
+  border: none;
+  background: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
   padding: 22px 26px;
+  text-align: left;
   font-family: var(--font-heading);
   font-size: 17px;
   font-weight: 600;
   color: var(--dark);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 16px;
-  transition: color 0.2s ease;
+  transition: color 0.25s ease;
   -webkit-tap-highlight-color: transparent;
 }
 
-.faq-item summary:hover,
-.faq-item[open] summary { color: var(--terracotta); }
+.rd-faq__q:hover,
+.rd-faq__item.is-open .rd-faq__q { color: var(--terracotta); }
 
-.faq-item summary::-webkit-details-marker { display: none; }
-
-/* CSS-drawn +/× toggle (crisp at any size, springy rotate) */
-.faq-item summary::after {
-  content: '';
-  width: 18px;
-  height: 18px;
+/* Soft circular chip: + morphs to − (vertical bar collapses) with a spring spin */
+.rd-faq__icon {
+  width: 30px;
+  height: 30px;
   flex-shrink: 0;
-  background:
-    linear-gradient(var(--terracotta), var(--terracotta)) center / 100% 2px no-repeat,
-    linear-gradient(var(--terracotta), var(--terracotta)) center / 2px 100% no-repeat;
-  transition: transform 0.4s cubic-bezier(0.34, 1.35, 0.4, 1);
+  border-radius: 50%;
+  background-color: var(--terracotta-subtle);
+  background-image:
+    linear-gradient(var(--terracotta), var(--terracotta)),
+    linear-gradient(var(--terracotta), var(--terracotta));
+  background-repeat: no-repeat;
+  background-position: center, center;
+  background-size: 12px 2px, 2px 12px;
+  transition: background-size 0.45s cubic-bezier(0.34, 1.4, 0.5, 1),
+              background-color 0.3s ease,
+              transform 0.5s cubic-bezier(0.34, 1.4, 0.5, 1);
 }
 
-.faq-item[open] summary::after {
-  transform: rotate(135deg);
+.rd-faq__item.is-open .rd-faq__icon {
+  background-size: 12px 2px, 2px 0;   /* vertical bar gone → minus */
+  background-color: rgba(194, 75, 42, 0.16);
+  transform: rotate(180deg);
 }
 
-.faq-answer {
-  padding: 0 26px 24px;
+/* Smooth height: grid row track animates 0fr → 1fr. Inner clips the overflow. */
+.rd-faq__a {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.46s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-/* JS-driven smooth expand/collapse (only on enhanced items; no-JS keeps native) */
-.faq-item.faq-anim .faq-answer {
-  height: 0;
+.rd-faq__item.is-open .rd-faq__a {
+  grid-template-rows: 1fr;
+}
+
+.rd-faq__a-inner {
   overflow: hidden;
-  transition: height 0.36s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-@media (prefers-reduced-motion: reduce) {
-  .faq-item.faq-anim .faq-answer { transition: none; }
-  .faq-item summary::after { transition: none; }
-}
-
-.faq-answer p {
+.rd-faq__a-inner p {
+  margin: 0;
+  padding: 4px 26px 24px;   /* small gap under the question, comfortable bottom */
   color: var(--text-secondary);
   font-size: 15px;
   line-height: 1.7;
-  margin: 0;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: opacity 0.35s ease 0.05s,
+              transform 0.45s cubic-bezier(0.16, 1, 0.3, 1) 0.05s;
 }
 
-.faq-answer a {
+.rd-faq__item.is-open .rd-faq__a-inner p {
+  opacity: 1;
+  transform: none;
+}
+
+.rd-faq__a-inner a {
   color: var(--terracotta);
   font-weight: 600;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .rd-faq__a,
+  .rd-faq__icon,
+  .rd-faq__a-inner p { transition: none; }
 }
 
 @media (max-width: 1024px) {
