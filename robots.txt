@@ -16,4 +16,4 @@ Allow: /
 User-agent: Google-Extended
 Allow: /
 
-Sitemap: https://runday-website.vercel.app/sitemap.xml
+Sitemap: https://runday.tech/sitemap.xml
