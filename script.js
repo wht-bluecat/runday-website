@@ -15,6 +15,38 @@
     observer.observe(el);
   });
 
+  // Hero cursor parallax — subtle multi-layer depth (one shared rAF loop).
+  // Skipped for reduced-motion and touch-only devices.
+  (function () {
+    var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    var fine = window.matchMedia('(pointer: fine)').matches;
+    var layers = Array.prototype.slice.call(document.querySelectorAll('.hero [data-depth]'));
+    if (reduce || !fine || !layers.length) return;
+
+    var tx = 0, ty = 0, x = 0, y = 0, running = false;
+
+    window.addEventListener('pointermove', function (e) {
+      tx = (e.clientX / window.innerWidth - 0.5);
+      ty = (e.clientY / window.innerHeight - 0.5);
+      if (!running) { running = true; requestAnimationFrame(loop); }
+    });
+
+    function loop() {
+      x += (tx - x) * 0.06;
+      y += (ty - y) * 0.06;
+      for (var i = 0; i < layers.length; i++) {
+        var d = parseFloat(layers[i].getAttribute('data-depth')) || 0;
+        layers[i].style.transform =
+          'translate3d(' + (x * d * 220).toFixed(2) + 'px,' + (y * d * 220).toFixed(2) + 'px,0)';
+      }
+      if (Math.abs(tx - x) > 0.0005 || Math.abs(ty - y) > 0.0005) {
+        requestAnimationFrame(loop);
+      } else {
+        running = false;
+      }
+    }
+  })();
+
   // Mobile nav — close on link click
   document.querySelectorAll('.nav-links a').forEach(function (link) {
     link.addEventListener('click', function () {
