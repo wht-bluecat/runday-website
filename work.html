@@ -63,7 +63,7 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
@@ -81,14 +81,21 @@
   <main id="main">
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-page">
+    <div class="hero-aurora" aria-hidden="true">
+      <span class="au-blob au-b1"></span>
+      <span class="au-blob au-b2"></span>
+      <span class="au-blob au-b3"></span>
+    </div>
     <div class="hero-grid"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hp-mesh" aria-hidden="true"></div>
     <div class="container hero-content">
       <div class="hero-sub">case study &middot; brand &amp; web</div>
       <h1>Miraluz Studio</h1>
       <p>A creative studio with a premium brand and an ad-hoc, DM-based booking process. Runday built the system to match the brand, and handed it over.</p>
       <div class="hero-ctas">
-        <a href="https://website-tau-seven-11.vercel.app" target="_blank" rel="noopener" class="btn btn-primary">Visit the live site</a>
+        <a href="https://miraluzstudio.com" target="_blank" rel="noopener" class="btn btn-primary">Visit the live site</a>
         <a href="contact.html" class="btn btn-ghost">Start your own diagnostic</a>
       </div>
     </div>
@@ -150,7 +157,7 @@
         </div>
         <div class="service-card fade-up">
           <div class="card-label">03 &middot; Build &amp; Deploy</div>
-          <p>Shipped everything: website live on Vercel, booking system wired end to end, confirmation email firing on approval, first Instagram content produced.</p>
+          <p>Shipped everything: website live at miraluzstudio.com, booking system wired end to end, confirmation email firing on approval, first Instagram content produced.</p>
         </div>
         <div class="service-card fade-up">
           <div class="card-label">04 &middot; Grow</div>
@@ -181,7 +188,7 @@
         <div class="service-card fade-up">
           <div class="card-label">Marketing</div>
           <h3>Editorial website</h3>
-          <p>A five-page site (home, the spaces, rates, booking, payment) live on Vercel and auto-deploying on every push. Copy rewritten to a confident, editorial tone, with a real-photo studio gallery.</p>
+          <p>A five-page site (home, the spaces, rates, booking, payment) live on its own domain, miraluzstudio.com. Copy rewritten to a confident, editorial tone, with a real-photo studio gallery.</p>
         </div>
         <div class="service-card fade-up">
           <div class="card-label">Brand &amp; Marketing</div>

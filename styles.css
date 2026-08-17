@@ -138,12 +138,69 @@ img {
   cursor: pointer;
 }
 
+/* On-dark nav variant: while the nav floats over the dark hero stage it goes
+   translucent-dark with light links; once scrolled it reverts to cream. */
+.nav {
+  transition: background 0.35s ease, border-color 0.35s ease;
+}
+.nav-logo, .nav-links a, .nav-mobile-toggle { transition: color 0.35s ease; }
+.nav.nav-onhero:not(.is-scrolled) {
+  background: rgba(23, 17, 10, 0.42);
+  border-bottom-color: rgba(245, 238, 226, 0.10);
+}
+.nav.nav-onhero:not(.is-scrolled) .nav-logo { color: #F5EEE2; }
+.nav.nav-onhero:not(.is-scrolled) .nav-logo span { color: #E2814F; }
+.nav.nav-onhero:not(.is-scrolled) .nav-links a { color: rgba(245, 238, 226, 0.68); }
+.nav.nav-onhero:not(.is-scrolled) .nav-links a:hover,
+.nav.nav-onhero:not(.is-scrolled) .nav-links a.active { color: #FFFFFF; }
+.nav.nav-onhero:not(.is-scrolled) .nav-mobile-toggle { color: #F5EEE2; }
+
 /* === HERO === */
 
+/* Dark "stage": warm espresso, scoped to the hero only. The rest of the
+   site stays cream — the hero fades back into --bg at its base. */
 .hero {
+  --hero-ink: #241B10;
+  --hero-ink-2: #17110A;
+  --hero-fg: #F5EEE2;
+  --hero-fg-soft: #CDBFA9;
+  --hero-fg-muted: #A08F79;
+  --hero-line: rgba(245, 238, 226, 0.14);
+  --hero-glass: rgba(40, 30, 19, 0.55);
   position: relative;
-  padding: 150px 0 90px;
+  padding: 150px 0 0;
   overflow: hidden;
+  background:
+    radial-gradient(1100px 640px at 72% 8%, #3A2818 0%, rgba(58, 40, 24, 0) 62%),
+    radial-gradient(900px 560px at 12% 88%, #2E2213 0%, rgba(46, 34, 19, 0) 58%),
+    linear-gradient(180deg, var(--hero-ink-2) 0%, var(--hero-ink) 46%, #2A1F12 100%);
+}
+
+/* seam: the stage dissolves into the cream body, no hard edge */
+.hero::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 230px;
+  background: linear-gradient(to bottom, rgba(240, 232, 220, 0) 0%, var(--bg) 92%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* copy recolored for the dark stage */
+.hero .hero-sub { color: #E2A24F; }
+.hero .hero-trust { color: var(--hero-fg-muted); }
+.hero .hero-trust a { color: var(--hero-fg); border-bottom-color: rgba(226, 129, 79, 0.5); }
+.hero .hero-trust a:hover { border-bottom-color: #E2814F; }
+.hero .btn-ghost {
+  color: var(--hero-fg);
+  border-color: rgba(245, 238, 226, 0.28);
+}
+.hero .btn-ghost:hover {
+  border-color: rgba(245, 238, 226, 0.55);
+  background: rgba(245, 238, 226, 0.06);
 }
 
 .hero-layout {
@@ -161,8 +218,8 @@ img {
   position: absolute;
   inset: 0;
   background-image:
-    linear-gradient(var(--grid-color) 1px, transparent 1px),
-    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+    linear-gradient(rgba(245, 238, 226, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245, 238, 226, 0.055) 1px, transparent 1px);
   background-size: 64px 64px;
   mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
   -webkit-mask-image: radial-gradient(ellipse 70% 60% at 50% 40%, black 20%, transparent 70%);
@@ -197,11 +254,11 @@ img {
   line-height: 1.08;
   letter-spacing: -2px;
   margin-bottom: 24px;
-  color: var(--dark);
+  color: var(--hero-fg);
 }
 
 .hero p {
-  color: var(--text-secondary);
+  color: var(--hero-fg-soft);
   font-size: 19px;
   max-width: 520px;
   margin: 0 0 36px;
@@ -230,7 +287,8 @@ img {
 .au-blob {
   position: absolute;
   border-radius: 50%;
-  opacity: 0.42;
+  opacity: 0.34; /* on the dark stage these read as glowing embers */
+  mix-blend-mode: screen;
   will-change: transform;
 }
 .au-b1 { width: 42vw; height: 42vw; max-width: 620px; max-height: 620px;
@@ -263,8 +321,8 @@ img {
   inset: 0;
   z-index: 0;
   pointer-events: none;
-  opacity: 0.5;
-  mix-blend-mode: multiply;
+  opacity: 0.28;
+  mix-blend-mode: overlay;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.5'/%3E%3C/svg%3E");
 }
 
@@ -293,7 +351,7 @@ img {
   100% { opacity: 1; transform: translateY(0); }
 }
 
-/* --- the automation flow graphic --- */
+/* --- the live "back office in action" demo card --- */
 .hero-visual {
   position: relative;
   display: flex;
@@ -301,115 +359,314 @@ img {
   align-items: center;
   will-change: transform;
 }
-.hv-glow {
+
+/* gradient-mesh glow behind the card — the "wow" backdrop on the dark stage */
+.hv-mesh {
   position: absolute;
-  width: 80%;
-  height: 80%;
+  inset: -18%;
   border-radius: 50%;
-  background: radial-gradient(circle, rgba(226,129,79,0.20), rgba(226,129,79,0) 68%);
-  filter: blur(10px);
+  background:
+    radial-gradient(circle at 28% 30%, rgba(226, 129, 79, 0.42) 0%, rgba(226, 129, 79, 0) 46%),
+    radial-gradient(circle at 72% 58%, rgba(194, 75, 42, 0.36) 0%, rgba(194, 75, 42, 0) 50%),
+    radial-gradient(circle at 50% 88%, rgba(107, 123, 94, 0.30) 0%, rgba(107, 123, 94, 0) 48%),
+    radial-gradient(circle at 80% 16%, rgba(226, 162, 79, 0.26) 0%, rgba(226, 162, 79, 0) 42%);
+  filter: blur(52px);
   pointer-events: none;
+  animation: meshDrift 22s ease-in-out infinite;
+  will-change: transform;
 }
-.rd-flow {
+@keyframes meshDrift {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  33%      { transform: rotate(7deg) scale(1.08); }
+  66%      { transform: rotate(-6deg) scale(0.95); }
+}
+
+/* glass card */
+.rd-demo {
   position: relative;
   width: 100%;
-  max-width: 440px;
-  height: auto;
-  overflow: visible;
+  max-width: 460px;
+  border-radius: 20px;
+  background: var(--hero-glass, rgba(40, 30, 19, 0.55));
+  border: 1px solid var(--hero-line, rgba(245, 238, 226, 0.14));
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.45), inset 0 1px 0 rgba(245, 238, 226, 0.08);
+  animation: heroFadeUp 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.5s both;
 }
-.rd-label {
-  font-family: var(--font-heading);
-  font-weight: 600;
-  font-size: 16px;
-  fill: var(--dark);
-  animation: heroFadeUp 0.6s ease-out both;
-}
-.rd-label-win { fill: var(--terracotta); font-weight: 700; }
-.rd-l1 { animation-delay: 0.9s; } .rd-l2 { animation-delay: 1.05s; }
-.rd-l3 { animation-delay: 1.2s; } .rd-l4 { animation-delay: 1.35s; }
-.rd-l5 { animation-delay: 1.6s; }
-
-/* nodes pop in, staggered */
-.rd-node {
-  transform-box: fill-box;
-  transform-origin: center;
-  opacity: 0;
-  animation: rdNodeIn 0.66s cubic-bezier(0.34, 1.56, 0.64, 1) both;
-}
-.rd-n1 { animation-delay: 0.30s; } .rd-n2 { animation-delay: 0.50s; }
-.rd-n3 { animation-delay: 0.70s; } .rd-n4 { animation-delay: 0.90s; }
-.rd-n5 { animation-delay: 1.18s; }
-@keyframes rdNodeIn {
-  0%   { opacity: 0; transform: scale(0.2); }
-  100% { opacity: 1; transform: scale(1); }
+@supports ((backdrop-filter: blur(18px)) or (-webkit-backdrop-filter: blur(18px))) {
+  .rd-demo {
+    background: rgba(40, 30, 19, 0.42);
+    backdrop-filter: blur(18px);
+    -webkit-backdrop-filter: blur(18px);
+  }
 }
 
-/* connectors self-draw */
-.rd-conn {
-  stroke-dasharray: 420;
-  stroke-dashoffset: 420;
-  opacity: 0.42;
-  animation: rdDraw 0.9s ease-out both;
-}
-.rd-c1 { animation-delay: 0.45s; } .rd-c2 { animation-delay: 0.65s; }
-.rd-c3 { animation-delay: 0.85s; } .rd-c4 { animation-delay: 1.05s; }
-@keyframes rdDraw {
-  0%   { stroke-dashoffset: 420; opacity: 0; }
-  100% { stroke-dashoffset: 0;   opacity: 0.42; }
-}
-
-/* halos breathe (alive), staggered */
-.rd-halo {
-  transform-box: fill-box;
-  transform-origin: center;
-  opacity: 0;
-  animation: rdBreathe 4s ease-in-out infinite;
-}
-.rd-h1 { animation-delay: 1.9s; } .rd-h2 { animation-delay: 2.3s; }
-.rd-h3 { animation-delay: 2.7s; } .rd-h4 { animation-delay: 3.1s; }
-.rd-h5 { animation-delay: 2.0s; }
-@keyframes rdBreathe {
-  0%, 100% { transform: scale(0.7);  opacity: 0.18; }
-  50%      { transform: scale(1.05); opacity: 0.55; }
-}
-
-/* travelling data pulses (the "running" loop) */
-.rd-pulse { opacity: 0; offset-rotate: 0deg; }
-.rd-p1 { offset-path: path("M88 78 C200 78 250 150 348 150");   animation: rdFlow 2.8s cubic-bezier(0.45,0,0.55,1) 1.7s infinite; }
-.rd-p2 { offset-path: path("M348 150 C250 150 200 252 104 252"); animation: rdFlow 3.1s cubic-bezier(0.45,0,0.55,1) 2.3s infinite; }
-.rd-p3 { offset-path: path("M104 252 C220 252 285 340 352 340"); animation: rdFlow 3.0s cubic-bezier(0.45,0,0.55,1) 2.9s infinite; }
-.rd-p4 { offset-path: path("M352 340 C285 340 240 448 176 448"); animation: rdFlow 3.3s cubic-bezier(0.45,0,0.55,1) 3.4s infinite; }
-@keyframes rdFlow {
-  0%   { offset-distance: 0%;   opacity: 0; }
-  12%  { opacity: 1; }
-  86%  { opacity: 1; }
-  100% { offset-distance: 100%; opacity: 0; }
-}
-
-/* "Always running" chip */
-.hv-chip {
-  position: absolute;
-  top: 8%;
-  right: 2%;
-  display: inline-flex;
+.rd-demo-head {
+  display: flex;
   align-items: center;
-  gap: 8px;
-  padding: 8px 14px;
-  background: var(--bg-white);
-  border: 1px solid var(--card-border);
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(245, 238, 226, 0.10);
+}
+.rd-tabs {
+  display: flex;
+  gap: 4px;
+}
+.rd-tab {
+  padding: 6px 11px;
   border-radius: 100px;
   font-family: var(--font-body);
-  font-size: 13px;
+  font-size: 12.5px;
   font-weight: 600;
-  color: var(--dark);
-  box-shadow: 0 8px 22px rgba(44, 36, 24, 0.10);
-  animation: heroFadeUp 0.7s ease-out 1.7s both;
+  color: rgba(245, 238, 226, 0.5);
+  transition: color 0.35s, background 0.35s;
+  white-space: nowrap;
+}
+.rd-tab.is-active {
+  color: #F5EEE2;
+  background: rgba(226, 129, 79, 0.22);
+  box-shadow: inset 0 0 0 1px rgba(226, 129, 79, 0.35);
+}
+
+/* conversation surface — FIXED height so the card (and the page around it)
+   never moves while replies type themselves out */
+.rd-demo-stage {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px 16px;
+  height: 296px;
+  overflow: hidden;
+}
+.rd-bubble {
+  max-width: 88%;
+  padding: 11px 14px 12px;
+  border-radius: 14px;
+  opacity: 0;
+  transform: translateY(12px);
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.rd-bubble.is-shown {
+  opacity: 1;
+  transform: translateY(0);
+}
+.rd-bubble-in {
+  align-self: flex-start;
+  background: rgba(245, 238, 226, 0.09);
+  border: 1px solid rgba(245, 238, 226, 0.10);
+  border-bottom-left-radius: 4px;
+}
+.rd-bubble-ai {
+  align-self: flex-end;
+  background: rgba(194, 75, 42, 0.26);
+  border: 1px solid rgba(226, 129, 79, 0.30);
+  border-bottom-right-radius: 4px;
+}
+.rd-b-name {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 10.5px;
+  font-weight: 700;
+  letter-spacing: 0.8px;
+  text-transform: uppercase;
+  color: rgba(245, 238, 226, 0.48);
+  margin-bottom: 4px;
+}
+.rd-bubble-ai .rd-b-name { color: rgba(255, 200, 170, 0.75); }
+/* .rd-demo prefix so this outranks the `.hero p` margin rule */
+.rd-demo .rd-b-text {
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 1.55;
+  color: #F0E6D6;
+  margin: 0;
+  min-height: 1.4em;
+}
+/* blinking caret while the AI reply types itself out */
+.rd-bubble-ai.is-typing .rd-b-text::after {
+  content: '\258D';
+  margin-left: 1px;
+  color: #E2814F;
+  animation: rdCaret 0.8s steps(1) infinite;
+}
+@keyframes rdCaret {
+  0%, 100% { opacity: 1; }
+  50%      { opacity: 0; }
+}
+
+/* three-dot "thinking" indicator */
+.rd-typing {
+  display: none;
+  gap: 4px;
+  padding: 2px 0;
+}
+.rd-typing.is-shown { display: inline-flex; }
+.rd-typing i {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(245, 238, 226, 0.65);
+  animation: rdDotBounce 1.1s ease-in-out infinite;
+}
+.rd-typing i:nth-child(2) { animation-delay: 0.15s; }
+.rd-typing i:nth-child(3) { animation-delay: 0.30s; }
+@keyframes rdDotBounce {
+  0%, 60%, 100% { transform: translateY(0);    opacity: 0.45; }
+  30%           { transform: translateY(-4px); opacity: 1; }
+}
+
+/* outcome chip flips in when the job is done */
+.rd-status {
+  align-self: flex-end;
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 7px 13px;
+  border-radius: 100px;
+  background: rgba(107, 123, 94, 0.24);
+  border: 1px solid rgba(151, 172, 133, 0.35);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 600;
+  color: #CDE0BE;
+  opacity: 0;
+  transform: scale(0.7);
+  transition: opacity 0.4s, transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+.rd-status.is-shown {
+  opacity: 1;
+  transform: scale(1);
+}
+.rd-status-check {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #6B7B5E;
+  color: #F5EEE2;
+  font-size: 10px;
+}
+
+/* footer: positioning line */
+.rd-demo-foot {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 12px 16px;
+  border-top: 1px solid rgba(245, 238, 226, 0.10);
+  font-family: var(--font-body);
+  font-size: 12.5px;
+  font-weight: 500;
+  color: rgba(245, 238, 226, 0.62);
+}
+.rd-foot-ava {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #E2814F, #C24B2A);
+  color: #fff;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+}
+.rd-demo-foot .hv-dot { margin-left: auto; }
+
+/* "Always running" chip (now lives in the card header) */
+.hv-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  padding: 6px 11px;
+  background: rgba(245, 238, 226, 0.07);
+  border: 1px solid rgba(245, 238, 226, 0.14);
+  border-radius: 100px;
+  font-family: var(--font-body);
+  font-size: 11.5px;
+  font-weight: 600;
+  color: rgba(245, 238, 226, 0.75);
+  white-space: nowrap;
 }
 .hv-dot {
   width: 8px; height: 8px; border-radius: 50%;
-  background: var(--olive);
-  box-shadow: 0 0 0 0 rgba(107, 123, 94, 0.5);
+  background: #97AC85;
+  box-shadow: 0 0 0 0 rgba(151, 172, 133, 0.5);
   animation: livePulse 2s ease-out infinite;
+  flex-shrink: 0;
+}
+
+/* --- capability marquee: the transition band at the hero base --- */
+.hero-marquee {
+  position: relative;
+  z-index: 1;
+  margin-top: 72px;
+  padding: 22px 0 26px;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+  mask-image: linear-gradient(90deg, transparent 0%, black 12%, black 88%, transparent 100%);
+}
+.hm-track {
+  display: flex;
+  width: max-content;
+  animation: hmScroll 30s linear infinite;
+  will-change: transform;
+}
+.hm-set {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+.hm-set span {
+  font-family: var(--font-heading);
+  font-size: 15px;
+  font-weight: 500;
+  letter-spacing: 0.2px;
+  color: rgba(44, 36, 24, 0.72); /* sits on the cream seam fade */
+  white-space: nowrap;
+}
+.hm-set i {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--terracotta);
+  margin: 0 26px;
+  flex-shrink: 0;
+}
+@keyframes hmScroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* --- subpage hero band: same dark stage, text-only (no demo card) --- */
+.hero-page {
+  padding-bottom: 104px;
+}
+.hero-page::after {
+  height: 150px; /* shallower band, shorter seam */
+}
+/* mesh glow beside the headline — the text-band cousin of .hv-mesh */
+.hp-mesh {
+  position: absolute;
+  top: -220px;
+  right: -160px;
+  width: 640px;
+  height: 640px;
+  border-radius: 50%;
+  background:
+    radial-gradient(circle at 28% 30%, rgba(226, 129, 79, 0.42) 0%, rgba(226, 129, 79, 0) 46%),
+    radial-gradient(circle at 72% 58%, rgba(194, 75, 42, 0.36) 0%, rgba(194, 75, 42, 0) 50%),
+    radial-gradient(circle at 50% 88%, rgba(107, 123, 94, 0.30) 0%, rgba(107, 123, 94, 0) 48%),
+    radial-gradient(circle at 80% 16%, rgba(226, 162, 79, 0.26) 0%, rgba(226, 162, 79, 0) 42%);
+  filter: blur(52px);
+  pointer-events: none;
+  animation: meshDrift 22s ease-in-out infinite;
+  will-change: transform;
+  z-index: 0;
 }
 
 /* === BUTTONS === */
@@ -429,10 +686,27 @@ img {
 }
 
 .btn-primary {
+  position: relative;
+  overflow: hidden;
   background: var(--terracotta);
   color: #fff;
   box-shadow: 0 1px 3px rgba(194, 75, 42, 0.2), 0 4px 12px rgba(194, 75, 42, 0.15);
 }
+
+/* sheen sweep on hover */
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -80%;
+  width: 55%;
+  height: 100%;
+  background: linear-gradient(105deg, transparent, rgba(255, 255, 255, 0.35), transparent);
+  transform: skewX(-20deg);
+  transition: left 0.55s ease;
+  pointer-events: none;
+}
+.btn-primary:hover::after { left: 135%; }
 
 .btn-primary:hover {
   background: var(--terracotta-hover);
@@ -466,19 +740,48 @@ img {
   color: var(--terracotta);
   font-family: var(--font-accent);
   font-style: italic;
-  font-size: 16px;
+  font-size: 17px;
   letter-spacing: 0.5px;
-  margin-bottom: 12px;
+  margin-bottom: 14px;
 }
 
+/* kicker underline: a small terracotta rule grows in when the header reveals */
+.section-sub::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, #E2814F, var(--terracotta));
+  margin: 10px auto 0;
+  transition: width 0.7s cubic-bezier(0.22, 1, 0.36, 1) 0.25s;
+}
+.is-lit .section-sub::after { width: 46px; }
+
+/* section headlines: big, display-scale, revealed word by word on scroll
+   (script.js wraps each word in a masked span) */
 .section h2 {
   font-family: var(--font-heading);
-  font-size: 42px;
+  font-size: clamp(38px, 5vw, 62px);
   font-weight: 700;
-  line-height: 1.12;
-  letter-spacing: -1.2px;
+  line-height: 1.05;
+  letter-spacing: -2.2px;
   margin-bottom: 48px;
   color: var(--dark);
+}
+.section h2 .shw-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-bottom: 0.09em;
+  margin-bottom: -0.09em;
+}
+.section h2 .shw {
+  display: inline-block;
+  transform: translateY(115%);
+}
+.section h2.sh-on .shw {
+  animation: hlWordUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) var(--d, 0s) both;
 }
 
 .section-centered {
@@ -949,20 +1252,21 @@ img {
   .hero-h1 .hl-w,
   .hero-sub, .hero p, .hero-ctas, .hero-trust,
   .au-blob, .au-b1, .au-b2, .au-b3,
-  .rd-node, .rd-n1, .rd-n2, .rd-n3, .rd-n4, .rd-n5,
-  .rd-conn, .rd-c1, .rd-c2, .rd-c3, .rd-c4,
-  .rd-halo, .rd-h1, .rd-h2, .rd-h3, .rd-h4, .rd-h5,
-  .rd-pulse, .rd-p1, .rd-p2, .rd-p3, .rd-p4,
-  .rd-label, .hv-chip, .hv-dot {
+  .hv-mesh, .hp-mesh, .hv-chip, .hv-dot,
+  .rd-demo, .rd-typing i,
+  .hm-track {
     animation: none;
   }
   .hero-h1 .hl-w { transform: none; }
   .hero-sub, .hero p, .hero-ctas, .hero-trust { opacity: 1; transform: none; }
-  .rd-node { opacity: 1; transform: none; }
-  .rd-conn { stroke-dashoffset: 0; opacity: 0.42; }
-  .rd-halo { opacity: 0.32; }
-  .rd-pulse { opacity: 0; }
-  .rd-label, .hv-chip { opacity: 1; transform: none; }
+  .rd-demo { opacity: 1; transform: none; }
+  /* demo card: static finished state (JS composes scenario 1 and stops) */
+  .rd-bubble, .rd-status { opacity: 1; transform: none; transition: none; }
+  .rd-typing { display: none; }
+  .rd-bubble-ai.is-typing .rd-b-text::after { content: none; }
+  .btn-primary::after { display: none; }
+  /* section kickers: underline rendered static (JS skips the word reveal) */
+  .section-sub::after { width: 46px; transition: none; }
 }
 
 /* === TOOLS === */
@@ -998,69 +1302,6 @@ img {
   text-align: center;
   color: var(--text-muted);
   font-size: 14px;
-}
-
-/* === FAQ === */
-
-.faq-list {
-  max-width: 720px;
-  margin: 0 auto;
-  background: var(--card-bg);
-  border: 1px solid var(--card-border);
-  border-radius: 16px;
-  overflow: hidden;
-}
-
-.faq-item {
-  border-bottom: 1px solid var(--card-border);
-}
-
-.faq-item:last-child {
-  border-bottom: none;
-}
-
-.faq-question {
-  width: 100%;
-  background: none;
-  border: none;
-  color: var(--text-primary);
-  font-family: var(--font-body);
-  font-size: 16px;
-  font-weight: 600;
-  text-align: left;
-  padding: 22px 28px;
-  cursor: pointer;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  transition: background 0.2s;
-}
-
-.faq-question:hover {
-  background: rgba(44, 36, 24, 0.03);
-}
-
-.faq-question .chevron {
-  font-size: 14px;
-  color: var(--text-muted);
-  transition: transform 0.3s;
-}
-
-.faq-item.open .faq-question .chevron {
-  transform: rotate(180deg);
-}
-
-.faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.3s ease;
-}
-
-.faq-answer-inner {
-  padding: 0 28px 22px;
-  color: var(--text-secondary);
-  font-size: 15px;
-  line-height: 1.65;
 }
 
 /* === CONTACT === */
@@ -1794,11 +2035,10 @@ a.work-card:hover {
   .cs-cols { grid-template-columns: 1fr; }
 }
 
-/* === FAQ (homepage — premium floating-card accordion) === */
-/* Fully self-contained under .rd-faq__* — its own class namespace so it never
-   collides with the services.html accordion (.faq-list/.faq-item/.faq-answer).
-   Smooth height via grid-template-rows 0fr→1fr (no JS measuring), independent
-   toggle (opening/closing one never affects the others). */
+/* === FAQ — premium floating-card accordion (used on index + services) === */
+/* Self-contained under .rd-faq__*. Smooth height via grid-template-rows 0fr→1fr
+   (no JS measuring); the toggle handler in script.js flips .is-open. Independent
+   toggle — opening/closing one never affects the others. */
 
 .rd-faq {
   max-width: 760px;
@@ -1951,12 +2191,35 @@ a.work-card:hover {
     order: 2;
   }
 
-  .rd-flow {
-    max-width: 300px;
+  .rd-demo {
+    max-width: 100%;
+  }
+
+  .rd-demo-head {
+    flex-wrap: wrap;
   }
 
   .hv-chip {
-    display: none; /* avoid overlap with floating chat buttons on mobile */
+    display: none; /* keep the card header to just the tabs on small screens */
+  }
+
+  .rd-demo-stage {
+    height: 340px; /* narrower card wraps to more lines */
+  }
+
+  .hero-marquee {
+    margin-top: 48px;
+  }
+
+  .hp-mesh {
+    width: 440px;
+    height: 440px;
+    top: -140px;
+    right: -180px;
+  }
+
+  .hm-set span {
+    font-size: 13.5px;
   }
 
   .hero h1 {
@@ -1969,7 +2232,8 @@ a.work-card:hover {
   }
 
   .section h2 {
-    font-size: 30px;
+    font-size: 34px;
+    letter-spacing: -1.4px;
   }
 
   .section-intro {
@@ -2046,6 +2310,11 @@ a.work-card:hover {
     display: flex;
   }
 
+  /* the mobile dropdown stays cream even over the dark hero — keep its links dark */
+  .nav.nav-onhero:not(.is-scrolled) .nav-links a { color: var(--text-secondary); }
+  .nav.nav-onhero:not(.is-scrolled) .nav-links a:hover,
+  .nav.nav-onhero:not(.is-scrolled) .nav-links a.active { color: var(--text-primary); }
+
   .nav-mobile-toggle {
     display: block;
   }
@@ -2090,4 +2359,470 @@ a.work-card:hover {
     width: 20px;
     height: 20px;
   }
+}
+
+/* === AUTOMATION ENGINE — scroll-pinned process graph (fe-) === */
+/* NOTE: no `overflow` here — an overflow:hidden/clip ancestor silently breaks
+   position: sticky on .fe-pin (the section would scroll away instead of pinning). */
+.fe-section {
+  position: relative;
+}
+.fe-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: radial-gradient(var(--grid-color) 1.2px, transparent 1.2px);
+  background-size: 26px 26px;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 45%, transparent 100%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+/* The pin mechanic: a tall track holds a sticky viewport-height stage.
+   The page keeps scrolling, but the stage stays put — so the section looks
+   frozen while scroll progress steps the graph forward (desktop only). */
+.fe-pin-track { position: relative; }
+.fe-pin { position: relative; }
+
+.fe-head {
+  position: relative;
+  max-width: 720px;
+  margin-bottom: 0;
+}
+.fe-head h2 { margin-bottom: 16px; }
+.fe-head-intro {
+  color: var(--text-secondary);
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 600px;
+}
+.fe-grid {
+  position: relative;
+  display: grid;
+  grid-template-columns: 0.92fr 1.08fr;
+  gap: 72px;
+  align-items: center;
+}
+
+/* LEFT — steps + progress rail */
+.fe-steps {
+  position: relative;
+  padding-left: 42px;
+}
+.fe-rail {
+  position: absolute;
+  left: 5px;
+  top: 6px;
+  bottom: 6px;
+  width: 2px;
+  background: var(--border);
+  border-radius: 2px;
+  overflow: hidden;
+}
+.fe-rail-fill {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 0;
+  background: linear-gradient(180deg, var(--terracotta), var(--olive));
+  transition: height 0.45s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.fe-step {
+  position: relative;
+  padding: 0 0 22px;
+  opacity: 0.4;
+  transition: opacity 0.4s ease;
+}
+.fe-step:last-child { padding-bottom: 0; }
+.fe-step.is-active { opacity: 1; }
+.fe-step.is-past { opacity: 0.6; }
+.fe-step::before {
+  content: '';
+  position: absolute;
+  left: -43px;
+  top: 4px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  transition: border-color 0.4s ease, background 0.4s ease, transform 0.4s ease, box-shadow 0.4s ease;
+}
+.fe-step.is-past::before {
+  border-color: var(--terracotta);
+  background: var(--terracotta);
+}
+.fe-step.is-active::before {
+  border-color: var(--terracotta);
+  background: var(--terracotta);
+  transform: scale(1.15);
+  box-shadow: 0 0 0 5px var(--terracotta-subtle);
+}
+.fe-step-eyebrow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-heading);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 9px;
+  transition: color 0.4s ease;
+}
+.fe-step.is-active .fe-step-eyebrow { color: var(--terracotta); }
+.fe-step-num {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.85;
+}
+.fe-step h3 {
+  font-family: var(--font-heading);
+  font-size: 23px;
+  font-weight: 700;
+  line-height: 1.22;
+  letter-spacing: -0.4px;
+  color: var(--dark);
+  margin-bottom: 8px;
+}
+.fe-step p {
+  color: var(--text-secondary);
+  font-size: 15px;
+  line-height: 1.55;
+  max-width: 420px;
+}
+
+/* RIGHT — the process panel */
+.fe-stage {
+  position: relative;
+  align-self: center;
+}
+.fe-panel {
+  position: relative;
+  background: var(--bg-white);
+  border: 1px solid var(--card-border);
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 50px rgba(44, 36, 24, 0.10);
+}
+.fe-panel-top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 15px 20px;
+  border-bottom: 1px solid var(--card-border);
+  background: var(--bg-white);
+}
+.fe-panel-title {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  color: var(--dark);
+}
+.fe-live {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #3FB36B;
+  box-shadow: 0 0 0 0 rgba(63, 179, 107, 0.5);
+  animation: fe-pulse 2.2s infinite;
+}
+@keyframes fe-pulse {
+  0% { box-shadow: 0 0 0 0 rgba(63, 179, 107, 0.5); }
+  70% { box-shadow: 0 0 0 7px rgba(63, 179, 107, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(63, 179, 107, 0); }
+}
+.fe-counter {
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 0.6px;
+  color: var(--text-muted);
+  font-variant-numeric: tabular-nums;
+}
+.fe-panel-body {
+  position: relative;
+  min-height: 480px;
+  padding: 32px;
+}
+.fe-grid-bg {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-color) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
+  background-size: 30px 30px;
+  background-position: -1px -1px;
+  -webkit-mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+  mask-image: linear-gradient(180deg, transparent, #000 14%, #000 86%, transparent);
+}
+
+/* Each stage's graph is stacked in the same box and cross-faded on step change. */
+.fe-diagram {
+  position: absolute;
+  left: 32px;
+  right: 32px;
+  top: 32px;
+  bottom: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  pointer-events: none;
+}
+.fe-diagram.is-active {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+
+/* --- flow graph primitives --- */
+.fe-flow {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.fe-row { display: flex; justify-content: center; width: 100%; }
+.fe-stem {
+  width: 2px;
+  height: 30px;
+  background: var(--border);
+}
+
+/* a node box */
+.fe-n {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  background: #FFFFFF;
+  border: 1px solid var(--card-border);
+  border-radius: 12px;
+  padding: 12px 16px;
+  box-shadow: 0 4px 14px rgba(44, 36, 24, 0.05);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.45s cubic-bezier(0.22, 1, 0.36, 1), transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+/* standalone nodes (single per row) get a comfortable minimum width;
+   nodes inside branch columns size to their column so the bus stays aligned. */
+.fe-row > .fe-n { min-width: 184px; }
+.fe-col > .fe-n { width: 100%; min-width: 0; }
+.fe-n-body { min-width: 0; }
+.fe-diagram.is-active .fe-n {
+  opacity: 1;
+  transform: none;
+  transition-delay: calc(var(--i) * 85ms + 90ms);
+}
+.fe-n-tag {
+  flex: none;
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.4px;
+  color: var(--terracotta);
+  background: var(--terracotta-subtle);
+  border-radius: 6px;
+  padding: 3px 7px;
+}
+.fe-n-body { display: flex; flex-direction: column; gap: 3px; }
+.fe-n-label {
+  font-family: var(--font-heading);
+  font-size: 14.5px;
+  font-weight: 600;
+  color: var(--dark);
+  line-height: 1.2;
+}
+.fe-n-meta {
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+  font-size: 11px;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+/* highlighted (active branch) node — the Callback dark-fill look */
+.fe-n.is-hot {
+  background: var(--terracotta);
+  border-color: var(--terracotta);
+  box-shadow: 0 8px 22px rgba(194, 75, 42, 0.28);
+}
+.fe-n.is-hot .fe-n-label { color: #fff; }
+.fe-n.is-hot .fe-n-meta { color: rgba(255, 255, 255, 0.82); }
+.fe-n.is-hot .fe-n-tag { color: #fff; background: rgba(255, 255, 255, 0.22); }
+
+/* a branch: parent splits into columns over a horizontal bus */
+.fe-fork {
+  position: relative;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  column-gap: 12px;
+  width: 100%;
+  margin-top: 32px;
+}
+.fe-fork--two {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 78%;
+}
+/* parent drop into the bus */
+.fe-fork::after {
+  content: '';
+  position: absolute;
+  top: -32px;
+  left: 50%;
+  width: 2px;
+  height: 16px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+/* the horizontal bus */
+.fe-fork::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 16.666%;
+  right: 16.666%;
+  height: 2px;
+  background: var(--border);
+}
+.fe-fork--two::before { left: 25%; right: 25%; }
+.fe-col {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  padding-top: 14px;
+}
+/* drop from bus to the first node of the column */
+.fe-col::before {
+  content: '';
+  position: absolute;
+  top: -16px;
+  left: 50%;
+  width: 2px;
+  height: 30px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+/* connector between stacked nodes inside a column */
+.fe-col .fe-n + .fe-n::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  width: 2px;
+  height: 10px;
+  background: var(--border);
+  transform: translateX(-50%);
+}
+/* edge-condition label sitting on the drop */
+.fe-edge {
+  position: absolute;
+  top: -7px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  font-family: ui-monospace, "SFMono-Regular", "Menlo", monospace;
+  font-size: 10.5px;
+  letter-spacing: 0.2px;
+  color: var(--text-secondary);
+  background: var(--bg-white);
+  border: 1px solid var(--card-border);
+  border-radius: 5px;
+  padding: 2px 7px;
+  white-space: nowrap;
+}
+
+.fe-progress {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 3px;
+  background: var(--card-border);
+  z-index: 2;
+}
+.fe-progress-fill {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, var(--terracotta), var(--olive));
+  transform: scaleX(0.04);
+  transform-origin: left center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* DESKTOP — engage the pin. The page scrolls 4 viewports while the stage
+   stays fixed; JS reads scroll progress and advances the active step. */
+@media (min-width: 921px) {
+  .fe-section.section { padding-bottom: 0; }
+  .fe-pin-track { height: 460vh; }
+  .fe-pin {
+    position: sticky;
+    top: 0;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: calc(var(--nav-height) + 16px) 0 28px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .fe-rail-fill,
+  .fe-diagram,
+  .fe-n,
+  .fe-progress-fill,
+  .fe-step,
+  .fe-step::before,
+  .fe-step-eyebrow {
+    transition: none !important;
+  }
+  .fe-live { animation: none; }
+  .fe-diagram.is-active .fe-n { transition-delay: 0s; }
+}
+
+@media (max-width: 920px) {
+  /* No pin on small screens — the panel sticks to the top and the steps
+     scroll past it, driven by an IntersectionObserver. */
+  .fe-grid {
+    grid-template-columns: 1fr;
+    gap: 0;
+    margin-top: 36px;
+  }
+  .fe-stage {
+    order: -1;
+    position: sticky;
+    top: calc(var(--nav-height) + 8px);
+    z-index: 5;
+    margin-bottom: 36px;
+  }
+  .fe-step {
+    padding-bottom: 34vh;
+    opacity: 0.45;
+  }
+  .fe-step:last-child { padding-bottom: 16vh; }
+  .fe-panel { box-shadow: 0 12px 34px rgba(44, 36, 24, 0.12); }
+  .fe-panel-body { min-height: 400px; padding: 22px; }
+  .fe-diagram { left: 22px; right: 22px; top: 22px; bottom: 22px; }
+  .fe-head { margin-bottom: 0; }
+  .fe-head-intro { font-size: 16px; }
+}
+
+@media (max-width: 768px) {
+  .fe-step h3 { font-size: 21px; }
+  .fe-step p { font-size: 14.5px; }
+  .fe-panel-body { min-height: 384px; padding: 18px; }
+  .fe-fork { column-gap: 8px; }
+  .fe-fork--two { width: 88%; }
+  .fe-n { min-width: 0; padding: 9px 11px; gap: 9px; }
+  .fe-n-label { font-size: 13px; }
 }

@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services &amp; Pricing: rundayOS | Runday</title>
-  <meta name="description" content="From a free diagnostic to full AI systems, rundayOS maps your operations and builds the systems that run your business. Blueprint free, Build from ₱25,000, Growth Partner from ₱5,000/mo.">
+  <title>Services: rundayOS | Runday</title>
+  <meta name="description" content="From a free diagnostic to full AI systems, rundayOS maps your operations and builds the systems that run your business. AI back office, websites, web apps, and custom software, scoped to your business.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Runday">
   <meta name="theme-color" content="#C24B2A">
@@ -50,8 +50,8 @@
           "itemListElement": [
             { "@type": "Offer", "name": "Free Diagnostic Call", "price": "0", "priceCurrency": "PHP", "description": "A free 20-minute call to identify your biggest bottleneck." },
             { "@type": "Offer", "name": "rundayOS Blueprint", "price": "0", "priceCurrency": "PHP", "description": "Operations mapping and a build plan with ROI projections." },
-            { "@type": "Offer", "name": "rundayOS Build", "price": "25000", "priceCurrency": "PHP", "description": "We build and deploy the systems your blueprint identified." },
-            { "@type": "Offer", "name": "Growth Partner", "price": "5000", "priceCurrency": "PHP", "description": "Monthly optimization, content, and strategy. Month-to-month." }
+            { "@type": "Offer", "name": "rundayOS Build", "description": "We build and deploy the systems your blueprint identified, including websites, web apps, and custom software." },
+            { "@type": "Offer", "name": "Growth Partner", "description": "Monthly optimization, content, and strategy. Month-to-month." }
           ]
         }
       },
@@ -69,7 +69,7 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
@@ -85,8 +85,15 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-page">
+    <div class="hero-aurora" aria-hidden="true">
+      <span class="au-blob au-b1"></span>
+      <span class="au-blob au-b2"></span>
+      <span class="au-blob au-b3"></span>
+    </div>
     <div class="hero-grid"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hp-mesh" aria-hidden="true"></div>
     <div class="container hero-content">
       <div class="hero-sub">the rundayOS process</div>
       <h1>From diagnostic to systems that run.</h1>
@@ -172,8 +179,8 @@
         <div class="phase-roi">Clients typically reclaim 15–25 hours/month within the first month.</div>
         <div class="phase-details">
           <div class="phase-detail">
-            <strong>Starting at</strong>
-            <span class="phase-price">&#8369;25,000</span>
+            <strong>Investment</strong>
+            <span class="phase-price">Custom quote</span>
           </div>
           <div class="phase-detail">
             <strong>Timeline</strong>
@@ -240,6 +247,28 @@
             <span class="service-tag">Brand guidelines</span>
           </div>
         </div>
+        <div class="service-card fade-up">
+          <div class="card-label">Module</div>
+          <h3>Websites &amp; Web Apps</h3>
+          <p>Fast, modern websites and web apps. Booking sites, landing pages, and full custom builds, designed, developed, deployed, and handed over in your name.</p>
+          <div class="service-tags">
+            <span class="service-tag">Websites</span>
+            <span class="service-tag">Landing pages</span>
+            <span class="service-tag">Web apps</span>
+            <span class="service-tag">Deployment</span>
+          </div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">Module</div>
+          <h3>Custom Software</h3>
+          <p>When off-the-shelf tools can't do it, we design and build custom software and SaaS-style apps around how your business actually works.</p>
+          <div class="service-tags">
+            <span class="service-tag">Custom apps</span>
+            <span class="service-tag">SaaS builds</span>
+            <span class="service-tag">Integrations</span>
+            <span class="service-tag">Dashboards</span>
+          </div>
+        </div>
         </div>
         <a href="contact.html" class="btn btn-ghost">Get started</a>
       </div>
@@ -261,8 +290,8 @@
         <div class="phase-roi">Systems that keep compounding, not just running, but growing.</div>
         <div class="phase-details">
           <div class="phase-detail">
-            <strong>Starting at</strong>
-            <span class="phase-price">&#8369;5,000/mo</span>
+            <strong>Investment</strong>
+            <span class="phase-price">Custom monthly plans</span>
           </div>
           <div class="phase-detail">
             <strong>Commitment</strong>
@@ -301,60 +330,60 @@
         <div class="section-sub">common questions</div>
         <h2>Before you ask.</h2>
       </div>
-      <div class="faq-list fade-up">
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); var a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';">
-            What happens on the diagnostic call?
-            <span class="chevron">&#9662;</span>
+      <div class="rd-faq fade-up">
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" type="button" aria-expanded="false">
+            <span>What happens on the diagnostic call?</span>
+            <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">You tell us what's eating your time. We listen, identify your biggest bottleneck, and give you a clear recommendation, whether that's hiring us or not. No pitch. 20 minutes.</div>
-          </div>
+          <div class="rd-faq__a"><div class="rd-faq__a-inner">
+            <p>You tell us what's eating your time. We listen, identify your biggest bottleneck, and give you a clear recommendation, whether that's hiring us or not. No pitch. 20 minutes.</p>
+          </div></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); var a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';">
-            Do I need a blueprint before you build?
-            <span class="chevron">&#9662;</span>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" type="button" aria-expanded="false">
+            <span>Do I need a blueprint before you build?</span>
+            <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Yes. The blueprint ensures we build the right things in the right order. It maps your operations, identifies the highest-ROI systems, and gives you a clear plan with projections. You own it even if you don't proceed to the build.</div>
-          </div>
+          <div class="rd-faq__a"><div class="rd-faq__a-inner">
+            <p>Yes. The blueprint ensures we build the right things in the right order. It maps your operations, identifies the highest-ROI systems, and gives you a clear plan with projections. You own it even if you don't proceed to the build.</p>
+          </div></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); var a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';">
-            Do I need to be technical?
-            <span class="chevron">&#9662;</span>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" type="button" aria-expanded="false">
+            <span>Do I need to be technical?</span>
+            <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">Not at all. We build on tools you already use, Messenger, Google, Canva, Notion. If you can post on Facebook, you can run what we build.</div>
-          </div>
+          <div class="rd-faq__a"><div class="rd-faq__a-inner">
+            <p>Not at all. We build on tools you already use, Messenger, Google, Canva, Notion. If you can post on Facebook, you can run what we build.</p>
+          </div></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); var a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';">
-            Who owns the systems you build?
-            <span class="chevron">&#9662;</span>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" type="button" aria-expanded="false">
+            <span>Who owns the systems you build?</span>
+            <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">You do, every account, every asset, every login. No lock-in. If we part ways tomorrow, everything keeps running because it's all in your name.</div>
-          </div>
+          <div class="rd-faq__a"><div class="rd-faq__a-inner">
+            <p>You do, every account, every asset, every login. No lock-in. If we part ways tomorrow, everything keeps running because it's all in your name.</p>
+          </div></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); var a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';">
-            How long does it take?
-            <span class="chevron">&#9662;</span>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" type="button" aria-expanded="false">
+            <span>How long does it take?</span>
+            <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">The Blueprint takes about a week. Build is 1–2 weeks. Most businesses are up and running within a couple of weeks.</div>
-          </div>
+          <div class="rd-faq__a"><div class="rd-faq__a-inner">
+            <p>The Blueprint takes about a week. Build is 1–2 weeks. Most businesses are up and running within a couple of weeks.</p>
+          </div></div>
         </div>
-        <div class="faq-item">
-          <button class="faq-question" onclick="this.parentElement.classList.toggle('open'); var a=this.nextElementSibling; a.style.maxHeight=a.style.maxHeight?null:a.scrollHeight+'px';">
-            What's the total cost?
-            <span class="chevron">&#9662;</span>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" type="button" aria-expanded="false">
+            <span>What's the total cost?</span>
+            <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
-          <div class="faq-answer">
-            <div class="faq-answer-inner">The diagnostic call and the Blueprint are both free. Build starts at &#8369;25,000. Growth Partner starts at &#8369;5,000/mo (month-to-month, cancel anytime). Scope is agreed up front, no surprises.</div>
-          </div>
+          <div class="rd-faq__a"><div class="rd-faq__a-inner">
+            <p>The diagnostic call and the Blueprint are both free. Build and the Growth Partner are scoped and quoted to your business (Growth Partner is month-to-month, cancel anytime). Scope is agreed up front, no surprises.</p>
+          </div></div>
         </div>
       </div>
     </div>

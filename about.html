@@ -59,7 +59,7 @@
 <body>
 
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
@@ -75,8 +75,15 @@
   </nav>
 
   <!-- HERO -->
-  <section class="hero">
+  <section class="hero hero-page">
+    <div class="hero-aurora" aria-hidden="true">
+      <span class="au-blob au-b1"></span>
+      <span class="au-blob au-b2"></span>
+      <span class="au-blob au-b3"></span>
+    </div>
     <div class="hero-grid"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
+    <div class="hp-mesh" aria-hidden="true"></div>
     <div class="container hero-content">
       <div class="hero-sub">who we are</div>
       <h1>The back office you<br>can't afford to hire.</h1>
@@ -125,7 +132,7 @@
         </div>
       </div>
       <div style="text-align: center; margin-top: 2rem;">
-        <a href="services.html" class="btn btn-ghost">See full pricing &rarr;</a>
+        <a href="services.html" class="btn btn-ghost">See how we work &rarr;</a>
       </div>
     </div>
   </section>

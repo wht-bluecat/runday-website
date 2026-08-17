@@ -60,8 +60,8 @@
         "makesOffer": [
           { "@type": "Offer", "name": "Free Diagnostic Call", "price": "0", "priceCurrency": "PHP" },
           { "@type": "Offer", "name": "rundayOS Blueprint", "price": "0", "priceCurrency": "PHP" },
-          { "@type": "Offer", "name": "rundayOS Build", "price": "25000", "priceCurrency": "PHP" },
-          { "@type": "Offer", "name": "Growth Partner", "price": "5000", "priceCurrency": "PHP" }
+          { "@type": "Offer", "name": "rundayOS Build" },
+          { "@type": "Offer", "name": "Growth Partner" }
         ]
       },
       {
@@ -79,7 +79,7 @@
           { "@type": "Question", "name": "Do I need to be technical?", "acceptedAnswer": { "@type": "Answer", "text": "Not at all. We build on tools you already use, Messenger, Google, Canva, Notion. If you can post on Facebook, you can run what we build." } },
           { "@type": "Question", "name": "Who owns the systems?", "acceptedAnswer": { "@type": "Answer", "text": "You do, every account, every asset, every login. No lock-in. If we part ways tomorrow, everything keeps running." } },
           { "@type": "Question", "name": "How long does it take?", "acceptedAnswer": { "@type": "Answer", "text": "The Blueprint takes about a week. Build is 1–2 weeks. Most businesses are up and running within a couple of weeks." } },
-          { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "The diagnostic call and the Blueprint are both free. Build starts at ₱25,000. Growth Partner starts at ₱5,000/mo. Scope is agreed up front, no surprises." } }
+          { "@type": "Question", "name": "What does it cost?", "acceptedAnswer": { "@type": "Answer", "text": "The diagnostic call and the Blueprint are both free. Build and the Growth Partner are scoped and quoted to your business, agreed up front, no surprises." } }
         ]
       }
     ]
@@ -90,7 +90,7 @@
 
   <!-- RUNNING 8-BIT BUNNY (side view, hopping smoothly across the top, over the nav) -->
   <!-- NAV -->
-  <nav class="nav">
+  <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
       <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
@@ -133,92 +133,57 @@
         </div>
 
         <div class="hero-visual" aria-hidden="true" data-depth="0.05">
-          <div class="hv-glow"></div>
-          <svg class="rd-flow" viewBox="0 0 460 515" fill="none" role="presentation">
-            <defs>
-              <linearGradient id="nA" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E2814F"/><stop offset="100%" stop-color="#C24B2A"/></linearGradient>
-              <linearGradient id="nB" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#84947A"/><stop offset="100%" stop-color="#6B7B5E"/></linearGradient>
-              <linearGradient id="nC" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#E2A24F"/><stop offset="100%" stop-color="#C2812A"/></linearGradient>
-              <linearGradient id="nD" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#C24B2A"/><stop offset="100%" stop-color="#A83D22"/></linearGradient>
-              <radialGradient id="nHalo" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#C24B2A" stop-opacity="0.5"/><stop offset="100%" stop-color="#C24B2A" stop-opacity="0"/></radialGradient>
-              <filter id="nShadow" x="-60%" y="-60%" width="220%" height="220%"><feDropShadow dx="0" dy="5" stdDeviation="7" flood-color="#2C2418" flood-opacity="0.18"/></filter>
-              <filter id="nGlow" x="-120%" y="-120%" width="340%" height="340%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
-            </defs>
+          <div class="hv-mesh"></div>
+          <div class="rd-demo">
+            <div class="rd-demo-head">
+              <div class="rd-tabs">
+                <span class="rd-tab is-active">Messages</span>
+                <span class="rd-tab">Reviews</span>
+                <span class="rd-tab">Leads</span>
+                <span class="rd-tab">Content</span>
+              </div>
+              <div class="hv-chip"><span class="hv-dot"></span>Always running</div>
+            </div>
+            <div class="rd-demo-stage">
+              <div class="rd-bubble rd-bubble-in">
+                <span class="rd-b-name"></span>
+                <p class="rd-b-text"></p>
+              </div>
+              <div class="rd-bubble rd-bubble-ai">
+                <span class="rd-b-name">Runday AI</span>
+                <span class="rd-typing"><i></i><i></i><i></i></span>
+                <p class="rd-b-text"></p>
+              </div>
+              <div class="rd-status"><span class="rd-status-check">&#10003;</span><span class="rd-status-text"></span></div>
+            </div>
+            <div class="rd-demo-foot">
+              <span class="rd-foot-ava">R</span>
+              <span>Run by AI &middot; watched by a human</span>
+              <span class="hv-dot"></span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
 
-            <!-- connectors -->
-            <g class="rd-conns" fill="none" stroke="#6B7B5E" stroke-width="2.5" stroke-linecap="round">
-              <path class="rd-conn rd-c1" d="M88 78 C200 78 250 150 348 150"/>
-              <path class="rd-conn rd-c2" d="M348 150 C250 150 200 252 104 252"/>
-              <path class="rd-conn rd-c3" d="M104 252 C220 252 285 340 352 340"/>
-              <path class="rd-conn rd-c4" d="M352 340 C285 340 240 448 176 448"/>
-            </g>
-
-            <!-- travelling data pulses -->
-            <circle class="rd-pulse rd-p1" r="5.5" fill="#E2814F" filter="url(#nGlow)"/>
-            <circle class="rd-pulse rd-p2" r="5.5" fill="#E2814F" filter="url(#nGlow)"/>
-            <circle class="rd-pulse rd-p3" r="5.5" fill="#E2814F" filter="url(#nGlow)"/>
-            <circle class="rd-pulse rd-p4" r="5.5" fill="#E2814F" filter="url(#nGlow)"/>
-
-            <!-- halos -->
-            <circle class="rd-halo rd-h1" cx="88"  cy="78"  r="46" fill="url(#nHalo)"/>
-            <circle class="rd-halo rd-h2" cx="348" cy="150" r="46" fill="url(#nHalo)"/>
-            <circle class="rd-halo rd-h3" cx="104" cy="252" r="46" fill="url(#nHalo)"/>
-            <circle class="rd-halo rd-h4" cx="352" cy="340" r="46" fill="url(#nHalo)"/>
-            <circle class="rd-halo rd-h5" cx="176" cy="448" r="46" fill="url(#nHalo)"/>
-
-            <!-- NODE 1, New lead -->
-            <g class="rd-node rd-n1">
-              <circle cx="88" cy="78" r="32" fill="url(#nA)" filter="url(#nShadow)"/>
-              <g stroke="#FFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <path d="M80 80 c0 -6 4 -10 8 -10 s8 4 8 10 c0 5 2 7 3 8 h-22 c1 -1 3 -3 3 -8 z"/>
-                <path d="M84 90 a4 4 0 0 0 8 0"/>
-              </g>
-            </g>
-            <!-- NODE 2, Auto-reply -->
-            <g class="rd-node rd-n2">
-              <circle cx="348" cy="150" r="32" fill="url(#nB)" filter="url(#nShadow)"/>
-              <g stroke="#FFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <rect x="335" y="140" width="26" height="18" rx="5"/>
-                <path d="M342 158 v6 l7 -6"/>
-                <path d="M341 149 h14 M341 153 h9"/>
-              </g>
-            </g>
-            <!-- NODE 3, Qualify -->
-            <g class="rd-node rd-n3">
-              <circle cx="104" cy="252" r="32" fill="url(#nC)" filter="url(#nShadow)"/>
-              <g stroke="#FFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <path d="M92 242 h24 l-9 11 v9 l-6 4 v-13 z"/>
-              </g>
-            </g>
-            <!-- NODE 4, Book call -->
-            <g class="rd-node rd-n4">
-              <circle cx="352" cy="340" r="32" fill="url(#nA)" filter="url(#nShadow)"/>
-              <g stroke="#FFF" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <rect x="339" y="331" width="26" height="21" rx="3.5"/>
-                <path d="M339 338 h26"/>
-                <path d="M346 327 v6 M358 327 v6"/>
-                <path d="M345 345 l2.5 2.5 l4 -5"/>
-              </g>
-            </g>
-            <!-- NODE 5, Closed won -->
-            <g class="rd-node rd-n5">
-              <circle cx="176" cy="448" r="34" fill="url(#nD)" filter="url(#nShadow)"/>
-              <g stroke="#FFF" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none">
-                <path d="M165 448 l7 7 l14 -16"/>
-              </g>
-            </g>
-
-            <!-- labels -->
-            <g class="rd-labels" text-anchor="middle">
-              <text class="rd-label rd-l1" x="88"  y="128">New lead</text>
-              <text class="rd-label rd-l2" x="348" y="200">Auto-reply</text>
-              <text class="rd-label rd-l3" x="104" y="302">Qualify</text>
-              <text class="rd-label rd-l4" x="352" y="390">Book call</text>
-              <text class="rd-label rd-l5 rd-label-win" x="176" y="502">Closed won</text>
-            </g>
-          </svg>
-
-          <div class="hv-chip"><span class="hv-dot"></span>Always running</div>
+    <!-- capability marquee: infinite loop band at the hero base -->
+    <div class="hero-marquee" aria-hidden="true">
+      <div class="hm-track">
+        <div class="hm-set">
+          <span>Answering messages</span><i></i>
+          <span>Chasing reviews</span><i></i>
+          <span>Following up on leads</span><i></i>
+          <span>Posting content</span><i></i>
+          <span>Booking calls</span><i></i>
+          <span>Watching the numbers</span><i></i>
+        </div>
+        <div class="hm-set">
+          <span>Answering messages</span><i></i>
+          <span>Chasing reviews</span><i></i>
+          <span>Following up on leads</span><i></i>
+          <span>Posting content</span><i></i>
+          <span>Booking calls</span><i></i>
+          <span>Watching the numbers</span><i></i>
         </div>
       </div>
     </div>
@@ -257,8 +222,8 @@
         <div class="service-card fade-up">
           <div class="card-label">Build it</div>
           <h3>rundayOS Build</h3>
-          <p class="pricing-price" style="font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">Starting at &#8369;25,000</p>
-          <p>We build and deploy the systems your blueprint identified. Social, bookings, leads, brand, whatever moves the needle most. Clients typically reclaim 15–25 hours/month.</p>
+          <p class="pricing-price" style="font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">Tailored to your scope</p>
+          <p>We build and deploy what your blueprint identifies. Websites, web apps, social, bookings, leads, brand, whatever moves the needle most. Clients typically reclaim 15–25 hours/month.</p>
           <div class="service-tags">
             <span class="service-tag">1–2 weeks</span>
             <span class="service-tag">Custom systems</span>
@@ -268,7 +233,7 @@
         <div class="service-card fade-up">
           <div class="card-label">Grow it</div>
           <h3>Growth Partner</h3>
-          <p class="pricing-price" style="font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">Starting at &#8369;5,000/mo</p>
+          <p class="pricing-price" style="font-size: 1.1rem; font-weight: 700; color: var(--accent); margin-bottom: 0.5rem;">Custom monthly plans</p>
           <p>Ongoing optimization, content, monitoring, and monthly strategy calls. Your systems keep compounding, not just running, but growing.</p>
           <div class="service-tags">
             <span class="service-tag">Month-to-month</span>
@@ -466,8 +431,150 @@
     </div>
   </section>
 
+  <!-- AUTOMATION ENGINE — scroll-pinned process graph -->
+  <section class="section fe-section" id="how-it-works">
+    <div class="container">
+      <div class="fe-head fade-up">
+        <div class="section-sub">under the hood</div>
+        <h2>How your automations actually run.</h2>
+        <p class="fe-head-intro">One inquiry, end to end. Scroll to walk the same pipeline we wire up for you, from the moment a message lands to the number on your dashboard.</p>
+      </div>
+    </div>
+    <div class="fe-pin-track">
+     <div class="fe-pin">
+      <div class="container">
+        <div class="fe-grid">
+          <!-- LEFT: the steps -->
+          <div class="fe-steps">
+            <span class="fe-rail" aria-hidden="true"><span class="fe-rail-fill"></span></span>
+
+            <article class="fe-step is-active" data-index="0">
+              <div class="fe-step-eyebrow"><span class="fe-step-num">01</span> Ingest</div>
+              <h3>Every inquiry hits one endpoint.</h3>
+              <p>Messenger, Instagram, your web form, even walk-ins. Each lands in one place, cleaned up and saved, so nothing slips by.</p>
+            </article>
+
+            <article class="fe-step" data-index="1">
+              <div class="fe-step-eyebrow"><span class="fe-step-num">02</span> Classify &amp; route</div>
+              <h3>AI reads the intent and sends it the right way.</h3>
+              <p>It tells a hot lead from a support question from spam, scores it, and routes each one down its own branch.</p>
+            </article>
+
+            <article class="fe-step" data-index="2">
+              <div class="fe-step-eyebrow"><span class="fe-step-num">03</span> Execute</div>
+              <h3>It replies, books, and follows up in parallel.</h3>
+              <p>An on-brand answer in seconds, a booking link, a reminder for later. Three actions fire at once, day and night.</p>
+            </article>
+
+            <article class="fe-step" data-index="3">
+              <div class="fe-step-eyebrow"><span class="fe-step-num">04</span> Observe</div>
+              <h3>A human keeps it honest. You see everything.</h3>
+              <p>Low-confidence cases go to a person, the rest auto-resolve, and every action lands on one dashboard.</p>
+            </article>
+          </div>
+
+          <!-- RIGHT: the pinned process graph -->
+          <div class="fe-stage">
+            <div class="fe-panel">
+              <div class="fe-panel-top">
+                <div class="fe-panel-title"><span class="fe-live" aria-hidden="true"></span> <span class="fe-panel-name">inbound_pipeline</span></div>
+                <div class="fe-counter">Step 01 / 04</div>
+              </div>
+              <div class="fe-panel-body">
+                <div class="fe-grid-bg" aria-hidden="true"></div>
+
+                <!-- STAGE 01 — INGEST (linear) -->
+                <div class="fe-diagram is-active" data-index="0">
+                  <div class="fe-flow">
+                    <div class="fe-row"><div class="fe-n" style="--i:0"><span class="fe-n-tag">WH</span><span class="fe-n-body"><span class="fe-n-label">Webhook trigger</span><span class="fe-n-meta">messenger · ig · web_form</span></span></div></div>
+                    <div class="fe-stem"></div>
+                    <div class="fe-row"><div class="fe-n" style="--i:1"><span class="fe-n-tag">FN</span><span class="fe-n-body"><span class="fe-n-label">Normalize payload</span><span class="fe-n-meta">unify to one schema</span></span></div></div>
+                    <div class="fe-stem"></div>
+                    <div class="fe-row"><div class="fe-n" style="--i:2"><span class="fe-n-tag">DB</span><span class="fe-n-body"><span class="fe-n-label">Upsert to CRM</span><span class="fe-n-meta">one source of truth</span></span></div></div>
+                  </div>
+                </div>
+
+                <!-- STAGE 02 — CLASSIFY & ROUTE (3-way branch) -->
+                <div class="fe-diagram" data-index="1">
+                  <div class="fe-flow">
+                    <div class="fe-row"><div class="fe-n" style="--i:0"><span class="fe-n-tag">IN</span><span class="fe-n-body"><span class="fe-n-label">Ingest event</span><span class="fe-n-meta">new conversation</span></span></div></div>
+                    <div class="fe-stem"></div>
+                    <div class="fe-row"><div class="fe-n is-hot" style="--i:1"><span class="fe-n-tag">AI</span><span class="fe-n-body"><span class="fe-n-label">Classify &amp; route</span><span class="fe-n-meta">intent · sentiment</span></span></div></div>
+                    <div class="fe-fork">
+                      <div class="fe-col">
+                        <span class="fe-edge">is_lead</span>
+                        <div class="fe-n is-hot" style="--i:2"><span class="fe-n-tag">L1</span><span class="fe-n-body"><span class="fe-n-label">Qualify &amp; score</span></span></div>
+                        <div class="fe-n is-hot" style="--i:3"><span class="fe-n-tag">L2</span><span class="fe-n-body"><span class="fe-n-label">Enrich contact</span></span></div>
+                      </div>
+                      <div class="fe-col">
+                        <span class="fe-edge">is_support</span>
+                        <div class="fe-n" style="--i:2"><span class="fe-n-tag">S1</span><span class="fe-n-body"><span class="fe-n-label">Open ticket</span></span></div>
+                        <div class="fe-n" style="--i:3"><span class="fe-n-tag">S2</span><span class="fe-n-body"><span class="fe-n-label">Assign owner</span></span></div>
+                      </div>
+                      <div class="fe-col">
+                        <span class="fe-edge">is_spam</span>
+                        <div class="fe-n" style="--i:2"><span class="fe-n-tag">X1</span><span class="fe-n-body"><span class="fe-n-label">Suppress</span></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- STAGE 03 — EXECUTE (parallel fan-out) -->
+                <div class="fe-diagram" data-index="2">
+                  <div class="fe-flow">
+                    <div class="fe-row"><div class="fe-n" style="--i:0"><span class="fe-n-tag">RT</span><span class="fe-n-body"><span class="fe-n-label">Route: is_lead</span><span class="fe-n-meta">matched workflow</span></span></div></div>
+                    <div class="fe-stem"></div>
+                    <div class="fe-row"><div class="fe-n is-hot" style="--i:1"><span class="fe-n-tag">GEN</span><span class="fe-n-body"><span class="fe-n-label">Draft reply</span><span class="fe-n-meta">LLM · brand voice</span></span></div></div>
+                    <div class="fe-fork fe-fork--plain">
+                      <div class="fe-col">
+                        <span class="fe-edge">reply</span>
+                        <div class="fe-n" style="--i:2"><span class="fe-n-tag">A1</span><span class="fe-n-body"><span class="fe-n-label">Send reply</span><span class="fe-n-meta">&lt; 2s</span></span></div>
+                      </div>
+                      <div class="fe-col">
+                        <span class="fe-edge">book</span>
+                        <div class="fe-n" style="--i:3"><span class="fe-n-tag">A2</span><span class="fe-n-body"><span class="fe-n-label">Booking link</span><span class="fe-n-meta">calendar sync</span></span></div>
+                      </div>
+                      <div class="fe-col">
+                        <span class="fe-edge">nurture</span>
+                        <div class="fe-n" style="--i:4"><span class="fe-n-tag">A3</span><span class="fe-n-body"><span class="fe-n-label">Follow-up</span><span class="fe-n-meta">cron · 24h</span></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- STAGE 04 — OBSERVE (gate + branch) -->
+                <div class="fe-diagram" data-index="3">
+                  <div class="fe-flow">
+                    <div class="fe-row"><div class="fe-n" style="--i:0"><span class="fe-n-tag">LOG</span><span class="fe-n-body"><span class="fe-n-label">Event log</span><span class="fe-n-meta">every action stored</span></span></div></div>
+                    <div class="fe-stem"></div>
+                    <div class="fe-row"><div class="fe-n" style="--i:1"><span class="fe-n-tag">CHK</span><span class="fe-n-body"><span class="fe-n-label">Confidence gate</span><span class="fe-n-meta">score &lt; 0.8 ?</span></span></div></div>
+                    <div class="fe-fork fe-fork--two">
+                      <div class="fe-col">
+                        <span class="fe-edge">low_conf</span>
+                        <div class="fe-n is-hot" style="--i:2"><span class="fe-n-tag">HR</span><span class="fe-n-body"><span class="fe-n-label">Human review</span></span></div>
+                        <div class="fe-n" style="--i:3"><span class="fe-n-tag">OV</span><span class="fe-n-body"><span class="fe-n-label">Override &amp; log</span></span></div>
+                      </div>
+                      <div class="fe-col">
+                        <span class="fe-edge">pass</span>
+                        <div class="fe-n" style="--i:2"><span class="fe-n-tag">AR</span><span class="fe-n-body"><span class="fe-n-label">Auto-resolve</span></span></div>
+                        <div class="fe-n" style="--i:3"><span class="fe-n-tag">KPI</span><span class="fe-n-body"><span class="fe-n-label">Dashboard update</span></span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="fe-progress" aria-hidden="true"><span class="fe-progress-fill"></span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+     </div>
+    </div>
+  </section>
+
   <!-- CORE BELIEFS -->
-  <section class="section">
+  <section class="section section-alt">
     <div class="container">
       <div class="section-centered fade-up">
         <div class="section-sub">what we believe</div>
@@ -582,7 +689,7 @@
             <span class="rd-faq__icon" aria-hidden="true"></span>
           </button>
           <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>The diagnostic call and the Blueprint are both free. Build starts at &#8369;25,000. Growth Partner starts at &#8369;5,000/mo. Scope is agreed up front, no surprises. <a href="services.html">See full pricing &rarr;</a></p>
+            <p>The diagnostic call and the Blueprint are both free. Build and the Growth Partner are scoped and quoted to your business, agreed up front, no surprises. <a href="services.html">See full details &rarr;</a></p>
           </div></div>
         </div>
       </div>
