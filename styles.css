@@ -3249,3 +3249,15 @@ select:focus-visible,
 @media (max-width: 860px) {
   .phase-header { gap: 14px; margin-bottom: 22px; }
 }
+
+/* Hero content must clear the fade-to-cream band.
+   .hero had no bottom padding at all, so at a 900px-tall viewport the trust
+   line landed where the cream overlay is 83% opaque: 1.81:1 contrast.
+   The fade is 230px on .hero and 150px on .hero-page; clear both. */
+.hero { padding-bottom: 250px; }
+.hero.hero-page { padding-bottom: 170px; }
+
+@media (max-width: 768px) {
+  .hero { padding-bottom: 210px; }
+  .hero.hero-page { padding-bottom: 150px; }
+}
