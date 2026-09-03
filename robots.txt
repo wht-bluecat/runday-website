@@ -2,6 +2,7 @@
 # Allow all standard search crawlers
 User-agent: *
 Allow: /
+Disallow: /docs/
 
 # Explicitly welcome AI answer engines (2026: don't get left out of AI Overviews / chat results)
 User-agent: GPTBot

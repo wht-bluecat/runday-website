@@ -3,3 +3,6 @@
 
 # Brand exploration scratch page — not deployed
 brand-explore.html
+
+# Strategy specs: keep locally, never deploy. They carry stale pricing.
+docs/

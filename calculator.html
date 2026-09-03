@@ -23,6 +23,9 @@
   <meta property="og:title" content="Leak Calculator: What slow replies cost you | Runday">
   <meta property="og:description" content="Every unanswered message after hours is a booking a competitor takes instead. Run the numbers in 30 seconds.">
   <meta property="og:image" content="https://runday.tech/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Runday leak calculator.">
   <meta property="og:url" content="https://runday.tech/calculator.html">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Leak Calculator: What slow replies cost you | Runday">
@@ -137,6 +140,11 @@
       color: var(--terracotta);
       font-size: 1.05rem;
     }
+    input[type="range"].calc-range:focus-visible {
+      outline: 3px solid var(--terracotta);
+      outline-offset: 4px;
+      border-radius: 4px;
+    }
     input[type="range"].calc-range {
       -webkit-appearance: none;
       appearance: none;
@@ -231,22 +239,25 @@
   </style>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
   <!-- NAV -->
   <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
-      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <button class="nav-mobile-toggle" onclick="var l=document.querySelector('.nav-links');l.classList.toggle('open');this.setAttribute('aria-expanded',l.classList.contains('open'))" aria-label="Menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html">What ships</a></li>
         <li><a href="work.html">Work</a></li>
-        <li><a href="calculator.html" class="active">Calculator</a></li>
+        
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
+
+  <main id="main">
 
   <!-- HERO -->
   <section class="hero hero-page calc-hero">
@@ -369,6 +380,8 @@
     </div>
   </section>
 
+  </main>
+
   <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
@@ -377,12 +390,12 @@
         <p class="footer-tagline">We build the systems. AI runs them.</p>
       </div>
       <div class="footer-links">
-        <h4>Pages</h4>
+        <h2>Pages</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html">What ships</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="calculator.html">Calculator</a></li>
+          
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
         </ul>

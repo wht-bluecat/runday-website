@@ -80,169 +80,8 @@
     update();
   })();
 
-  // Hero demo card — the "back office in action" loop. A tiny state machine
-  // cycles four scenarios: inbound arrives → AI thinks → reply types itself
-  // out → outcome chip flips in → hold → next. Reduced-motion renders the
-  // first scenario fully composed and stops.
-  (function () {
-    var demo = document.querySelector('.rd-demo');
-    if (!demo) return;
-
-    var tabs = Array.prototype.slice.call(demo.querySelectorAll('.rd-tab'));
-    var bubbleIn = demo.querySelector('.rd-bubble-in');
-    var bubbleAi = demo.querySelector('.rd-bubble-ai');
-    var inName = bubbleIn.querySelector('.rd-b-name');
-    var inText = bubbleIn.querySelector('.rd-b-text');
-    var aiText = bubbleAi.querySelector('.rd-b-text');
-    var typing = bubbleAi.querySelector('.rd-typing');
-    var status = demo.querySelector('.rd-status');
-    var statusText = demo.querySelector('.rd-status-text');
-    if (!bubbleIn || !bubbleAi || !status) return;
-
-    var scenes = [
-      {
-        tab: 0,
-        name: 'New message · Instagram',
-        inbound: 'Hi! Do you have a slot this Saturday for a family shoot?',
-        reply: 'Hi Bea! Yes, Saturday 2 PM is open. I can hold it for you. Just send your name and number to confirm.',
-        status: 'Booked · Sat 2:00 PM'
-      },
-      {
-        tab: 1,
-        name: 'New review · Google',
-        inbound: '5 stars. The photos came out beautiful and the team was so accommodating!',
-        reply: 'Thank you so much, Carla! We loved having you. See you at your next shoot.',
-        status: 'Review answered'
-      },
-      {
-        tab: 2,
-        name: 'Quiet lead · 3 days',
-        inbound: 'Miguel asked about pricing on Tuesday, then went quiet.',
-        reply: 'Hi Miguel! Just checking in. Next week is filling up fast. Want me to hold a slot for you?',
-        status: 'Follow-up sent'
-      },
-      {
-        tab: 3,
-        name: 'Content calendar · Monday',
-        inbound: 'Promo post due today, 9:00 AM.',
-        reply: 'Rainy week ahead. Perfect for a cozy indoor session. Book this week and get a free print.',
-        status: 'Post scheduled'
-      }
-    ];
-
-    function compose(scene) {
-      tabs.forEach(function (t, i) { t.classList.toggle('is-active', i === scene.tab); });
-      inName.textContent = scene.name;
-      inText.textContent = scene.inbound;
-      aiText.textContent = scene.reply;
-      statusText.textContent = scene.status;
-      bubbleIn.classList.add('is-shown');
-      bubbleAi.classList.add('is-shown');
-      status.classList.add('is-shown');
-    }
-
-    // Reduced motion: static finished state of scenario 1, no loop.
-    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      compose(scenes[0]);
-      return;
-    }
-
-    var idx = 0;
-    var timers = [];
-    var typeRaf = 0;
-    function after(ms, fn) { timers.push(setTimeout(fn, ms)); }
-    function clearTimers() {
-      while (timers.length) clearTimeout(timers.pop());
-      if (typeRaf) { cancelAnimationFrame(typeRaf); typeRaf = 0; }
-    }
-
-    // Steady rAF-driven reveal (per-char setTimeout jitter read as choppy).
-    // Constant chars-per-ms with a duration cap so long replies never stall
-    // the loop; always resolves before the outcome chip is scheduled.
-    function typeOut(str, done) {
-      bubbleAi.classList.add('is-typing');
-      var dur = Math.min(2400, 300 + str.length * 20);
-      var start = 0;
-      var shown = -1;
-      function frame(ts) {
-        if (!start) start = ts;
-        var p = Math.min(1, (ts - start) / dur);
-        var n = Math.round(p * str.length);
-        if (n !== shown) {
-          shown = n;
-          aiText.textContent = str.slice(0, n);
-        }
-        if (p < 1) {
-          typeRaf = requestAnimationFrame(frame);
-        } else {
-          typeRaf = 0;
-          bubbleAi.classList.remove('is-typing');
-          done();
-        }
-      }
-      typeRaf = requestAnimationFrame(frame);
-    }
-
-    function play() {
-      // Fresh cycle: drop every pending timer so scenes can never overlap
-      // (overlapping chains were the source of the mid-loop glitches).
-      clearTimers();
-
-      // Background tabs throttle timers and fire them in a burst on return,
-      // which shredded the choreography. Park the loop instead; the
-      // visibilitychange handler below restarts it cleanly.
-      if (document.hidden) return;
-
-      var scene = scenes[idx];
-
-      // fade the previous scene out
-      bubbleIn.classList.remove('is-shown');
-      bubbleAi.classList.remove('is-shown');
-      status.classList.remove('is-shown');
-      bubbleAi.classList.remove('is-typing');
-      typing.classList.remove('is-shown');
-
-      // 520ms > the 450ms fade, so text only changes once fully hidden
-      // (swapping it mid-fade is what looked like a "cut")
-      after(520, function () {
-        tabs.forEach(function (t, i) { t.classList.toggle('is-active', i === scene.tab); });
-        inName.textContent = scene.name;
-        inText.textContent = scene.inbound;
-        aiText.textContent = '';
-        statusText.textContent = scene.status;
-        bubbleIn.classList.add('is-shown');
-      });
-
-      after(1400, function () {
-        bubbleAi.classList.add('is-shown');
-        typing.classList.add('is-shown');
-      });
-
-      after(2350, function () {
-        typing.classList.remove('is-shown');
-        typeOut(scene.reply, function () {
-          after(350, function () { status.classList.add('is-shown'); });
-          after(3200, function () {
-            idx = (idx + 1) % scenes.length;
-            play();
-          });
-        });
-      });
-    }
-
-    document.addEventListener('visibilitychange', function () {
-      if (document.hidden) {
-        clearTimers();
-        bubbleAi.classList.remove('is-typing');
-        typing.classList.remove('is-shown');
-      } else {
-        play();
-      }
-    });
-
-    // let the headline land first, then start the show
-    after(1400, play);
-  })();
+  // (Hero demo state machine removed 2026-09-03: it cycled four invented
+  //  customer scenarios with fabricated names. Its markup is gone too.)
 
   // Section headlines — big display-scale word reveal on scroll. Each h2's
   // words get wrapped in masked spans that rise in staggered, and the kicker
@@ -387,18 +226,6 @@
     init();
   })();
 
-  // Floating chat buttons
-  var fab = document.createElement('div');
-  fab.className = 'fab-chat';
-  fab.innerHTML =
-    '<a href="https://wa.me/639275492649" target="_blank" rel="noopener" class="fab-btn fab-wa" aria-label="Chat on WhatsApp">' +
-      '<svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zm-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.981.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884zm8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>' +
-    '</a>' +
-    '<a href="https://m.me/61590141402371" target="_blank" rel="noopener" class="fab-btn fab-msg" aria-label="Chat on Messenger">' +
-      '<svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M12 0C5.373 0 0 4.975 0 11.111c0 3.497 1.745 6.616 4.472 8.652V24l4.086-2.242c1.09.301 2.246.464 3.442.464 6.627 0 12-4.974 12-11.111C24 4.975 18.627 0 12 0zm1.193 14.963l-3.056-3.259-5.963 3.259L10.733 8.2l3.13 3.259L19.752 8.2l-6.559 6.763z"/></svg>' +
-    '</a>';
-  document.body.appendChild(fab);
-
   // Contact form — success/error handling
   var form = document.querySelector('.contact-form');
   if (form) {
@@ -418,8 +245,8 @@
           form.innerHTML =
             '<div class="form-success">' +
               '<div class="form-success-icon">&#10003;</div>' +
-              '<h3>Message sent!</h3>' +
-              '<p>We\'ll get back to you within 24 hours. If it\'s urgent, message us on WhatsApp.</p>' +
+              '<h3>Got it.</h3>' +
+              '<p>We reply within one business day. If you sent an episode link, the Short comes back with that reply.</p>' +
             '</div>';
         } else {
           btn.textContent = original;
@@ -439,7 +266,8 @@
     if (existing) existing.remove();
     var err = document.createElement('div');
     err.className = 'form-error';
-    err.textContent = 'Something went wrong. Try messaging us on WhatsApp instead.';
+    err.setAttribute('role', 'alert');
+    err.textContent = 'Something went wrong sending that. Email runday.mnl@gmail.com instead and it will reach us.';
     form.appendChild(err);
   }
 })();

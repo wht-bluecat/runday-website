@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Contact: Book a Free Diagnostic | Runday</title>
-  <meta name="description" content="Book a free 20-minute diagnostic call with Runday, or send a message. We'll identify your biggest bottleneck and what to fix first. Metro Manila.">
+  <title>Send an Episode or Book a Call | Runday</title>
+  <meta name="description" content="Send a link to an episode you have already published and get one finished vertical Short back, free. Or book a thirty minute call. We reply within one business day.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Runday">
   <meta name="theme-color" content="#C24B2A">
   <link rel="canonical" href="https://runday.tech/contact.html">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
@@ -18,39 +17,42 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
 
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Contact | Runday">
-  <meta property="og:description" content="Book a free call or send us a message about the AI-native back office that runs your business. Metro Manila.">
+  <meta property="og:title" content="Send an Episode or Book a Call | Runday">
+  <meta property="og:description" content="Send an episode you have already published and get one finished vertical Short back, free.">
   <meta property="og:image" content="https://runday.tech/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Runday, the production department for grower podcasts.">
   <meta property="og:url" content="https://runday.tech/contact.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact | Runday">
-  <meta name="twitter:description" content="Book a free call or send us a message about the AI-native back office that runs your business.">
+  <meta name="twitter:title" content="Send an Episode or Book a Call | Runday">
+  <meta name="twitter:description" content="One free Short from an episode you have already published.">
   <meta name="twitter:image" content="https://runday.tech/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "ContactPage",
-        "url": "https://runday.tech/contact.html",
         "name": "Contact Runday",
+        "url": "https://runday.tech/contact.html",
         "mainEntity": {
-          "@type": "ProfessionalService",
+          "@type": "Organization",
           "name": "Runday",
-          "url": "https://runday.tech/",
           "email": "runday.mnl@gmail.com",
-          "telephone": "+639275492649",
-          "areaServed": { "@type": "Place", "name": "Metro Manila, Philippines" },
-          "contactPoint": { "@type": "ContactPoint", "contactType": "sales", "email": "runday.mnl@gmail.com", "telephone": "+639275492649", "areaServed": "PH", "availableLanguage": ["en", "fil"] }
+          "contactPoint": {
+            "@type": "ContactPoint",
+            "contactType": "sales",
+            "email": "runday.mnl@gmail.com",
+            "availableLanguage": ["en"]
+          }
         }
       },
       {
@@ -65,126 +67,157 @@
   </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- NAV -->
   <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
-      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <button class="nav-mobile-toggle" onclick="var l=document.querySelector('.nav-links');l.classList.toggle('open');this.setAttribute('aria-expanded',l.classList.contains('open'))" aria-label="Menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">Services</a></li>
+        <li><a href="services.html">What ships</a></li>
         <li><a href="work.html">Work</a></li>
-        <li><a href="calculator.html">Calculator</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html" class="active">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <main id="main">
+
   <section class="hero hero-page">
-    <div class="hero-aurora" aria-hidden="true">
-      <span class="au-blob au-b1"></span>
-      <span class="au-blob au-b2"></span>
-      <span class="au-blob au-b3"></span>
-    </div>
-    <div class="hero-grid"></div>
-    <div class="hero-grain" aria-hidden="true"></div>
     <div class="hp-mesh" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
     <div class="container hero-content">
-      <div class="hero-sub">start here</div>
-      <h1>Book your free Diagnostic.</h1>
-      <p>Tell us what's eating your time. In 20 minutes we'll identify your biggest bottleneck and map out exactly what a system could do for your business.</p>
-    </div>
-  </section>
-
-  <!-- CONTACT CONTENT -->
-  <section class="section" style="padding-top: 0;" id="form">
-    <div class="container">
-      <div class="contact-grid">
-
-        <!-- FORM, wired to live Formspree endpoint (confirmed 2026-06-02). -->
-        <div class="fade-up">
-          <form action="https://formspree.io/f/xvzylled" method="POST" class="contact-form">
-            <div class="form-group">
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="you@business.com" required>
-            </div>
-            <div class="form-group">
-              <label for="business">Business Name</label>
-              <input type="text" id="business" name="business" placeholder="Your business or brand">
-            </div>
-            <div class="form-group">
-              <label for="message">What can we help with?</label>
-              <textarea id="message" name="message" placeholder="Tell us about your business and what's eating your time..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary" style="width: 100%; justify-content: center;">Send message</button>
-            <p class="form-reassure">We reply within 24 hours. No spam, no obligation, just a conversation about your business.</p>
-          </form>
-        </div>
-
-        <!-- INFO SIDEBAR -->
-        <div class="fade-up">
-          <div class="contact-info" style="margin-bottom: 20px;">
-            <h3>Free Diagnostic Call</h3>
-            <p style="color: var(--text-secondary); font-size: 15px; line-height: 1.65; margin-bottom: 20px;">20 minutes. No pitch deck. You tell us what's breaking down, the manual tasks, the missed follow-ups, the things that shouldn't need you. We listen, identify your #1 bottleneck, and tell you exactly what to fix first. No commitment.</p>
-            <a href="https://wa.me/639275492649?text=Hi%20Runday!%20I%27d%20like%20to%20book%20a%20free%20Diagnostic%20call." class="btn btn-primary" style="width: 100%; justify-content: center;">Book your free diagnostic</a>
-          </div>
-
-          <div class="contact-info">
-            <h3>Other ways to reach us</h3>
-            <div class="contact-detail">
-              <div class="label">Email</div>
-              <p><a href="mailto:runday.mnl@gmail.com">runday.mnl@gmail.com</a></p>
-            </div>
-            <div class="contact-detail">
-              <div class="label">WhatsApp</div>
-              <p><a href="https://wa.me/639275492649">0927 549 2649</a></p>
-            </div>
-            <div class="contact-detail">
-              <div class="label">Location</div>
-              <p>Metro Manila, Philippines</p>
-            </div>
-            <div class="contact-detail">
-              <div class="label">Social</div>
-              <p>
-                <a href="https://www.facebook.com/profile.php?id=61590141402371" target="_blank" rel="noopener" style="margin-right: 16px;">Facebook</a>
-              </p>
-            </div>
-          </div>
-        </div>
-
+      <div class="hero-copy">
+        <div class="hero-sub">start here</div>
+        <h1>Send an episode.</h1>
+        <p>Paste a link to something you have already published. You get one finished vertical Short back, free, with the captions, the hook graphic and the cover. No call required first, and no obligation after.</p>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  <section class="section" id="form">
+    <div class="container">
+      <div class="contact-grid">
+        <div>
+          <h2>Get your free Short</h2>
+          <p class="form-lede">Four fields. The only one that really matters is the episode link.</p>
+          <!-- FORM, wired to live Formspree endpoint (confirmed 2026-06-02). -->
+          <form action="https://formspree.io/f/xvzylled" method="POST" class="contact-form">
+            <div class="form-group">
+              <label for="name">Your name</label>
+              <input type="text" id="name" name="name" autocomplete="name" required>
+            </div>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" autocomplete="email" required>
+            </div>
+            <div class="form-group">
+              <label for="episode">Link to an episode</label>
+              <input type="url" id="episode" name="episode" inputmode="url" placeholder="https://" required>
+              <span class="form-hint">YouTube, Spotify, your site, anywhere it is already public.</span>
+            </div>
+            <div class="form-group">
+              <label for="message">Anything we should know <span class="form-optional">(optional)</span></label>
+              <textarea id="message" name="message" rows="4" placeholder="How often you record, what you are struggling with, or nothing at all."></textarea>
+            </div>
+            <!-- Honeypot. Real people never fill this in. -->
+            <div class="hp-field" aria-hidden="true">
+              <label for="company_website">Company website</label>
+              <input type="text" id="company_website" name="_gotcha" tabindex="-1" autocomplete="off">
+            </div>
+            <button type="submit" class="btn btn-primary">Send it over</button>
+            <p class="form-reassure">We reply within one business day. No mailing list, no sequence, no follow-up unless you want one.</p>
+          </form>
+        </div>
+
+        <div>
+          <div class="contact-info">
+            <h2>Would rather just talk?</h2>
+            <p>Thirty minutes. We open your channel together and say what we would change first, whether or not you hire us. There is no pitch deck and nothing to sit through.</p>
+            <a href="mailto:runday.mnl@gmail.com?subject=Booking%20a%20call" class="btn btn-ghost">Email to book a call</a>
+          </div>
+
+          <div class="contact-info">
+            <h2>Direct</h2>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Email</span>
+              <a href="mailto:runday.mnl@gmail.com">runday.mnl@gmail.com</a>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Based in</span>
+              <span>Metro Manila, Philippines</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Hours</span>
+              <span>We work United States hours. Handover at the end of your day is back by the start of your next one.</span>
+            </div>
+            <div class="contact-detail">
+              <span class="contact-detail-label">Capacity</span>
+              <span>Two shows at a time. If both slots are full we will say so straight away.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="container section-centered">
+      <div class="section-sub">what happens next</div>
+      <h2>So you know exactly what you are signing up for.</h2>
+    </div>
+    <div class="container">
+      <ol class="steps">
+        <li class="step fade-up">
+          <span class="step-n">01</span>
+          <div class="step-body">
+            <h3>We watch the episode</h3>
+            <p>Properly, not the first two minutes. Picking the right moment is most of the skill and it is the part we want you to judge us on.</p>
+          </div>
+        </li>
+        <li class="step fade-up">
+          <span class="step-n">02</span>
+          <div class="step-body">
+            <h3>You get a finished vertical</h3>
+            <p>Composite cut, burned-in captions, hook graphic, cover image. The real thing, not a watermarked preview.</p>
+          </div>
+        </li>
+        <li class="step fade-up">
+          <span class="step-n">03</span>
+          <div class="step-body">
+            <h3>You decide, or you do not</h3>
+            <p>If it is the wrong read on your show, tell us what we misread and we will cut another. If you go quiet, you still keep the file and you will not be chased.</p>
+          </div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-brand">
         <div class="nav-logo">run<span>day</span></div>
-        <p class="footer-tagline">We build the systems. AI runs them.</p>
+        <p class="footer-tagline">You record once. We ship the week.</p>
       </div>
       <div class="footer-links">
-        <h4>Pages</h4>
+        <h2>Pages</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html">What ships</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="calculator.html">Calculator</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="calculator.html">Leak calculator</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        &copy; 2026 Runday. Metro Manila, Philippines.
+        &copy; 2026 Runday. Metro Manila, Philippines. Working United States hours.
       </div>
     </div>
   </footer>

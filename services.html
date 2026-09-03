@@ -3,14 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Services: rundayOS | Runday</title>
-  <meta name="description" content="From a free diagnostic to full AI systems, rundayOS maps your operations and builds the systems that run your business. AI back office, websites, web apps, and custom software, scoped to your business.">
+  <title>What Ships Every Week | Runday</title>
+  <meta name="description" content="The full delivery list for a weekly show: the long-form cut, five vertical Shorts, motion graphics, thumbnails, on-screen cards, per-platform captions and scheduled publishing. Starting at $2,000 a month. Plus operations systems for small businesses.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Runday">
   <meta name="theme-color" content="#C24B2A">
   <link rel="canonical" href="https://runday.tech/services.html">
 
-  <!-- Favicon -->
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
@@ -18,48 +17,50 @@
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
 
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Services | Runday">
-  <meta property="og:description" content="From free diagnostic to full AI systems, rundayOS maps your operations and builds the systems that run your business.">
+  <meta property="og:title" content="What Ships Every Week | Runday">
+  <meta property="og:description" content="The full delivery list for a weekly show, counted. Starting at $2,000 a month.">
   <meta property="og:image" content="https://runday.tech/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Runday, the production department for grower podcasts.">
   <meta property="og:url" content="https://runday.tech/services.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Services | Runday">
-  <meta name="twitter:description" content="From free diagnostic to full AI systems, rundayOS maps your operations and builds the systems that run your business.">
+  <meta name="twitter:title" content="What Ships Every Week | Runday">
+  <meta name="twitter:description" content="The full delivery list for a weekly show, counted.">
   <meta name="twitter:image" content="https://runday.tech/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Structured data -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@graph": [
       {
         "@type": "Service",
-        "serviceType": "AI business systems (rundayOS)",
+        "name": "Weekly podcast and video production",
+        "serviceType": "Podcast and video production department",
         "provider": { "@type": "ProfessionalService", "name": "Runday", "url": "https://runday.tech/" },
-        "areaServed": { "@type": "Place", "name": "Metro Manila, Philippines" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "rundayOS",
-          "itemListElement": [
-            { "@type": "Offer", "name": "Free Diagnostic Call", "price": "0", "priceCurrency": "PHP", "description": "A free 20-minute call to identify your biggest bottleneck." },
-            { "@type": "Offer", "name": "rundayOS Blueprint", "price": "0", "priceCurrency": "PHP", "description": "Operations mapping and a build plan with ROI projections." },
-            { "@type": "Offer", "name": "rundayOS Build", "description": "We build and deploy the systems your blueprint identified, including websites, web apps, and custom software." },
-            { "@type": "Offer", "name": "Growth Partner", "description": "Monthly optimization, content, and strategy. Month-to-month." }
-          ]
+        "areaServed": "Worldwide",
+        "description": "A full outsourced production department for podcasts and video channels in controlled-environment agriculture and commercial growing.",
+        "offers": {
+          "@type": "Offer",
+          "priceSpecification": {
+            "@type": "PriceSpecification",
+            "price": "2000",
+            "priceCurrency": "USD",
+            "description": "Starting at, per month"
+          }
         }
       },
       {
         "@type": "BreadcrumbList",
         "itemListElement": [
           { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://runday.tech/" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://runday.tech/services.html" }
+          { "@type": "ListItem", "position": 2, "name": "What ships", "item": "https://runday.tech/services.html" }
         ]
       }
     ]
@@ -67,350 +68,328 @@
   </script>
 </head>
 <body>
+  <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- NAV -->
   <nav class="nav nav-onhero">
     <div class="container">
       <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
-      <button class="nav-mobile-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')" aria-label="Menu">&#9776;</button>
+      <button class="nav-mobile-toggle" onclick="var l=document.querySelector('.nav-links');l.classList.toggle('open');this.setAttribute('aria-expanded',l.classList.contains('open'))" aria-label="Menu" aria-expanded="false">&#9776;</button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html" class="active">Services</a></li>
+        <li><a href="services.html" class="active">What ships</a></li>
         <li><a href="work.html">Work</a></li>
-        <li><a href="calculator.html">Calculator</a></li>
         <li><a href="about.html">About</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </div>
   </nav>
 
-  <!-- HERO -->
+  <main id="main">
+
   <section class="hero hero-page">
-    <div class="hero-aurora" aria-hidden="true">
-      <span class="au-blob au-b1"></span>
-      <span class="au-blob au-b2"></span>
-      <span class="au-blob au-b3"></span>
-    </div>
-    <div class="hero-grid"></div>
-    <div class="hero-grain" aria-hidden="true"></div>
     <div class="hp-mesh" aria-hidden="true"></div>
+    <div class="hero-grain" aria-hidden="true"></div>
     <div class="container hero-content">
-      <div class="hero-sub">the rundayOS process</div>
-      <h1>From diagnostic to systems that run.</h1>
-      <p>A clear path from spotting what's broken to owning the back office that handles it. Run by AI, permanently yours.</p>
-    </div>
-  </section>
-
-  <!-- PHASE 1: DIAGNOSTIC -->
-  <section class="section" style="padding-top: 0;">
-    <div class="container">
-      <div class="phase-header fade-up">
-        <div class="step-number">01</div>
-        <div>
-          <div class="card-label">Start here</div>
-          <h2>Free Diagnostic Call</h2>
-        </div>
-      </div>
-      <div class="phase-body fade-up">
-        <p>20 minutes. You tell us what's eating your time, the repetitive tasks, the missed follow-ups, the things slipping through the cracks. We identify your biggest bottleneck and tell you exactly what to fix first.</p>
-        <div class="phase-details">
-          <div class="phase-detail">
-            <strong>Cost</strong>
-            <span>Free</span>
-          </div>
-          <div class="phase-detail">
-            <strong>Duration</strong>
-            <span>20 minutes</span>
-          </div>
-          <div class="phase-detail">
-            <strong>You get</strong>
-            <span>Clarity on your #1 bottleneck and what to do about it</span>
-          </div>
-        </div>
-        <a href="contact.html" class="btn btn-primary">Book your free diagnostic</a>
+      <div class="hero-copy">
+        <div class="hero-sub">the delivery list</div>
+        <h1>Everything that ships, every week.</h1>
+        <p>This is the whole scope, written the way it is actually delivered rather than the way it would sound biggest. If something is not on this page, it is not included, and we will say so on the call rather than after you have signed.</p>
       </div>
     </div>
   </section>
 
-  <!-- PHASE 2: BLUEPRINT -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="phase-header fade-up">
-        <div class="step-number">02</div>
-        <div>
-          <div class="card-label">Map it</div>
-          <h2>rundayOS Blueprint</h2>
-        </div>
-      </div>
-      <div class="phase-body fade-up">
-        <p>We go deep into your operations. Map your workflows, identify the highest-leverage systems to build, and deliver a complete architecture document with ROI projections. The blueprint is yours to keep, even if you don't hire us to build.</p>
-        <div class="phase-roi">Most owners uncover &#8369;20,000–&#8369;50,000/month in wasted time and missed revenue.</div>
-        <div class="phase-details">
-          <div class="phase-detail">
-            <strong>Price</strong>
-            <span class="phase-price">Free</span>
-          </div>
-          <div class="phase-detail">
-            <strong>Timeline</strong>
-            <span>1 week</span>
-          </div>
-          <div class="phase-detail">
-            <strong>You get</strong>
-            <span>Complete build plan with SOP mapping, priority ranking, and ROI projections</span>
-          </div>
-        </div>
-        <a href="contact.html" class="btn btn-ghost">Get started</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- PHASE 3: BUILD -->
+  <!-- 01 THE EPISODE -->
   <section class="section">
     <div class="container">
-      <div class="phase-header fade-up">
-        <div class="step-number">03</div>
+      <div class="phase-header">
+        <span class="step-number">01</span>
         <div>
-          <div class="card-label">Build it</div>
-          <h2>rundayOS Build</h2>
+          <div class="section-sub">the long-form</div>
+          <h2>The episode itself</h2>
         </div>
       </div>
-      <div class="phase-body fade-up">
-        <p>We build and deploy the systems your blueprint identified, on tools you already use. Tested, handed over, and running within weeks. Every account and asset belongs to you.</p>
-        <div class="phase-roi">Clients typically reclaim 15–25 hours/month within the first month.</div>
-        <div class="phase-details">
-          <div class="phase-detail">
-            <strong>Investment</strong>
-            <span class="phase-price">Custom quote</span>
+      <div class="phase-body">
+        <p>You upload the raw recording and stop thinking about it. What comes back is a finished cut, not a rough assembly for you to fix.</p>
+        <div class="manifest">
+          <div class="mf-group fade-up">
+            <div class="mf-group-head"><span class="mf-num">cut</span><h3>The edit</h3></div>
+            <ul class="mf-list">
+              <li>Filler words, false starts and retakes removed</li>
+              <li>Structural edits: reordering, tightening, cutting the tangent that goes nowhere</li>
+              <li>Back-references checked, so a cut earlier in the tape does not orphan a callback later</li>
+              <li>Multi-track sync when a remote guest records on their own device</li>
+            </ul>
           </div>
-          <div class="phase-detail">
-            <strong>Timeline</strong>
-            <span>1–2 weeks</span>
-          </div>
-          <div class="phase-detail">
-            <strong>You get</strong>
-            <span>Production-ready AI systems, fully handed over</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- BUILD MODULES, nested within Step 03 -->
-      <div class="build-modules fade-up">
-        <div class="build-modules-intro">
-          <div class="card-label">What we build</div>
-          <p>Your blueprint decides which of these we deploy, one, a few, or all. Each runs on tools you already own.</p>
-        </div>
-        <div class="services-grid">
-        <div class="service-card fade-up">
-          <div class="card-label">Module</div>
-          <h3>Social &amp; Content</h3>
-          <p>AI-generated posts, scheduling across platforms, ad campaigns, review generation, and SEO, all running in the background.</p>
-          <div class="service-tags">
-            <span class="service-tag">Social scheduling</span>
-            <span class="service-tag">Ad campaigns</span>
-            <span class="service-tag">SEO</span>
-            <span class="service-tag">Review generation</span>
-            <span class="service-tag">AI content</span>
+          <div class="mf-group fade-up">
+            <div class="mf-group-head"><span class="mf-num">sound</span><h3>The audio</h3></div>
+            <ul class="mf-list">
+              <li>Cleaned, levelled and mixed across every speaker</li>
+              <li>Room noise, plosives and handling noise dealt with</li>
+              <li>Intro and outro in place, music bedded under</li>
+              <li>An audio-only master, if you publish to podcast platforms too</li>
+            </ul>
           </div>
         </div>
-        <div class="service-card fade-up">
-          <div class="card-label">Module</div>
-          <h3>Booking &amp; Operations</h3>
-          <p>Booking flows, Notion dashboards, SMS reminders, email automations, the systems that keep everything running without you manually chasing every task.</p>
-          <div class="service-tags">
-            <span class="service-tag">Booking flows</span>
-            <span class="service-tag">Dashboards</span>
-            <span class="service-tag">SMS reminders</span>
-            <span class="service-tag">Email automations</span>
-            <span class="service-tag">Notion systems</span>
-          </div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="card-label">Module</div>
-          <h3>Leads &amp; Sales</h3>
-          <p>Auto-replies on Messenger, lead capture forms that feed into a CRM, follow-up sequences that run on their own. No inquiry goes unanswered.</p>
-          <div class="service-tags">
-            <span class="service-tag">Auto-replies</span>
-            <span class="service-tag">Lead capture</span>
-            <span class="service-tag">CRM setup</span>
-            <span class="service-tag">Messenger bots</span>
-            <span class="service-tag">Follow-up sequences</span>
-          </div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="card-label">Module</div>
-          <h3>Brand &amp; Identity</h3>
-          <p>Logo, complete design system, Canva templates your team can use, and brand guidelines that keep everything consistent.</p>
-          <div class="service-tags">
-            <span class="service-tag">Logo design</span>
-            <span class="service-tag">Design systems</span>
-            <span class="service-tag">Canva templates</span>
-            <span class="service-tag">Brand guidelines</span>
-          </div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="card-label">Module</div>
-          <h3>Websites &amp; Web Apps</h3>
-          <p>Fast, modern websites and web apps. Booking sites, landing pages, and full custom builds, designed, developed, deployed, and handed over in your name.</p>
-          <div class="service-tags">
-            <span class="service-tag">Websites</span>
-            <span class="service-tag">Landing pages</span>
-            <span class="service-tag">Web apps</span>
-            <span class="service-tag">Deployment</span>
-          </div>
-        </div>
-        <div class="service-card fade-up">
-          <div class="card-label">Module</div>
-          <h3>Custom Software</h3>
-          <p>When off-the-shelf tools can't do it, we design and build custom software and SaaS-style apps around how your business actually works.</p>
-          <div class="service-tags">
-            <span class="service-tag">Custom apps</span>
-            <span class="service-tag">SaaS builds</span>
-            <span class="service-tag">Integrations</span>
-            <span class="service-tag">Dashboards</span>
-          </div>
-        </div>
-        </div>
-        <a href="contact.html" class="btn btn-ghost">Get started</a>
       </div>
     </div>
   </section>
 
-  <!-- PHASE 4: GROWTH PARTNER -->
+  <!-- 02 VERTICALS -->
   <section class="section section-alt">
     <div class="container">
-      <div class="phase-header fade-up">
-        <div class="step-number">04</div>
+      <div class="phase-header">
+        <span class="step-number">02</span>
         <div>
-          <div class="card-label">Grow it</div>
-          <h2>Growth Partner</h2>
+          <div class="section-sub">five per episode</div>
+          <h2>The verticals</h2>
         </div>
       </div>
-      <div class="phase-body fade-up">
-        <p>Your systems are live, now they need to compound. Ongoing optimization, content creation, monitoring, and monthly strategy calls. We don't just maintain; we grow.</p>
-        <div class="phase-roi">Systems that keep compounding, not just running, but growing.</div>
-        <div class="phase-details">
-          <div class="phase-detail">
-            <strong>Investment</strong>
-            <span class="phase-price">Custom monthly plans</span>
+      <div class="phase-body">
+        <p>The important part: these are <strong>composite cuts</strong>. An auto-clipper can only take one continuous slice of the tape, which is why its clips so often start mid-thought and end before the point lands. We stitch the host's question to the strongest answer beats from anywhere in the episode, around one idea.</p>
+        <div class="manifest">
+          <div class="mf-group fade-up">
+            <div class="mf-group-head"><span class="mf-num">cut</span><h3>How they are built</h3></div>
+            <ul class="mf-list">
+              <li>Chosen from the transcript for what teaches, not what is loudest</li>
+              <li>Question plus answer, assembled from separate parts of the tape</li>
+              <li>Reframed to 1080 by 1920 with the speaker actually in frame</li>
+              <li>Burned-in captions, styled to the channel</li>
+            </ul>
           </div>
-          <div class="phase-detail">
-            <strong>Commitment</strong>
-            <span>Month-to-month. No lock-in. Cancel anytime.</span>
-          </div>
-          <div class="phase-detail">
-            <strong>You get</strong>
-            <span>System monitoring, content creation, monthly strategy calls, ongoing optimization</span>
+          <div class="mf-group fade-up">
+            <div class="mf-group-head"><span class="mf-num">art</span><h3>What comes with each</h3></div>
+            <ul class="mf-list">
+              <li>A cold-open hook graphic, keyed to transparent</li>
+              <li>A cover image in the channel's own caption style</li>
+              <li>B-roll placement, with a search list when stock is needed</li>
+              <li>A per-platform caption set, not one caption pasted four times</li>
+            </ul>
           </div>
         </div>
-        <a href="contact.html" class="btn btn-ghost">Get started</a>
       </div>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" style="padding-top: 0;">
-    <div class="cta-banner fade-up">
-      <div class="cta-grid-bg"></div>
-      <div class="cta-content">
-        <div class="section-sub">not sure where to start?</div>
-        <h2>Start with the diagnostic. It's free.</h2>
-        <p>20 minutes. We'll identify your biggest bottleneck and tell you exactly what to fix first. No commitment.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn btn-primary">Book your free diagnostic</a>
-          <a href="contact.html#form" class="btn btn-ghost" style="border-color: rgba(255,255,255,0.2); color: #fff;">Send a message</a>
+  <!-- 03 GRAPHICS -->
+  <section class="section">
+    <div class="container">
+      <div class="phase-header">
+        <span class="step-number">03</span>
+        <div>
+          <div class="section-sub">motion and stills</div>
+          <h2>The graphics</h2>
         </div>
       </div>
+      <div class="phase-body">
+        <p>Built per episode for the thing being explained, not pulled from a template pack. When a guest describes a mechanism that has no footage, we animate the mechanism.</p>
+        <div class="services-grid">
+          <div class="service-card fade-up">
+            <div class="card-label">motion</div>
+            <h3>Animated explainers</h3>
+            <p>Full-screen cutaways for the abstract ideas, and transparent overlays that sit on top of the speaker. Rendered with alpha so they drop straight onto a timeline.</p>
+          </div>
+          <div class="service-card fade-up">
+            <div class="card-label">motion</div>
+            <h3>Lower thirds and callouts</h3>
+            <p>Names and titles, product callouts with the real product photo, end cards and subscribe prompts. Consistent across every episode.</p>
+          </div>
+          <div class="service-card fade-up">
+            <div class="card-label">stills</div>
+            <h3>Thumbnails</h3>
+            <p>Iterated until you sign them off. The topic is always legible, because a punch line on its own does not tell anyone what the video is about.</p>
+          </div>
+          <div class="service-card fade-up">
+            <div class="card-label">stills</div>
+            <h3>On-screen text cards</h3>
+            <p>A header and two to four pointer bullets per topic, timed to the transcript, so a viewer watching muted still follows the argument.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 04 DISTRIBUTION -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="phase-header">
+        <span class="step-number">04</span>
+        <div>
+          <div class="section-sub">out the door</div>
+          <h2>Publishing</h2>
+        </div>
+      </div>
+      <div class="phase-body">
+        <p>The part most editors hand back to you. Views are impressions multiplied by click-through, and both of those are decided after the edit is finished.</p>
+        <div class="manifest">
+          <div class="mf-group fade-up">
+            <div class="mf-group-head"><span class="mf-num">copy</span><h3>Written per platform</h3></div>
+            <ul class="mf-list">
+              <li>Titles written against the channel's own view data, not taste</li>
+              <li>Descriptions with chapters that match the cut</li>
+              <li>Tags and hashtags per network</li>
+              <li>Separate caption sets for YouTube, Instagram, TikTok and X</li>
+            </ul>
+          </div>
+          <div class="mf-group fade-up">
+            <div class="mf-group-head"><span class="mf-num">time</span><h3>Scheduled</h3></div>
+            <ul class="mf-list">
+              <li>Queued in your timezone, at the slot that performs on your channel</li>
+              <li>Long-form and verticals staggered rather than dumped at once</li>
+              <li>A compliance pass before anything goes live</li>
+              <li>You keep final approval on every item</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICE -->
+  <section class="section" id="price">
+    <div class="container section-centered">
+      <div class="section-sub">what it costs</div>
+      <h2>Starting at $2,000 a month.</h2>
+      <p class="section-intro">For a weekly show, covering everything on this page. Shows that record fortnightly or monthly cost less, and we will quote that honestly rather than pretending the work is the same.</p>
+    </div>
+    <div class="container">
+      <div class="price-frame fade-up">
+        <div class="price-row">
+          <span class="price-k">What moves it</span>
+          <span class="price-v">How often you record, how long the raw tape runs, and how many verticals you want. Not how big your company is.</span>
+        </div>
+        <div class="price-row">
+          <span class="price-k">Compared to</span>
+          <span class="price-v">More than a freelance editor. Less than a US production agency, which starts around $5,000 for this scope. Well under the full-time hire it replaces.</span>
+        </div>
+        <div class="price-row">
+          <span class="price-k">Commitment</span>
+          <span class="price-v">Month to month. No lock-in and no setup fee. Everything runs in your accounts, so if we part ways you keep every file, asset and login and nothing stops working.</span>
+        </div>
+        <div class="price-row">
+          <span class="price-k">Capacity</span>
+          <span class="price-v">Two shows at a time. A real limit, not a sales line.</span>
+        </div>
+      </div>
+      <div class="mf-cta">
+        <a href="contact.html" class="btn btn-primary">Book a call</a>
+        <a href="index.html#sample" class="btn btn-ghost">Get one Short, free</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- OPERATIONS LANE -->
+  <section class="section section-alt" id="operations">
+    <div class="container section-centered">
+      <div class="section-sub">the second lane</div>
+      <h2>Operations systems</h2>
+      <p class="section-intro">Production is the lead offer. It is not the only thing we build. Where a small business is drowning in manual admin, we build the system that takes it off the owner's desk, on tools they already have and accounts they already own.</p>
+    </div>
+    <div class="container">
+      <div class="services-grid">
+        <div class="service-card fade-up">
+          <div class="card-label">operations</div>
+          <h3>Booking and confirmation</h3>
+          <p>A form that feeds a real ledger, live availability so slots cannot double-book, payment proof collected automatically, and a confirmation email that fires on approval. Built for Miraluz Studio and running today.</p>
+          <div class="service-tags"><span class="service-tag">Sheets</span><span class="service-tag">Apps Script</span><span class="service-tag">Drive</span></div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">operations</div>
+          <h3>Follow-up that does not depend on you</h3>
+          <p>Enquiries that go quiet get chased on a schedule instead of being forgotten. Reviews get asked for. The owner stops being the reminder system.</p>
+          <div class="service-tags"><span class="service-tag">Email</span><span class="service-tag">SMS</span><span class="service-tag">Messenger</span></div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">web</div>
+          <h3>Sites and web apps</h3>
+          <p>Fast, accessible, no page builder tax. Built to be the front door of the booking system rather than a brochure that sits next to it.</p>
+          <div class="service-tags"><span class="service-tag">Static</span><span class="service-tag">Custom</span></div>
+        </div>
+        <div class="service-card fade-up">
+          <div class="card-label">brand</div>
+          <h3>Brand application</h3>
+          <p>Applying an identity consistently across everything that ships: the site, the emails, the social templates. Usually alongside one of the above, rarely on its own.</p>
+          <div class="service-tags"><span class="service-tag">Design</span><span class="service-tag">Templates</span></div>
+        </div>
+      </div>
+      <p class="mf-note">Pricing here is scoped per build rather than fixed, because these vary far more than a weekly show does. <a href="calculator.html">The leak calculator</a> is a decent starting point for working out whether it is worth a conversation.</p>
     </div>
   </section>
 
   <!-- FAQ -->
   <section class="section">
+    <div class="container section-centered">
+      <div class="section-sub">before you ask</div>
+      <h2>Common questions.</h2>
+    </div>
     <div class="container">
-      <div class="section-centered fade-up">
-        <div class="section-sub">common questions</div>
-        <h2>Before you ask.</h2>
+      <div class="rd-faq">
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" aria-expanded="false" aria-controls="sf1">What do you need from me each week?<span class="rd-faq__icon" aria-hidden="true"></span></button>
+          <div class="rd-faq__a" id="sf1"><div class="rd-faq__a-inner"><p>The raw recording, and an approval. That is the whole loop. If you want to give notes on thumbnails or clip selection you can, and some clients do, but the week ships without you if you are travelling.</p></div></div>
+        </div>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" aria-expanded="false" aria-controls="sf2">What if I do not like a cut?<span class="rd-faq__icon" aria-hidden="true"></span></button>
+          <div class="rd-faq__a" id="sf2"><div class="rd-faq__a-inner"><p>Say what is wrong and it gets recut. There is no revision counter, because counting revisions makes both of us behave badly. What there is instead is a setup week, so that by episode three we are not relitigating the same notes.</p></div></div>
+        </div>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" aria-expanded="false" aria-controls="sf3">Do you use AI to do this?<span class="rd-faq__icon" aria-hidden="true"></span></button>
+          <div class="rd-faq__a" id="sf3"><div class="rd-faq__a-inner"><p>For the mechanical parts, yes, and so does everyone honest. Transcription, filler removal, first-pass audio cleanup. What it does not do is pick the clip, write the title, judge the thumbnail or catch the claim that needs review. Those are the parts you are actually paying for, and a tool that does them for $29 a month does not exist.</p></div></div>
+        </div>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" aria-expanded="false" aria-controls="sf4">Who owns the files?<span class="rd-faq__icon" aria-hidden="true"></span></button>
+          <div class="rd-faq__a" id="sf4"><div class="rd-faq__a-inner"><p>You do. Everything is delivered into your storage and published from your accounts. There is no platform of ours you have to stay on, and no export process if you leave.</p></div></div>
+        </div>
+        <div class="rd-faq__item">
+          <button class="rd-faq__q" aria-expanded="false" aria-controls="sf5">Can you start mid-season?<span class="rd-faq__icon" aria-hidden="true"></span></button>
+          <div class="rd-faq__a" id="sf5"><div class="rd-faq__a-inner"><p>Yes, and it is the normal case. The setup week is partly about matching what your channel already looks like so episode twelve does not look like a different show from episode eleven.</p></div></div>
+        </div>
       </div>
-      <div class="rd-faq fade-up">
-        <div class="rd-faq__item">
-          <button class="rd-faq__q" type="button" aria-expanded="false">
-            <span>What happens on the diagnostic call?</span>
-            <span class="rd-faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>You tell us what's eating your time. We listen, identify your biggest bottleneck, and give you a clear recommendation, whether that's hiring us or not. No pitch. 20 minutes.</p>
-          </div></div>
-        </div>
-        <div class="rd-faq__item">
-          <button class="rd-faq__q" type="button" aria-expanded="false">
-            <span>Do I need a blueprint before you build?</span>
-            <span class="rd-faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>Yes. The blueprint ensures we build the right things in the right order. It maps your operations, identifies the highest-ROI systems, and gives you a clear plan with projections. You own it even if you don't proceed to the build.</p>
-          </div></div>
-        </div>
-        <div class="rd-faq__item">
-          <button class="rd-faq__q" type="button" aria-expanded="false">
-            <span>Do I need to be technical?</span>
-            <span class="rd-faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>Not at all. We build on tools you already use, Messenger, Google, Canva, Notion. If you can post on Facebook, you can run what we build.</p>
-          </div></div>
-        </div>
-        <div class="rd-faq__item">
-          <button class="rd-faq__q" type="button" aria-expanded="false">
-            <span>Who owns the systems you build?</span>
-            <span class="rd-faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>You do, every account, every asset, every login. No lock-in. If we part ways tomorrow, everything keeps running because it's all in your name.</p>
-          </div></div>
-        </div>
-        <div class="rd-faq__item">
-          <button class="rd-faq__q" type="button" aria-expanded="false">
-            <span>How long does it take?</span>
-            <span class="rd-faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>The Blueprint takes about a week. Build is 1–2 weeks. Most businesses are up and running within a couple of weeks.</p>
-          </div></div>
-        </div>
-        <div class="rd-faq__item">
-          <button class="rd-faq__q" type="button" aria-expanded="false">
-            <span>What's the total cost?</span>
-            <span class="rd-faq__icon" aria-hidden="true"></span>
-          </button>
-          <div class="rd-faq__a"><div class="rd-faq__a-inner">
-            <p>The diagnostic call and the Blueprint are both free. Build and the Growth Partner are scoped and quoted to your business (Growth Partner is month-to-month, cancel anytime). Scope is agreed up front, no surprises.</p>
-          </div></div>
+      <noscript>
+        <style>.rd-faq__a{grid-template-rows:1fr !important}.rd-faq__icon{display:none}</style>
+      </noscript>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="cta-banner">
+        <div class="cta-grid-bg" aria-hidden="true"></div>
+        <div class="cta-content">
+          <div class="section-sub">ready?</div>
+          <h2>Start with one free Short.</h2>
+          <p>Send an episode you have already published. You get one finished vertical back, and we both find out quickly whether this is a fit.</p>
+          <div class="hero-ctas">
+            <a href="contact.html#form" class="btn btn-primary">Send an episode</a>
+            <a href="contact.html" class="btn btn-ghost">Book a call</a>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FOOTER -->
+  </main>
+
   <footer class="footer">
     <div class="container">
       <div class="footer-brand">
         <div class="nav-logo">run<span>day</span></div>
-        <p class="footer-tagline">We build the systems. AI runs them.</p>
+        <p class="footer-tagline">You record once. We ship the week.</p>
       </div>
       <div class="footer-links">
-        <h4>Pages</h4>
+        <h2>Pages</h2>
         <ul>
           <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">Services</a></li>
+          <li><a href="services.html">What ships</a></li>
           <li><a href="work.html">Work</a></li>
-          <li><a href="calculator.html">Calculator</a></li>
           <li><a href="about.html">About</a></li>
           <li><a href="contact.html">Contact</a></li>
+          <li><a href="calculator.html">Leak calculator</a></li>
         </ul>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        &copy; 2026 Runday. Metro Manila, Philippines.
+        &copy; 2026 Runday. Metro Manila, Philippines. Working United States hours.
       </div>
     </div>
   </footer>
