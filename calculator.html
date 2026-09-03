@@ -3,411 +3,306 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Leak Calculator: What slow replies cost you | Runday</title>
-  <meta name="description" content="See how much revenue your business loses every month to unanswered messages and after-hours inquiries. Free 30-second calculator from Runday. No email required.">
+  <title>What Slow Replies Cost You | Runday</title>
+  <meta name="description" content="A quick estimate of the revenue leaking out of enquiries that go unanswered or arrive after hours. Change the numbers to your own. Nothing is stored and nothing is sent.">
   <meta name="robots" content="index, follow">
   <meta name="author" content="Runday">
-  <meta name="theme-color" content="#C24B2A">
+  <meta name="theme-color" content="#12100E">
   <link rel="canonical" href="https://runday.tech/calculator.html">
 
-  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="icon" href="assets/favicon.ico" sizes="any">
   <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="assets/favicon-96.png">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192.png">
-  <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
   <link rel="apple-touch-icon" href="assets/favicon-180.png">
 
-  <!-- Open Graph / Social -->
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Leak Calculator: What slow replies cost you | Runday">
-  <meta property="og:description" content="Every unanswered message after hours is a booking a competitor takes instead. Run the numbers in 30 seconds.">
+  <meta property="og:title" content="What Slow Replies Cost You | Runday">
+  <meta property="og:description" content="Estimate the revenue leaking out of unanswered and after-hours enquiries.">
   <meta property="og:image" content="https://runday.tech/assets/og-image.png">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="Runday leak calculator.">
   <meta property="og:url" content="https://runday.tech/calculator.html">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Leak Calculator: What slow replies cost you | Runday">
-  <meta name="twitter:description" content="See how much revenue your business loses every month to slow follow-up. Free, no email required.">
   <meta name="twitter:image" content="https://runday.tech/assets/og-image.png">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 
-  <!-- Structured data -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@graph": [
-      {
-        "@type": "WebApplication",
-        "name": "Runday Leak Calculator",
-        "url": "https://runday.tech/calculator.html",
-        "applicationCategory": "BusinessApplication",
-        "operatingSystem": "Web",
-        "offers": { "@type": "Offer", "price": "0", "priceCurrency": "PHP" },
-        "provider": { "@type": "ProfessionalService", "name": "Runday", "url": "https://runday.tech/" }
-      },
-      {
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://runday.tech/" },
-          { "@type": "ListItem", "position": 2, "name": "Leak Calculator", "item": "https://runday.tech/calculator.html" }
-        ]
-      }
-    ]
-  }
-  </script>
-
   <style>
-    /* === LEAK CALCULATOR === */
-    .calc-hero { padding: 140px 0 40px; }
-    .calc-hero .hero-sub { color: var(--terracotta); }
-
     .calc-wrap {
       display: grid;
-      grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-      gap: 28px;
+      grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+      gap: clamp(28px, 5vw, 72px);
       align-items: start;
     }
-
-    .calc-panel {
-      background: var(--card-bg);
-      border: 1px solid var(--card-border);
-      border-radius: 18px;
-      padding: 32px;
-      box-shadow: 0 1px 3px rgba(44, 36, 24, 0.05);
-    }
-
-    .calc-panel h2 { font-size: 1.15rem; margin-bottom: 4px; }
-    .calc-panel .calc-panel-note { color: var(--text-muted); font-size: 0.85rem; margin-bottom: 22px; }
-
-    .calc-field { margin-bottom: 22px; }
+    .calc-panel { border-top: 2px solid var(--ink); padding-top: 28px; }
+    .calc-field { margin-bottom: 30px; }
     .calc-field:last-child { margin-bottom: 0; }
-
     .calc-field label {
       display: flex;
-      justify-content: space-between;
       align-items: baseline;
-      font-size: 0.92rem;
-      font-weight: 600;
-      color: var(--text-primary);
-      margin-bottom: 8px;
+      justify-content: space-between;
+      gap: 14px;
+      font-family: var(--mono);
+      font-size: 10.5px;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--ink-faint);
+      margin-bottom: 10px;
     }
-    .calc-field .calc-hint { font-size: 0.78rem; color: var(--text-muted); font-weight: 500; }
-
-    .calc-input-row {
+    .calc-field label b { color: var(--field); font-weight: 500; font-variant-numeric: tabular-nums; }
+    .calc-num {
       display: flex;
-      align-items: center;
-      background: var(--bg-white);
-      border: 1px solid var(--border);
-      border-radius: 11px;
-      overflow: hidden;
-      transition: border-color 0.18s, box-shadow 0.18s;
+      align-items: baseline;
+      gap: 6px;
+      border-bottom: 1px solid var(--rule-strong);
+      transition: border-color 0.28s ease;
     }
-    .calc-input-row:focus-within {
-      border-color: var(--terracotta);
-      box-shadow: 0 0 0 3px var(--terracotta-subtle);
-    }
-    .calc-input-prefix {
-      padding: 0 0 0 14px;
-      font-family: var(--font-heading);
+    .calc-num:focus-within { border-bottom-color: var(--field); }
+    .calc-num span {
+      font-family: var(--serif);
+      font-variation-settings: 'SOFT' 0, 'WONK' 1, 'opsz' 72;
       font-weight: 600;
-      color: var(--text-secondary);
+      font-size: 1.6rem;
+      color: var(--ink-faint);
     }
-    .calc-input-row input[type="number"] {
+    .calc-num input {
       flex: 1;
       width: 100%;
-      border: none;
-      background: transparent;
-      padding: 13px 14px;
-      font-family: var(--font-body);
-      font-size: 1.05rem;
+      font-family: var(--serif);
+      font-variation-settings: 'SOFT' 0, 'WONK' 1, 'opsz' 72;
       font-weight: 600;
-      color: var(--text-primary);
-      -moz-appearance: textfield;
+      font-size: 1.6rem;
+      letter-spacing: -0.025em;
+      color: var(--ink);
+      background: none;
+      border: none;
+      padding: 4px 0 10px;
+      font-variant-numeric: tabular-nums;
     }
-    .calc-input-row input::-webkit-outer-spin-button,
-    .calc-input-row input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
-    .calc-input-row input:focus { outline: none; }
+    .calc-num input:focus { outline: none; }
+    .calc-num input::-webkit-outer-spin-button,
+    .calc-num input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
 
-    .calc-slider-val {
-      font-family: var(--font-heading);
-      font-weight: 700;
-      color: var(--terracotta);
-      font-size: 1.05rem;
-    }
-    input[type="range"].calc-range:focus-visible {
-      outline: 3px solid var(--terracotta);
-      outline-offset: 4px;
-      border-radius: 4px;
-    }
     input[type="range"].calc-range {
       -webkit-appearance: none;
       appearance: none;
       width: 100%;
-      height: 6px;
-      border-radius: 6px;
-      background: linear-gradient(90deg, var(--terracotta) 0%, var(--terracotta) var(--fill, 40%), var(--border) var(--fill, 40%), var(--border) 100%);
-      outline: none;
+      height: 2px;
+      background: linear-gradient(to right, var(--field) 0 var(--fill, 40%), var(--rule-strong) var(--fill, 40%) 100%);
+      margin: 14px 0 6px;
       cursor: pointer;
     }
     input[type="range"].calc-range::-webkit-slider-thumb {
       -webkit-appearance: none;
       appearance: none;
-      width: 22px; height: 22px;
+      width: 16px; height: 16px;
       border-radius: 50%;
-      background: var(--bg-white);
-      border: 3px solid var(--terracotta);
-      box-shadow: 0 1px 4px rgba(44, 36, 24, 0.25);
-      cursor: pointer;
+      background: var(--paper);
+      border: 1.5px solid var(--ink);
+      cursor: grab;
     }
     input[type="range"].calc-range::-moz-range-thumb {
-      width: 22px; height: 22px;
+      width: 14px; height: 14px;
       border-radius: 50%;
-      background: var(--bg-white);
-      border: 3px solid var(--terracotta);
-      cursor: pointer;
+      background: var(--paper);
+      border: 1.5px solid var(--ink);
+      cursor: grab;
     }
+    .calc-hint { font-size: 13px; color: var(--ink-faint); }
 
-    /* Results panel */
-    .calc-results {
-      background: var(--dark);
-      color: var(--bg);
-      border: none;
+    .calc-out {
       position: sticky;
-      top: 92px;
-      overflow: hidden;
+      top: calc(var(--nav-h) + 26px);
+      background: var(--ink);
+      color: var(--on-ink);
+      padding: clamp(26px, 3.4vw, 42px);
     }
-    .calc-results .calc-results-bg {
-      position: absolute; inset: 0;
-      background:
-        radial-gradient(420px 220px at 85% -10%, rgba(194,75,42,0.38), transparent 70%),
-        radial-gradient(360px 260px at 0% 110%, rgba(107,123,94,0.30), transparent 70%);
-      pointer-events: none;
+    .calc-big {
+      font-family: var(--serif);
+      font-variation-settings: 'SOFT' 0, 'WONK' 1, 'opsz' 144;
+      font-weight: 600;
+      font-size: clamp(3rem, 7vw, 5.2rem);
+      line-height: 0.95;
+      letter-spacing: -0.035em;
+      font-variant-numeric: tabular-nums;
+      margin: 16px 0 6px;
     }
-    .calc-results > * { position: relative; z-index: 1; }
-    .calc-results .calc-eyebrow {
-      font-family: var(--font-heading);
-      text-transform: uppercase;
-      letter-spacing: 1.5px;
-      font-size: 0.72rem;
-      color: rgba(240, 232, 220, 0.6);
-      margin-bottom: 20px;
+    .calc-big-l { font-size: 15px; color: var(--on-ink-soft); }
+    .calc-rows { margin-top: 30px; border-top: 1px solid var(--on-ink-rule); }
+    .calc-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--on-ink-rule);
     }
-    .calc-headline-num {
-      font-family: var(--font-heading);
-      font-size: clamp(2.6rem, 7vw, 3.6rem);
-      font-weight: 700;
-      line-height: 1.02;
-      color: #fff;
-      letter-spacing: -1px;
+    .calc-row dt { font-size: 14.5px; color: var(--on-ink-soft); }
+    .calc-row dd {
+      font-family: var(--serif);
+      font-variation-settings: 'SOFT' 0, 'WONK' 1, 'opsz' 48;
+      font-weight: 600;
+      font-size: 1.2rem;
+      letter-spacing: -0.02em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
     }
-    .calc-headline-label { color: rgba(240, 232, 220, 0.72); font-size: 0.95rem; margin-top: 6px; }
-    .calc-divider { height: 1px; background: rgba(240, 232, 220, 0.14); margin: 24px 0; }
+    .calc-row.is-year dd { color: var(--field-bright); }
+    .calc-out .btn { margin-top: 28px; width: 100%; justify-content: center; }
 
-    .calc-stat { display: flex; justify-content: space-between; align-items: baseline; gap: 14px; padding: 9px 0; }
-    .calc-stat .calc-stat-label { color: rgba(240, 232, 220, 0.74); font-size: 0.9rem; }
-    .calc-stat .calc-stat-val { font-family: var(--font-heading); font-weight: 700; font-size: 1.18rem; color: #fff; white-space: nowrap; }
-    .calc-stat .calc-stat-val.is-warn { color: #E2814F; }
-
-    .calc-year {
-      margin-top: 22px;
-      padding: 16px 18px;
-      border-radius: 12px;
-      background: rgba(194, 75, 42, 0.16);
-      border: 1px solid rgba(226, 129, 79, 0.35);
-      display: flex; justify-content: space-between; align-items: baseline; gap: 12px;
-    }
-    .calc-year .calc-year-label { font-size: 0.9rem; color: rgba(240, 232, 220, 0.82); }
-    .calc-year .calc-year-val { font-family: var(--font-heading); font-weight: 700; font-size: 1.35rem; color: #E2A24F; white-space: nowrap; }
-
-    .calc-cta { margin-top: 26px; }
-    .calc-cta .btn { width: 100%; justify-content: center; }
-    .calc-cta-note { text-align: center; font-size: 0.8rem; color: rgba(240, 232, 220, 0.55); margin-top: 12px; }
-
-    .calc-assumptions { max-width: 760px; margin: 0 auto; color: var(--text-muted); font-size: 0.85rem; line-height: 1.7; }
-    .calc-assumptions strong { color: var(--text-secondary); }
-
-    @media (max-width: 820px) {
+    @media (max-width: 1024px) {
       .calc-wrap { grid-template-columns: 1fr; }
-      .calc-results { position: static; }
+      .calc-out { position: static; }
     }
   </style>
 </head>
 <body>
   <a href="#main" class="skip-link">Skip to content</a>
 
-  <!-- NAV -->
-  <nav class="nav nav-onhero">
+  <nav class="nav">
     <div class="container">
-      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="34" height="34">run<span>day</span></a>
-      <button class="nav-mobile-toggle" onclick="var l=document.querySelector('.nav-links');l.classList.toggle('open');this.setAttribute('aria-expanded',l.classList.contains('open'))" aria-label="Menu" aria-expanded="false">&#9776;</button>
+      <a href="index.html" class="nav-logo"><img src="assets/favicon-192.png" alt="" class="nav-logo-mark" width="26" height="26">run<span>day</span></a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false"><i></i><i></i><i></i></button>
       <ul class="nav-links">
         <li><a href="index.html">Home</a></li>
-        <li><a href="services.html">What ships</a></li>
+        <li><a href="services.html">What we do</a></li>
         <li><a href="work.html">Work</a></li>
-        
         <li><a href="about.html">About</a></li>
-        <li><a href="contact.html">Contact</a></li>
+        <li><a href="contact.html" class="nav-cta">Book a call</a></li>
       </ul>
     </div>
+    <span class="nav-progress" aria-hidden="true"></span>
   </nav>
 
   <main id="main">
 
-  <!-- HERO -->
-  <section class="hero hero-page calc-hero">
-    <div class="hero-aurora" aria-hidden="true">
-      <span class="au-blob au-b1"></span>
-      <span class="au-blob au-b2"></span>
-      <span class="au-blob au-b3"></span>
+  <section class="page-head">
+    <div class="hero-cols" aria-hidden="true">
+      <span style="--i:0"></span><span style="--i:1"></span><span style="--i:2"></span>
+      <span style="--i:3"></span><span style="--i:4"></span><span style="--i:5"></span>
     </div>
-    <div class="hero-grid"></div>
-    <div class="hero-grain" aria-hidden="true"></div>
-    <div class="hp-mesh" aria-hidden="true"></div>
-    <div class="container hero-content">
-      <div class="hero-sub">free tool &middot; 30 seconds &middot; no email</div>
-      <h1>How much is your business leaking?</h1>
-      <p>Every message you answer slowly, or after hours, is a booking a faster competitor takes instead. Move the sliders to see what slow follow-up is quietly costing you each month.</p>
+    <div class="hero-ghost" aria-hidden="true">$</div>
+    <div class="container hero-inner">
+      <span class="kicker">Estimate</span>
+      <h1 class="hero-h1" data-split data-split-now>How much is a slow reply costing you?</h1>
+      <p class="lead rise" style="--d:.45s">Enquiries that arrive after hours, or land while everybody is busy, do not wait politely. Change the four numbers below to your own. Nothing is stored and nothing is sent anywhere.</p>
     </div>
   </section>
 
-  <!-- CALCULATOR -->
-  <section class="section" style="padding-top: 0;">
+  <section class="section section-tight">
     <div class="container">
       <div class="calc-wrap">
 
-        <!-- INPUTS -->
-        <div class="calc-panel fade-up">
-          <h2>Your numbers</h2>
-          <p class="calc-panel-note">Rough estimates are fine. You can change any of these.</p>
-
+        <div class="calc-panel rise">
           <div class="calc-field">
-            <label for="inq">Inquiries per day <span class="calc-hint">messages, calls &amp; DMs</span></label>
-            <div class="calc-input-row">
+            <label for="inq">Enquiries per day <span class="calc-hint">calls, messages and DMs</span></label>
+            <div class="calc-num">
               <input type="number" id="inq" min="0" max="2000" value="20" inputmode="numeric">
             </div>
           </div>
 
           <div class="calc-field">
-            <label for="val">Average value per booking or sale <span class="calc-hint">in pesos</span></label>
-            <div class="calc-input-row">
-              <span class="calc-input-prefix">&#8369;</span>
-              <input type="number" id="val" min="0" max="1000000" value="1500" inputmode="numeric">
+            <label for="val">Average value of one booking or sale</label>
+            <div class="calc-num">
+              <span>$</span>
+              <input type="number" id="val" min="0" max="1000000" value="150" inputmode="numeric">
             </div>
           </div>
 
           <div class="calc-field">
-            <label for="after">Inquiries that go unanswered or after hours <span class="calc-slider-val"><span id="afterVal">40</span>%</span></label>
+            <label for="after">Enquiries unanswered or after hours <b><span id="afterVal">40</span>%</b></label>
             <input type="range" id="after" class="calc-range" min="0" max="80" value="40" step="5">
-            <p class="calc-hint" style="margin-top:8px;">Typical for Philippine businesses: 35 to 55%.</p>
+            <p class="calc-hint">If you have never measured it, forty is a fair place to start guessing.</p>
           </div>
 
           <div class="calc-field">
-            <label for="rate">Of those, how many would book if answered fast <span class="calc-slider-val"><span id="rateVal">30</span>%</span></label>
-            <input type="range" id="rate" class="calc-range" min="5" max="70" value="30" step="5">
-            <p class="calc-hint" style="margin-top:8px;">A conservative booking rate keeps the estimate honest.</p>
+            <label for="rate">Of those, how many would have booked <b><span id="rateVal">30</span>%</b></label>
+            <input type="range" id="rate" class="calc-range" min="0" max="100" value="30" step="5">
+            <p class="calc-hint">Be conservative here. Not every missed message was going to turn into money.</p>
           </div>
         </div>
 
-        <!-- RESULTS -->
-        <div class="calc-panel calc-results fade-up">
-          <div class="calc-results-bg" aria-hidden="true"></div>
-          <div class="calc-eyebrow">What it is costing you</div>
-          <div class="calc-headline-num" id="outRevenue">&#8369;0</div>
-          <div class="calc-headline-label">leaking out the door every month</div>
+        <div class="calc-out rise">
+          <span class="kicker">Estimated leak</span>
+          <div class="calc-big" id="outRevenue">$0</div>
+          <p class="calc-big-l">a month, on your numbers</p>
 
-          <div class="calc-divider"></div>
+          <dl class="calc-rows">
+            <div class="calc-row"><dt>Enquiries missed each month</dt><dd id="outMissed">0</dd></div>
+            <div class="calc-row"><dt>Of those, recoverable bookings</dt><dd id="outRecover">0</dd></div>
+            <div class="calc-row"><dt>Staff hours spent on them weekly</dt><dd id="outHours">0</dd></div>
+            <div class="calc-row is-year"><dt>Same leak over twelve months</dt><dd id="outYear">$0</dd></div>
+          </dl>
 
-          <div class="calc-stat">
-            <span class="calc-stat-label">Inquiries with no reply in time</span>
-            <span class="calc-stat-val is-warn" id="outMissed">0</span>
-          </div>
-          <div class="calc-stat">
-            <span class="calc-stat-label">Bookings you could recover / month</span>
-            <span class="calc-stat-val" id="outRecover">0</span>
-          </div>
-          <div class="calc-stat">
-            <span class="calc-stat-label">Hours / week back if it ran itself</span>
-            <span class="calc-stat-val" id="outHours">0</span>
-          </div>
-
-          <div class="calc-year">
-            <span class="calc-year-label">That is roughly this much a year</span>
-            <span class="calc-year-val" id="outYear">&#8369;0</span>
-          </div>
-
-          <div class="calc-cta">
-            <a href="contact.html" class="btn btn-primary">Plug the leak. Book a free diagnostic</a>
-            <p class="calc-cta-note">20 minutes. No pitch. We find the leak and tell you exactly what to fix first.</p>
-          </div>
+          <a href="contact.html#form" class="btn btn-primary" data-magnet>Have us plug it<span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
         </div>
 
       </div>
-    </div>
-  </section>
 
-  <!-- HOW IT WORKS -->
-  <section class="section section-alt">
-    <div class="container">
-      <div class="section-centered fade-up">
-        <div class="section-sub">how the math works</div>
-        <h2>No tricks. Just the numbers.</h2>
-      </div>
-      <p class="calc-assumptions fade-up">
-        We take your <strong>daily inquiries</strong> across a 30-day month, keep the share that currently go <strong>unanswered or arrive after hours</strong>, then apply a conservative <strong>booking rate</strong> to estimate how many of those you could have won with an instant, always-on reply. Multiply by your <strong>average booking value</strong> and you get the revenue walking out the door. The hours figure assumes each handled inquiry takes about three minutes of someone's time. These are estimates to start a conversation, not a forecast. On a free diagnostic we replace the assumptions with your real numbers.
+      <p class="note rise" style="margin-top:52px">
+        How this is worked out: enquiries per day times thirty gives the monthly volume. The unanswered
+        share is the slice that never gets a timely reply. The booking rate is your own estimate of how
+        many of those would have converted. Staff time assumes about three minutes of handling per
+        enquiry. These are estimates from your inputs, not a measurement of your business, and they are
+        deliberately conservative rather than dramatic.
       </p>
     </div>
   </section>
 
-  <!-- CTA -->
-  <section class="section" style="padding-top: 0;">
-    <div class="cta-banner fade-up">
-      <div class="cta-grid-bg"></div>
-      <div class="cta-content">
-        <div class="section-sub">ready?</div>
-        <h2>Stop losing bookings to slow replies.</h2>
-        <p>We build the system that answers every inquiry instantly, day or night, on the tools you already use. You keep every account. We just make it run.</p>
-        <div class="hero-ctas">
-          <a href="contact.html" class="btn btn-primary">Book your free diagnostic</a>
-          <a href="services.html" class="btn btn-ghost">See how it works</a>
-        </div>
+  <section class="section on-ink cta-band">
+    <div class="container">
+      <div class="cta-rule draw"></div>
+      <span class="kicker">The fix</span>
+      <h2 class="cta-h" data-split style="margin-top:18px">Most of that number is one flow that nobody built.</h2>
+      <p>The first reply, the qualifying question, the slot, the confirmation and the reminder. Built once, watched by a person, and it stops depending on who is awake.</p>
+      <div class="btn-row">
+        <a href="contact.html" class="btn btn-primary" data-magnet>Book a call<span class="btn-arrow" aria-hidden="true">&rarr;</span></a>
+        <a href="services.html#systems" class="btn btn-ghost">See how it is built</a>
       </div>
     </div>
   </section>
 
   </main>
 
-  <!-- FOOTER -->
   <footer class="footer">
     <div class="container">
-      <div class="footer-brand">
-        <div class="nav-logo">run<span>day</span></div>
-        <p class="footer-tagline">We build the systems. AI runs them.</p>
-      </div>
-      <div class="footer-links">
-        <h2>Pages</h2>
-        <ul>
-          <li><a href="index.html">Home</a></li>
-          <li><a href="services.html">What ships</a></li>
-          <li><a href="work.html">Work</a></li>
-          
-          <li><a href="about.html">About</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
+      <div class="footer-top">
+        <div>
+          <div class="nav-logo">run<span>day</span></div>
+          <p class="footer-tag">The department you cannot justify hiring.</p>
+        </div>
+        <div class="footer-col">
+          <h2>Pages</h2>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="services.html">What we do</a></li>
+            <li><a href="work.html">Work</a></li>
+            <li><a href="about.html">About</a></li>
+            <li><a href="contact.html">Contact</a></li>
+            <li><a href="calculator.html">Leak calculator</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h2>Direct</h2>
+          <ul>
+            <li><a href="mailto:runday.mnl@gmail.com">runday.mnl@gmail.com</a></li>
+            <li><a href="https://www.facebook.com/profile.php?id=61590141402371" rel="noopener">Facebook</a></li>
+            <li><a href="contact.html#form">Send us something to look at</a></li>
+          </ul>
+        </div>
       </div>
     </div>
     <div class="footer-bottom">
       <div class="container">
-        &copy; 2026 Runday. Metro Manila, Philippines.
+        <span>&copy; 2026 Runday</span>
+        <span>Metro Manila, Philippines &middot; working United States hours</span>
       </div>
     </div>
   </footer>
 
+  <script src="script.js"></script>
   <script>
     (function () {
       var inq = document.getElementById('inq');
@@ -423,22 +318,17 @@
       var outHours = document.getElementById('outHours');
       var outYear = document.getElementById('outYear');
 
-      function peso(n) {
+      function usd(n) { return '$' + Math.round(n).toLocaleString('en-US'); }
+
+      // Compact for the headline: $4.2K, $1.1M
+      function usdBig(n) {
         n = Math.round(n);
-        return '₱' + n.toLocaleString('en-PH');
+        if (n >= 1000000) return '$' + (n / 1000000).toFixed(n >= 10000000 ? 0 : 1).replace(/\.0$/, '') + 'M';
+        if (n >= 10000) return '$' + Math.round(n / 1000) + 'K';
+        if (n >= 1000) return '$' + (n / 1000).toFixed(1).replace(/\.0$/, '') + 'K';
+        return '$' + n.toLocaleString('en-US');
       }
-      // Compact peso for the big headline: 168K, 2.0M
-      function pesoBig(n) {
-        n = Math.round(n);
-        if (n >= 1000000) return '₱' + (n / 1000000).toFixed(n >= 10000000 ? 0 : 1).replace(/\.0$/, '') + 'M';
-        if (n >= 1000) {
-          var k = Math.round(n / 1000);
-          if (k >= 1000) return '₱' + (k / 1000).toFixed(1).replace(/\.0$/, '') + 'M';
-          return '₱' + k + 'K';
-        }
-        return '₱' + n.toLocaleString('en-PH');
-      }
-      function num(n) { return Math.round(n).toLocaleString('en-PH'); }
+      function num(n) { return Math.round(n).toLocaleString('en-US'); }
 
       function fillRange(el) {
         var pct = (el.value - el.min) / (el.max - el.min) * 100;
@@ -455,22 +345,20 @@
         var missed = monthlyInq * afterPct;
         var recoverable = missed * bookRate;
         var revenueLost = recoverable * avgVal;
-        // ~3 min of staff time per inquiry handled, across the missed pile, shown per week
+        // ~3 minutes of handling per missed enquiry, expressed per week
         var hoursWeek = (missed * 3) / 60 / 4.33;
 
         afterVal.textContent = after.value;
         rateVal.textContent = rate.value;
 
-        outRevenue.textContent = pesoBig(revenueLost);
+        outRevenue.textContent = usdBig(revenueLost);
         outMissed.textContent = num(missed);
         outRecover.textContent = num(recoverable);
-        outHours.textContent = (Math.round(hoursWeek * 10) / 10).toLocaleString('en-PH');
-        outYear.textContent = peso(revenueLost * 12);
+        outHours.textContent = (Math.round(hoursWeek * 10) / 10).toLocaleString('en-US');
+        outYear.textContent = usd(revenueLost * 12);
       }
 
-      [inq, val, after, rate].forEach(function (el) {
-        el.addEventListener('input', calc);
-      });
+      [inq, val, after, rate].forEach(function (el) { el.addEventListener('input', calc); });
       [after, rate].forEach(function (el) {
         el.addEventListener('input', function () { fillRange(el); });
         fillRange(el);
@@ -478,7 +366,5 @@
       calc();
     })();
   </script>
-
-  <script src="script.js"></script>
 </body>
 </html>
